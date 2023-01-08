@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Downloads/photo1671441156.jpeg" />
+                 <Image url="@icons/newLogo.jpg" />
                </image>
             </ImageView>
             <Label layoutX="14.0" layoutY="164.0" prefHeight="10.0" prefWidth="193.0" text="hand over your diy jobs to us and we ensure you that we'll do our best to satisfy you" textFill="#2c7a6a">
@@ -65,7 +65,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <FontAwesomeIconView fill="#503a3c" glyphName="ARROW_LEFT" layoutX="15.0" layoutY="498.0" size="30" text="" />
+           
             <ChoiceBox layoutX="28.0" layoutY="175.0" prefHeight="24.0" prefWidth="307.0" style="-fx-background-color: #ffffff;" />
             <Label layoutX="28.0" layoutY="152.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Specialty" textFill="#2c7a6a">
                <font>

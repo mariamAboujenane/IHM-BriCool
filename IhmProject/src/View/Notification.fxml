@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -21,11 +21,9 @@
                   <Font name="Calibri" size="42.0" />
                </font>
             </Label>
-            <FontAwesomeIconView fill="#2c7a6a" glyphName="USER_CIRCLE" layoutX="552.0" layoutY="62.0" size="32" tabSize="30" wrappingWidth="32.0" />
-            <FontAwesomeIconView fill="#2c7a6a" glyphName="INFO_CIRCLE" layoutX="608.0" layoutY="62.0" size="35" />
             <ImageView fitHeight="113.0" fitWidth="201.0" layoutX="-8.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@logo.jpg" />
+                  <Image url="@icons/logo.jpg" />
                </image>
             </ImageView>
             <ScrollPane layoutX="36.0" layoutY="100.0" prefHeight="422.0" prefWidth="575.0">
@@ -36,7 +34,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" top="10.0" />
@@ -61,7 +59,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" top="10.0" />
@@ -86,7 +84,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" top="10.0" />
@@ -111,7 +109,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="3.0" top="4.0" />
@@ -136,7 +134,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="3.0" top="4.0" />
@@ -161,7 +159,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="3.0" top="4.0" />
@@ -186,7 +184,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="3.0" top="4.0" />
@@ -211,7 +209,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="3.0" top="4.0" />
@@ -255,7 +253,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" top="10.0" />
@@ -277,7 +275,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@shadia.jpg" />
+                                    <Image url="@icons/shadia.jpg" />
                                  </image>
                                  <HBox.margin>
                                     <Insets left="5.0" right="10.0" top="10.0" />
