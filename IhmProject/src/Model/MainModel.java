@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-//zi neeeb
+//zi neeeb eehh bb
 
 public class MainModel {
 	private Connection myConnection;
