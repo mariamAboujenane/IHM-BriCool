@@ -6,8 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+<<<<<<< HEAD
 //ziyfigjkk
 //hiiiii
+=======
+//zi neeeb eehh bb
+// bouchra sahel
+>>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
 
 public class MainModel {
 	private Connection myConnection;
