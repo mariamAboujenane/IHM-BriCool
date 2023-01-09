@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 //zi neeeb eehh bb
-// bouchra
+// bouchra sahel
 
 public class MainModel {
 	private Connection myConnection;
