@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 //imanes
+//update
 // mariam 
 public class MainModel {
 	private Connection myConnection;
