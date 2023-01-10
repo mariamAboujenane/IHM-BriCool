@@ -1,7 +1,7 @@
-package src.application;
+package application;
 	
 
-import src.Model.MainModel;
+import Model.MainModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -16,7 +16,7 @@ public class Main extends Application {
 	
 	public void start(Stage primaryStage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("View/ClientHistory.fxml"));
+			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("View/ClientHistory.fxml"));
 			Scene scene = new Scene(parent);
 		
 			
