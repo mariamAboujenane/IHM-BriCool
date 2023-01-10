@@ -1,7 +1,7 @@
-package application;
+package src.application;
 	
 
-import Model.MainModel;
+import src.Model.MainModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
