@@ -14,6 +14,7 @@ public class MainModel {
 
 	public MainModel() {
 
+		
 		try {
 			myConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 			statement = myConnection.createStatement();
