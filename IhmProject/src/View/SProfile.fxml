@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+   <children>
+      <Pane layoutX="-8.0" layoutY="-25.0" prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;">
+         <children>
+            <TextField layoutX="92.0" layoutY="41.0" prefHeight="21.0" prefWidth="307.0" promptText="SEARCH" />
+            <Pane layoutX="21.0" layoutY="83.0" prefHeight="404.0" prefWidth="631.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #B6D0BD;">
+               <children>
+                  <Pane layoutX="7.0" layoutY="127.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #B6D0BD;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="10.0" text="Add Post " textFill="#513b3d">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="561.0" layoutY="6.0" mnemonicParsing="false" text="+" />
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="67.0" fitWidth="63.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/userPr.png" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="7.0" layoutY="84.0" prefHeight="36.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="9.0" text="Bio" textFill="#513b3d">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="561.0" layoutY="6.0" mnemonicParsing="false" text="+" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="7.0" layoutY="170.0" prefHeight="227.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Posts" textFill="#513b3d">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ScrollBar layoutX="610.0" layoutY="173.0" orientation="VERTICAL" prefHeight="221.0" prefWidth="15.0" />
+                  <Label layoutX="85.0" layoutY="14.0" text="Full name -Service " textFill="#513b3d">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="85.0" layoutY="37.0" text="Adress University Euroumed" />
+                  <Label layoutX="85.0" layoutY="54.0" text="07 70 31 11 67" />
+                  <Button layoutX="267.0" layoutY="25.0" mnemonicParsing="false" text="Edit Profile" />
+                  <RadioButton layoutX="348.0" layoutY="29.0" mnemonicParsing="false" text="Disponible" />
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="485.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/upp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="525.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/down.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="486.0" layoutY="45.0" text="16 K">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="528.0" layoutY="16.0" text="1 K">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="63.0" fitWidth="83.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logogris.png" />
+               </image>
+            </ImageView>
+            <MenuButton layoutX="580.0" layoutY="32.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="63.0" style="-fx-background-color: #E8EAEE;">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Edit profile" />
+                  <MenuItem mnemonicParsing="false" text="history" />
+                  <MenuItem mnemonicParsing="false" text="sign out" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+            <Button layoutX="551.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
+            <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="523.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-notification-96.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="559.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-info-50.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
