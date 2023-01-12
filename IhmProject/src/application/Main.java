@@ -1,7 +1,8 @@
-package application;
+package src.application;
 	
 
-import Model.MainModel;
+
+import src.Model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -11,12 +12,13 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
-	MainModel model=new MainModel();
+	 DatabaseConnection  databaseConnection=new  DatabaseConnection();
 	@Override
 	
 	public void start(Stage primaryStage) {
 		try {
-			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("View/login.fxml"));
+			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+	
 			Scene scene = new Scene(parent);
 		
 			
