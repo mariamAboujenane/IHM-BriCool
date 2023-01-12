@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #f8f3f3;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="19.0" prefHeight="46.0" prefWidth="358.0" text="Service Provider History" textFill="#503a3c">
                <font>
@@ -25,18 +24,21 @@
             </Label>
             <ImageView fitHeight="105.0" fitWidth="130.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@newLogo.jpg" />
+                  <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
-            <FontAwesomeIconView fill="#2c7a6a" glyphName="INFO_CIRCLE" layoutX="607.0" layoutY="55.0" size="35" />
-            <MenuButton layoutX="537.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="21.0" style="-fx-background-color: #f8f3f3;">
+            <MenuButton layoutX="583.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="21.0" style="-fx-background-color: #E8EAEE;">
               <items>
                 <MenuItem mnemonicParsing="false" text="Edit profile" />
                 <MenuItem mnemonicParsing="false" text="history" />
                   <MenuItem mnemonicParsing="false" text="sign out" />
               </items>
                <graphic>
-                  <FontAwesomeIconView fill="#2c7a6a" glyphName="USER_CIRCLE" size="32" tabSize="30" wrappingWidth="32.0" />
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
                </graphic>
             </MenuButton>
             <VBox layoutX="101.0" layoutY="147.0" prefHeight="205.0" prefWidth="458.0">
@@ -97,6 +99,24 @@
                   </Button>
                </children>
             </VBox>
+            <Button layoutX="542.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-info-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="497.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-notification-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </top>

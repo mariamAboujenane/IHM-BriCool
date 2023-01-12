@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                     <Image url="@icons/newLogo.jpg" />
+                     <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
             <Label layoutX="46.0" layoutY="164.0" prefHeight="21.0" prefWidth="161.0" text="bbb" textFill="#2c7a6a">
@@ -30,7 +30,7 @@
    <left>
       <AnchorPane prefHeight="550.0" prefWidth="475.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="28.0" layoutY="14.0" prefHeight="45.0" prefWidth="242.0" text="Edit profile" textFill="#503a3c">
+            <Label layoutX="162.0" layoutY="15.0" prefHeight="45.0" prefWidth="242.0" text="Edit profile" textFill="#503a3c">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
@@ -38,7 +38,7 @@
             <TextField layoutX="28.0" layoutY="87.0" prefHeight="26.0" prefWidth="307.0" />
             <TextField layoutX="28.0" layoutY="352.0" prefHeight="26.0" prefWidth="307.0" />
             <TextField layoutX="28.0" layoutY="415.0" prefHeight="26.0" prefWidth="307.0" />
-            <Label layoutX="28.0" layoutY="64.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="58.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="127.0" layoutY="454.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Edit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+            <Button layoutX="183.0" layoutY="455.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Edit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -77,6 +77,12 @@
                </font>
             </Label>
             <TextField layoutX="28.0" layoutY="289.0" prefHeight="26.0" prefWidth="307.0" />
+            <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: #B6D0BD;" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-left-75.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </left>

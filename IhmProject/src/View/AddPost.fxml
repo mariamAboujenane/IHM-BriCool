@@ -37,23 +37,50 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="246.0" layoutY="175.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="114.0" style="-fx-background-color: white;" />
-            <ImageView fitHeight="51.0" fitWidth="52.0" layoutX="270.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/upload.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="246.0" layoutY="175.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="114.0" style="-fx-background-color: white;">
+               <graphic>
+                  <ImageView fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/upload.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
            
-            <MenuButton layoutX="537.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="21.0" style="-fx-background-color: b6d0bd;">
+            <MenuButton layoutX="570.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: b6d0bd;">
               <items>
-                <MenuItem mnemonicParsing="false" text="Edit profile" />
-                <MenuItem mnemonicParsing="false" text="history" />
-                  <MenuItem mnemonicParsing="false" text="sign out" />
+                <MenuItem mnemonicParsing="false" text="Edit Profile" />
+                <MenuItem mnemonicParsing="false" text="History" />
+                  <MenuItem mnemonicParsing="false" text="Sign out" />
               </items>
                <graphic>
                 
                </graphic>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </MenuButton>
+            <Button layoutX="528.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-info-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="477.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-notification-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </top>
