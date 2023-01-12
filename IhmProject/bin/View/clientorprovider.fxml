@@ -93,7 +93,7 @@
          <children>
             <ImageView fitHeight="134.0" fitWidth="163.0" layoutX="6.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/s5/java/levels/LEVEL4/last.png" />
+                  <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
             <Label layoutX="24.0" layoutY="172.0" text="BriCool perform a better " textFill="#4f3a3c">

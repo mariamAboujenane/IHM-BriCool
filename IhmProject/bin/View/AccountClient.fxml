@@ -13,9 +13,9 @@
    <right>
       <AnchorPane prefHeight="520.0" prefWidth="203.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/newLogo.jpg" />
+                  <Image url="@icons/logogris.png" />
                </image></ImageView>
             <Label layoutX="40.0" layoutY="206.0" prefHeight="35.0" prefWidth="158.0" text="Find the Best " textFill="#503a3c">
                <font>
@@ -39,39 +39,48 @@
    <center>
       <AnchorPane prefHeight="524.0" prefWidth="495.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="30.0" layoutY="28.0" prefHeight="45.0" prefWidth="242.0" text="Create Account " textFill="#503a3c">
+            <Label layoutX="127.0" layoutY="40.0" prefHeight="45.0" prefWidth="242.0" text="Create Account " textFill="#503a3c">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <TextField layoutX="29.0" layoutY="121.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="29.0" layoutY="198.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="29.0" layoutY="271.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="29.0" layoutY="344.0" prefHeight="26.0" prefWidth="307.0" />
-            <Label layoutX="30.0" layoutY="92.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
+            <TextField layoutX="29.0" layoutY="136.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField layoutX="29.0" layoutY="211.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField layoutX="29.0" layoutY="282.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField layoutX="29.0" layoutY="361.0" prefHeight="26.0" prefWidth="307.0" />
+            <Label layoutX="30.0" layoutY="107.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="168.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Username" textFill="#2c7a6a">
+            <Label layoutX="30.0" layoutY="182.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Username" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="242.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
+            <Label layoutX="30.0" layoutY="252.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="314.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
+            <Label layoutX="30.0" layoutY="331.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Button layoutX="127.0" layoutY="401.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #503A3C;" text="Create" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+            <Button id="1" layoutX="127.0" layoutY="424.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #503A3C;" text="Create" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #B6D0BD;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-left-75.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
           
          </children>

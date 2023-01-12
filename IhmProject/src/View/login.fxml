@@ -17,7 +17,11 @@
          <children>
             <ImageView fitHeight="182.0" fitWidth="250.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
+<<<<<<< HEAD
                   <Image url="@icons/logo.jpg" />
+=======
+                  <Image url="@icons/logogris.png" />
+>>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
                </image>
             </ImageView>
             <Label layoutX="44.0" layoutY="226.0" prefHeight="23.0" prefWidth="145.0" text="Nice to see you again" textFill="#513b3d">
@@ -30,7 +34,11 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
+<<<<<<< HEAD
         
+=======
+           
+>>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
             <Label layoutX="56.0" layoutY="269.0" opacity="0.62" prefHeight="89.0" prefWidth="127.0" text="Forget the old rules. " textFill="#513b3d">
                <font>
                   <Font name="Segoe Script" size="11.0" />
@@ -60,6 +68,10 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
             <Label layoutX="149.0" layoutY="325.0" text="Not a member ? " textFill="#513b3d">
                <font>
                   <Font size="11.0" />
