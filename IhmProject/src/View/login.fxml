@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="182.0" fitWidth="250.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/newLogo.jpg" />
+                  <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
             <Label layoutX="44.0" layoutY="226.0" prefHeight="23.0" prefWidth="145.0" text="Nice to see you again" textFill="#513b3d">
