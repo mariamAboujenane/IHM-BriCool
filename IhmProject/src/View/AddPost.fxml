@@ -48,9 +48,9 @@
            
             <MenuButton layoutX="570.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: b6d0bd;">
               <items>
-                <MenuItem mnemonicParsing="false" text="Edit profile" />
-                <MenuItem mnemonicParsing="false" text="history" />
-                  <MenuItem mnemonicParsing="false" text="sign out" />
+                <MenuItem mnemonicParsing="false" text="Edit Profile" />
+                <MenuItem mnemonicParsing="false" text="History" />
+                  <MenuItem mnemonicParsing="false" text="Sign out" />
               </items>
                <graphic>
                 

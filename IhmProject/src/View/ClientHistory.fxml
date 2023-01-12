@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #f8f3f3;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="20.0" prefHeight="46.0" prefWidth="223.0" text="Client History " textFill="#503a3c">
                <font>
@@ -25,20 +24,9 @@
             </Label>
             <ImageView fitHeight="105.0" fitWidth="130.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/newLogo.jpg" />
+                  <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
-            
-            <MenuButton layoutX="537.0" layoutY="23.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="21.0" style="-fx-background-color: #f8f3f3;">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Edit profile" />
-                <MenuItem mnemonicParsing="false" text="history" />
-                  <MenuItem mnemonicParsing="false" text="sign out" />
-              </items>
-               <graphic>
-                
-               </graphic>
-            </MenuButton>
             <VBox layoutX="101.0" layoutY="147.0" prefHeight="205.0" prefWidth="458.0">
                <children>
                   <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="614.0" style="-fx-background-color: #2c7a6a;">
@@ -157,6 +145,38 @@
                   </Button>
                </children>
             </VBox>
+            <MenuButton layoutX="590.0" layoutY="20.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: #E8EAEE;">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Edit profile" />
+                  <MenuItem mnemonicParsing="false" text="history" />
+                  <MenuItem mnemonicParsing="false" text="sign out" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+            <Button layoutX="543.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-info-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="491.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-notification-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </top>
