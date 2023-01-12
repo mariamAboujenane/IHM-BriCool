@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Reflection?>
@@ -18,7 +18,8 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="194.0" layoutY="54.0" prefHeight="26.0" prefWidth="267.0" promptText="SEARCH" AnchorPane.rightAnchor="198.66666666666669" AnchorPane.topAnchor="54.0">
+      <Button layoutX="539.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
+      <TextField layoutX="97.0" layoutY="23.0" prefHeight="26.0" prefWidth="267.0" promptText="SEARCH" AnchorPane.rightAnchor="295.6666666666667" AnchorPane.topAnchor="23.0">
          <effect>
             <DropShadow>
                <color>
@@ -28,146 +29,120 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></TextField>
-      <ImageView fitHeight="136.0" fitWidth="200.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="86.0" fitWidth="97.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/logogris.png" />
          </image></ImageView>
-      <Button layoutX="461.0" layoutY="49.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="40.0" style="-fx-background-color: #E8EAEE;" textFill="#e4dede">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-search-60.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <ScrollPane layoutX="39.0" layoutY="129.0" pannable="true" prefHeight="338.0" prefWidth="586.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="595.0" style="-fx-background-color: #efecec;">
-               <children>
-                  <Pane layoutY="7.0" prefHeight="82.0" prefWidth="571.0">
-                     <children>
-                        <Button layoutX="-8.0" layoutY="-4.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="64.0" style="-fx-background-color: #efecec;">
-                           <graphic>
-                              <ImageView fitHeight="64.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@icons/girl.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></Button>
-                        <Label layoutX="89.0" layoutY="6.0" text="Shadia Ait El Cadi " textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="225.0" layoutY="11.0" text="-ELECTRICIAN" textFill="#888888">
-                           <font>
-                              <Font name="System Italic" size="10.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="72.0" layoutY="32.0" text="Hay El Qods 02 N854 ZAGORA" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-                        <Label layoutX="72.0" layoutY="53.0" text="0615943702" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-                        <Button layoutX="355.0" layoutY="16.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="28.0" style="-fx-background-color: #efecec;">
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@bin/down.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="319.0" layoutY="3.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="30.0" style="-fx-background-color: #efecec;" />
-                        <Label layoutX="362.0" layoutY="55.0" text="127">
-                           <font>
-                              <Font name="Bookman Old Style Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="321.0" layoutY="9.0" text="12k">
-                           <font>
-                              <Font name="Bookman Old Style Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="324.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@bin/upp.png" />
-                           </image>
-                        </ImageView>
-                        <Button layoutX="458.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #2c7a6a;" text="RESERVE" textFill="WHITE">
-                           <font>
-                              <Font name="Arial Bold" size="11.0" />
-                           </font>
-                           <effect>
-                              <Reflection fraction="0.56" topOpacity="0.23" />
-                           </effect>
-                        </Button>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="62.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/icons8-red-circle-48.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="30.0" layoutY="89.0" prefHeight="82.0" prefWidth="496.0" style="-fx-border-color: #bcbcbc;">
-                     <children>
-                        <Label layoutX="9.0" layoutY="12.0" prefHeight="17.0" prefWidth="46.0" text="BIO:">
-                           <font>
-                              <Font name="Arial Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Button layoutX="529.0" layoutY="106.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="30.0" style="-fx-background-color: #efecec;" textFill="#b3561c">
-                     <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/icons8-error-50.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Pane layoutX="73.0" layoutY="183.0" prefHeight="206.0" prefWidth="413.0" style="-fx-border-color: #bcbcbc;">
-                     <children>
-                        <Label layoutX="9.0" layoutY="12.0" prefHeight="17.0" prefWidth="46.0" text="Poste:">
-                           <font>
-                              <Font name="Arial Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <MenuButton layoutX="583.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+      <Button layoutX="461.0" layoutY="49.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="40.0" style="-fx-background-color: #E8EAEE;" textFill="#e4dede" />
+      <MenuButton layoutX="594.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
         <items>
           <MenuItem mnemonicParsing="false" text="Edit Profile" />
             <MenuItem mnemonicParsing="false" text="History" />
           <MenuItem mnemonicParsing="false" text="Sign out" />
         </items>
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons/icons8-user-96.png" />
                </image>
             </ImageView>
          </graphic>
       </MenuButton>
-      <Button layoutX="546.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="572.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
+      <Button layoutX="375.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="368.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/icons8-search-60.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="530.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/icons8-notification-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="566.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/icons8-info-50.png" />
+         </image>
+      </ImageView>
+    <AnchorPane layoutX="19.0" layoutY="70.0" minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="626.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
+         <children>
+            <Pane layoutX="10.0" layoutY="82.0" prefHeight="78.0" prefWidth="569.0" style="-fx-border-color: #bcbcbc;">
+               <children>
+                  <Label layoutX="9.0" layoutY="12.0" prefHeight="17.0" prefWidth="46.0" text="BIO:" textFill="#553232">
+                     <font>
+                        <Font name="Arial Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button layoutX="581.0" layoutY="97.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="30.0" style="-fx-background-color: #E8EAEE;" textFill="#b3561c" />
+            <Pane layoutX="9.0" layoutY="169.0" prefHeight="242.0" prefWidth="569.0" style="-fx-border-color: #bcbcbc;">
+               <children>
+                  <Label layoutX="9.0" layoutY="12.0" prefHeight="17.0" prefWidth="46.0" text="Poste:" textFill="#4a2121">
+                     <font>
+                        <Font name="Arial Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="66.0" layoutY="39.0" text="Hay El Qods 02 N854 ZAGORA" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="66.0" layoutY="14.0" text="Shadia Ait El Cadi " textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="56.0" text="0615943702" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="198.0" layoutY="19.0" text="-ELECTRICIAN" textFill="#888888">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="240.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/icons8-info-50.png" />
+                  <Image url="@icons/icons8-red-circle-48.png" />
                </image>
             </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="501.0" layoutY="45.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="320.0" layoutY="28.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="106.0" style="-fx-background-color: #2c7a6a;" text="RESERVE" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="11.0" />
+               </font>
+               <effect>
+                  <Reflection fraction="0.56" topOpacity="0.23" />
+               </effect>
+            </Button>
+            <ImageView fitHeight="47.0" fitWidth="52.0" layoutX="8.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/icons8-notification-96.png" />
+                  <Image url="@icons/girl.png" />
                </image>
             </ImageView>
-         </graphic>
-      </Button>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="584.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-error-50.png" />
+               </image>
+            </ImageView>
+            <ScrollBar layoutX="589.0" layoutY="173.0" orientation="VERTICAL" prefHeight="234.0" prefWidth="15.0" />
+            <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="466.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/upp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="498.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/down.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="468.0" layoutY="54.0" text="16 K">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="498.0" layoutY="19.0" text="1 K">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
