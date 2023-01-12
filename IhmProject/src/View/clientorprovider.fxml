@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -35,7 +34,6 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </RadioButton>
-                        <FontAwesomeIconView fill="#513b3d" glyphName="USER" layoutX="72.0" layoutY="78.0" size="30" />
                         <Label layoutX="21.0" layoutY="96.0" text="connect with the best">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
@@ -51,6 +49,11 @@
                               <Font name="Franklin Gothic Medium Cond" size="15.0" />
                            </font>
                         </Label>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="73.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-user-48.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Pane layoutX="220.0" layoutY="65.0" prefHeight="190.0" prefWidth="180.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
@@ -60,7 +63,6 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </RadioButton>
-                        <FontAwesomeIconView fill="#513b3d" glyphName="WRENCH" layoutX="71.0" layoutY="77.0" size="38" />
                         <Label layoutX="31.0" layoutY="95.0" text="Receive and reply ">
                            <font>
                               <Font name="Franklin Gothic Medium" size="15.0" />
@@ -76,6 +78,11 @@
                               <Font name="Franklin Gothic Medium Cond" size="15.0" />
                            </font>
                         </Label>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="72.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-support-48.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <Label layoutX="25.0" layoutY="14.0" prefHeight="35.0" prefWidth="319.0" text=" Join as a client or service provider" textFill="#4f3a3c">
