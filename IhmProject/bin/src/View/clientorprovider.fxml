@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: b6d0bd;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="22.0" layoutY="39.0" prefHeight="423.0" prefWidth="427.0" style="-fx-background-color: #E8EAEE; -fx-background-radius: #513B3D;">
+               <children>
+                  <Label layoutX="107.0" layoutY="338.0" prefHeight="17.0" prefWidth="156.0" text="Already have an account ?" textFill="#4f3a3c" />
+                  <Label layoutX="247.0" layoutY="338.0" text="Login" textFill="#2c7a6a" underline="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="92.0" layoutY="285.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="226.0" style="-fx-background-color: #513B3D;" text="Create Account" textFill="#e8eaee">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Pane layoutX="25.0" layoutY="64.0" prefHeight="191.0" prefWidth="180.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
+                     <children>
+                        <RadioButton layoutX="12.0" layoutY="14.0" mnemonicParsing="false" opacity="0.93" text="Client" textFill="#513b3d">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <Label layoutX="21.0" layoutY="96.0" text="connect with the best">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="33.0" layoutY="114.0" text="available service">
+                           <font>
+                              <Font name="Franklin Gothic Medium Cond" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="57.0" layoutY="132.0" text="providers">
+                           <font>
+                              <Font name="Franklin Gothic Medium Cond" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="73.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-user-48.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="220.0" layoutY="65.0" prefHeight="190.0" prefWidth="180.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
+                     <children>
+                        <RadioButton layoutX="23.0" layoutY="14.0" mnemonicParsing="false" text="Service Provider" textFill="#513b3d">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <Label layoutX="31.0" layoutY="95.0" text="Receive and reply ">
+                           <font>
+                              <Font name="Franklin Gothic Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="113.0" text="to service requests from ">
+                           <font>
+                              <Font name="Franklin Gothic Medium Cond" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="35.0" layoutY="131.0" text="customers instantly ">
+                           <font>
+                              <Font name="Franklin Gothic Medium Cond" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="72.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-support-48.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label layoutX="25.0" layoutY="14.0" prefHeight="35.0" prefWidth="319.0" text=" Join as a client or service provider" textFill="#4f3a3c">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="175.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="134.0" fitWidth="163.0" layoutX="6.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logogris.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="24.0" layoutY="172.0" text="BriCool perform a better " textFill="#4f3a3c">
+               <font>
+                  <Font name="Franklin Gothic Medium Cond" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="190.0" text="client &amp; service provider " textFill="#4f3a3c">
+               <font>
+                  <Font name="Franklin Gothic Medium Cond" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="208.0" text="relashionship" textFill="#4f3a3c">
+               <font>
+                  <Font name="Franklin Gothic Medium Cond" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
