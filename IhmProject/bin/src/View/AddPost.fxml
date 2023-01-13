@@ -16,7 +16,7 @@
       <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: b6d0bd;" BorderPane.alignment="CENTER">
          <children>
             <TextField layoutX="34.0" layoutY="120.0" prefHeight="36.0" prefWidth="535.0" promptText="Enter title here" />
-            <Button layoutX="263.0" layoutY="379.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button layoutX="263.0" layoutY="379.0" mnemonicParsing="false" onAction="#notifications" prefHeight="42.0" prefWidth="79.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>

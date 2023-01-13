@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.searchController">
    <children>
-      <Button layoutX="497.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+      <Button fx:id="btn_notification" layoutX="497.0" layoutY="46.0" mnemonicParsing="false" onAction="#gonotification" style="-fx-background-color: #E8EAEE;">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -21,7 +21,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="540.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+      <Button fx:id="btn_information" layoutX="540.0" layoutY="48.0" mnemonicParsing="false" onAction="#goinformation" style="-fx-background-color: #E8EAEE;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,9 +29,9 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TextField layoutX="68.0" layoutY="149.0" prefHeight="26.0" prefWidth="307.0" promptText="SEARCH" />
-      <ChoiceBox layoutX="377.0" layoutY="150.0" prefHeight="26.0" prefWidth="129.0" />
-      <ImageView fitHeight="136.0" fitWidth="200.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+      <TextField layoutX="79.0" layoutY="112.0" prefHeight="26.0" prefWidth="307.0" promptText="SEARCH" />
+      <ChoiceBox layoutX="388.0" layoutY="112.0" prefHeight="26.0" prefWidth="129.0" />
+      <ImageView fitHeight="100.0" fitWidth="117.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/logogris.png" />
          </image></ImageView>
@@ -120,9 +120,9 @@
       </Label>
       <MenuButton layoutX="582.0" layoutY="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: #E8EAEE;">
          <items>
-            <MenuItem mnemonicParsing="false" text="Edit profile" />
-            <MenuItem mnemonicParsing="false" text="history" />
-            <MenuItem mnemonicParsing="false" text="sign out" />
+            <MenuItem fx:id="editprofilebtn" mnemonicParsing="false" onAction="#goeditprofil" text="Edit profile" />
+            <MenuItem fx:id="btn_history" mnemonicParsing="false" onAction="#gohistory" text="history" />
+            <MenuItem fx:id="btn_singnout" mnemonicParsing="false" onAction="#singnout" text="sign out" />
          </items>
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -132,13 +132,11 @@
             </ImageView>
          </graphic>
       </MenuButton>
-      <Button layoutX="514.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/search_black.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
+      <Button layoutX="514.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="528.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/search_black.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
