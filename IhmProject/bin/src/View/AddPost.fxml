@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: b6d0bd;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="34.0" layoutY="120.0" prefHeight="36.0" prefWidth="535.0" promptText="Enter title here" />
+            <Button layoutX="263.0" layoutY="379.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="46.0" prefWidth="174.0" text="add new post" textFill="#2c7a6a">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="80.0" fitWidth="131.0" layoutX="230.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="105.0" fitWidth="130.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logo.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="36.0" layoutY="164.0" prefHeight="182.0" prefWidth="534.0" style="-fx-background-color: white;" />
+            <Button layoutX="225.0" layoutY="272.0" mnemonicParsing="false" style="-fx-background-color: white;" text="drag files to upload ">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="246.0" layoutY="175.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="114.0" style="-fx-background-color: white;">
+               <graphic>
+                  <ImageView fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/upload.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+           
+            <MenuButton layoutX="570.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: b6d0bd;">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Edit Profile" />
+                <MenuItem mnemonicParsing="false" text="History" />
+                  <MenuItem mnemonicParsing="false" text="Sign out" />
+              </items>
+               <graphic>
+                
+               </graphic>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+            <Button layoutX="528.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-info-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="477.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-notification-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
