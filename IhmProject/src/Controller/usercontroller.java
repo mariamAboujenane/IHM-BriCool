@@ -34,7 +34,7 @@ public class usercontroller {
     @FXML
     private  TextField txtuser;
  	
-   
+   //zineb
    
 	@FXML
 	public void createOnAction(ActionEvent e) {
@@ -52,7 +52,7 @@ public class usercontroller {
           			txtpswd.setText("");
           			txtconfirmpswd.setText("");
           			st.execute();
-          			Alert alert = new Alert(AlertType.CONFIRMATION, "user added", javafx.scene.control.ButtonType.OK);
+          			Alert alert = new Alert(AlertType.CONFIRMATION, "User added succesfully!", javafx.scene.control.ButtonType.OK);
           			alert.showAndWait();
           			}catch(SQLException e1) {
           				e1.printStackTrace();
