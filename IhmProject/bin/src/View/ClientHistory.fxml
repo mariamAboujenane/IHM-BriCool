@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.historyController">
    <top>
       <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
@@ -147,9 +147,9 @@
             </VBox>
             <MenuButton layoutX="590.0" layoutY="20.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: #E8EAEE;">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Edit profile" />
-                  <MenuItem mnemonicParsing="false" text="history" />
-                  <MenuItem mnemonicParsing="false" text="sign out" />
+                  <MenuItem fx:id="editprofilebtn" mnemonicParsing="false" onAction="#goeditprofil" text="Edit profile" />
+                  <MenuItem fx:id="btn_history" mnemonicParsing="false" onAction="#gohistory" text="history" />
+                  <MenuItem fx:id="btn_singnout" mnemonicParsing="false" onAction="#singnout" text="sign out" />
                </items>
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -159,7 +159,7 @@
                   </ImageView>
                </graphic>
             </MenuButton>
-            <Button layoutX="543.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+            <Button fx:id="btn_information" layoutX="543.0" layoutY="24.0" mnemonicParsing="false" onAction="#goinformation" style="-fx-background-color: #E8EAEE;">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -168,11 +168,20 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="491.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+            <Button fx:id="btn_notification" layoutX="491.0" layoutY="21.0" mnemonicParsing="false" onAction="#gonotification" style="-fx-background-color: #E8EAEE;">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/icons8-notification-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="back" layoutX="58.0" layoutY="419.0" mnemonicParsing="false" onAction="#Back_To_choose" prefHeight="51.0" prefWidth="60.0" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-left-48.png" />
                      </image>
                   </ImageView>
                </graphic>
