@@ -96,11 +96,11 @@
                </font>
             </Label>
             <TextField layoutX="28.0" layoutY="289.0" prefHeight="26.0" prefWidth="307.0" />
-            <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
+            <Button fx:id="back" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/icons8-left-75.png" />
+                        <Image url="@icons/icons8-left-green.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
