@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,29 +11,27 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: b6d0bd;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: b6d0bd;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.ClientOrProviderController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="22.0" layoutY="39.0" prefHeight="423.0" prefWidth="427.0" style="-fx-background-color: #E8EAEE; -fx-background-radius: #513B3D;">
+            <Pane layoutX="22.0" layoutY="39.0" prefHeight="423.0" prefWidth="427.0" style="-fx-background-color: #E8EAEE;">
                <children>
                   <Label layoutX="107.0" layoutY="338.0" prefHeight="17.0" prefWidth="156.0" text="Already have an account ?" textFill="#4f3a3c" />
-                  <Label layoutX="247.0" layoutY="338.0" text="Login" textFill="#2c7a6a" underline="true">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="92.0" layoutY="285.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="226.0" style="-fx-background-color: #513B3D;" text="Create Account" textFill="#e8eaee">
+                  <Button fx:id="createbtn" layoutX="92.0" layoutY="285.0" mnemonicParsing="false" onAction="#CreateAccount" prefHeight="33.0" prefWidth="226.0" style="-fx-background-color: #513B3D;" text="Create Account" textFill="#e8eaee">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
                   <Pane layoutX="25.0" layoutY="64.0" prefHeight="191.0" prefWidth="180.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
                      <children>
-                        <RadioButton layoutX="12.0" layoutY="14.0" mnemonicParsing="false" opacity="0.93" text="Client" textFill="#513b3d">
+                        <RadioButton fx:id="clientbtn" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" opacity="0.93" text="Client" textFill="#513b3d">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="type" />
+                           </toggleGroup>
                         </RadioButton>
                         <Label layoutX="21.0" layoutY="96.0" text="connect with the best">
                            <font>
@@ -58,7 +57,7 @@
                   </Pane>
                   <Pane layoutX="220.0" layoutY="65.0" prefHeight="190.0" prefWidth="180.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
                      <children>
-                        <RadioButton layoutX="23.0" layoutY="14.0" mnemonicParsing="false" text="Service Provider" textFill="#513b3d">
+                        <RadioButton fx:id="providerbtn" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" text="Service Provider" textFill="#513b3d" toggleGroup="$type">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -90,6 +89,15 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="loginbtn" layoutX="246.0" layoutY="334.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #E8EAEE;">
+                     <graphic>
+                        <Label text="Login" textFill="#2c7a6a" underline="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </children>

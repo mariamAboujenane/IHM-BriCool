@@ -5,17 +5,26 @@ import src.Model.*;
 
 
 	import javafx.fxml.FXML;
-	import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 	import javafx.scene.control.PasswordField;
 	import javafx.scene.control.TextField;
-	import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.sql.*;
 
 import javafx.event.ActionEvent;
 	
 	
 	public class LoginController {
+		
+		  @FXML
+		    private Button create;
 		
 	    @FXML
 	    private PasswordField passwordTextField;
@@ -30,6 +39,29 @@ import javafx.event.ActionEvent;
 	    private Label testlabel;
 
 	    
+	    
+	    
+	    @FXML
+	    void createAccount(ActionEvent event) {
+	    	try {
+				Parent parent;
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
+				
+				Scene scene = new Scene(parent);
+				
+				Stage  primaryStage = new Stage();
+				primaryStage.setScene(scene);
+				primaryStage.show();
+				
+				Stage stage = (Stage) create.getScene().getWindow();
+			    // do what you have to do
+			  stage.close();
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
 
 	    	
 	    
