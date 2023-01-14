@@ -77,7 +77,7 @@
                </font>
             </Button>
            
-            <ChoiceBox layoutX="28.0" layoutY="175.0" prefHeight="24.0" prefWidth="307.0" style="-fx-background-color: #ffffff;" />
+            <ChoiceBox fx:id="Mychoicebox" layoutX="28.0" layoutY="175.0" prefHeight="24.0" prefWidth="307.0" style="-fx-background-color: #ffffff;" />
             <Label layoutX="28.0" layoutY="143.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Specialty" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
