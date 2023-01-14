@@ -2,62 +2,121 @@ package src.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import javafx.event.*;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class AccountProvider implements Initializable{
-	
-	
-	 @FXML
-	    private ChoiceBox<String> Mychoicebox; 
-	 
-	 
-	   private String [] specialty = {"CARPENTER","PLUMBER","CLEANER","TAILOR HAIR STYLIST","ELECTRICIAN"};
-	   
-	   @FXML
-	    private Button back;
-
 	    @FXML
-	    void Back_To_choose(ActionEvent event) {
-	    	
+	    private ChoiceBox<String> Mychoicebox; 
+	    private String [] speciality = {"CARPENTER","PLUMBER","CLEANER","TAILOR HAIR STYLIST","ELECTRICIAN"};
+	    @FXML
+	    private Button back;
+	    @FXML
+	    private DialogPane dialog;
+	    @FXML
+	    private Button create;
+	    @FXML
+	    private TextField txtconfirmpswd;
+	    @FXML
+	    private TextField txtname;
+	    @FXML
+	    private TextField txtpswd;
+	    @FXML
+	    private TextField txtuser;
+	    @FXML
+	    private TextField txtnumber;
+	    @FXML
+	    private TextField txtaddress;
+	    
+	    
+		public void createOnAction(ActionEvent e) {
+			String sql="insert into service_provider(name,username,speciality,phone_number,address,password,status) values(?,?,?,?,?,?,?)";
+	             if(txtpswd.getText().equalsIgnoreCase(txtconfirmpswd.getText())){
+		          	   try {
+		                  	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		          			PreparedStatement st = cnx.prepareStatement(sql);   
+		          			st.setString(1,txtname.getText());
+		          			st.setString(2,txtuser.getText());
+		          			st.setString(3,Mychoicebox.getValue().toString());
+		          			st.setString(4,txtnumber.getText());
+		          			st.setString(5,txtaddress.getText());
+		          			st.setString(6,txtpswd.getText());
+		          			st.setString(7,"0");
+
+		          			txtname.setText("");
+		          			txtuser.setText(""); 
+		          			txtpswd.setText("");
+		          			txtaddress.setText("");
+		          			txtnumber.setText(""); 
+		          			Mychoicebox.setValue("");
+		          			txtconfirmpswd.setText("");
+		          			st.execute();
+		          			Parent parent = null;
+		    				try {
+								parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+								
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+		    				Scene scene = new Scene(parent);
+		    				Stage  primaryStage = new Stage();
+		    				primaryStage.setScene(scene);
+		    				primaryStage.show(); 
+		    				Stage stage1 = (Stage) create.getScene().getWindow();
+		    			     stage1.close();
+		
+		          			}catch(SQLException e1) {
+		          				e1.printStackTrace();
+		          			}
+	              }else {
+		            	  Alert alert = new Alert(AlertType.WARNING, "Your password does not match, check again please.", javafx.scene.control.ButtonType.OK);
+		            	  alert.setHeaderText("Something happend... :( !");
+		      			  dialog= alert.getDialogPane();  
+		      			  dialog.getStylesheets().add(getClass().getResource("style.css").toString());
+		      			  dialog.getStyleClass().add("dialog");
+		      			  alert.showAndWait();
+	              }
+	       }
+	    
+	    
+	
+	    
+	   public void Back_To_choose(ActionEvent event) {
 	    	try {
 				Parent parent;
 				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
-				
 				Scene scene = new Scene(parent);
-				
 				Stage  primaryStage = new Stage();
 				primaryStage.setScene(scene);
 				primaryStage.show();
-				
 				Stage stage = (Stage) back.getScene().getWindow();
-			    // do what you have to do
 			    stage.close();
-				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	    	
-
 	    }
+
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
-			 Mychoicebox.getItems().addAll(specialty);
-
-			 
+			 Mychoicebox.getItems().addAll(speciality);
+			
 		}
 
 }

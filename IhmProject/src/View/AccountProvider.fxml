@@ -47,10 +47,10 @@
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <TextField layoutX="28.0" layoutY="61.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="28.0" layoutY="117.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="28.0" layoutY="353.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="28.0" layoutY="415.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField fx:id="txtname" layoutX="28.0" layoutY="61.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField fx:id="txtuser" layoutX="28.0" layoutY="117.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField fx:id="txtpswd" layoutX="28.0" layoutY="353.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField fx:id="txtconfirmpswd" layoutX="28.0" layoutY="415.0" prefHeight="26.0" prefWidth="307.0" />
             <Label layoutX="28.0" layoutY="38.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -71,7 +71,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="166.0" layoutY="456.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Create" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+            <Button fx:id="create" layoutX="166.0" layoutY="456.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Create" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -88,13 +88,13 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="28.0" layoutY="237.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField fx:id="txtnumber" layoutX="28.0" layoutY="237.0" prefHeight="26.0" prefWidth="307.0" />
             <Label layoutX="28.0" layoutY="271.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="28.0" layoutY="294.0" prefHeight="26.0" prefWidth="307.0" />
+            <TextField fx:id="txtaddress" layoutX="28.0" layoutY="294.0" prefHeight="26.0" prefWidth="307.0" />
             <Button fx:id="back" layoutY="-1.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">

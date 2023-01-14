@@ -1,5 +1,6 @@
 package src.Controller;
 import javafx.event.ActionEvent;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,9 +19,6 @@ import java.sql.SQLException;
 
 
 public class usercontroller {
-	 @FXML
-	    private Button back;
-	
     private DialogPane dialog;
     @FXML
     private Button create;
@@ -32,38 +30,12 @@ public class usercontroller {
     private TextField txtpswd;
     @FXML
     private TextField txtuser;
- 	
+    
    //zineb
-    
-    
-    @FXML
-    void Back_To_choose(ActionEvent event) {
-    	
-      	try {
-			Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
-			
-			Scene scene = new Scene(parent);
-			
-			Stage  primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			primaryStage.show();
-			
-			Stage stage = (Stage) back.getScene().getWindow();
-		    // do what you have to do
-		    stage.close();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-    }
    
 	@FXML
 	public void createOnAction(ActionEvent e) {
 		String sql="insert into user(name,username,password) values(?,?,?)";
-
              if(txtpswd.getText().equalsIgnoreCase(txtconfirmpswd.getText())){
 	          	   try {
 	                  	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -80,19 +52,16 @@ public class usercontroller {
 	    				try {
 							parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
 							
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}
-	    				
+						
 	    				Scene scene = new Scene(parent);
 	    				Stage  primaryStage = new Stage();
 	    				primaryStage.setScene(scene);
 	    				primaryStage.show(); 
-	    				
-	    				
 	    				Stage stage1 = (Stage) create.getScene().getWindow();
 	    			     stage1.close();
-	
+	    				} catch (IOException e1) {
+							e1.printStackTrace();
+						}
 	          			}catch(SQLException e1) {
 	          				e1.printStackTrace();
 	          			}
@@ -106,7 +75,7 @@ public class usercontroller {
               }
        }
 
-    
+
    
 
 
