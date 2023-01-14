@@ -14,13 +14,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 public class AccountProvider implements Initializable{
 	
 	
 	 @FXML
-	    private ChoiceBox<String> Mychoicebox; 
+	    private ComboBox<String> Mychoicebox;
 	 
 	 
 	   private String [] specialty = {"CARPENTER","PLUMBER","CLEANER","TAILOR HAIR STYLIST","ELECTRICIAN"};

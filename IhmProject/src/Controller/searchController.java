@@ -3,21 +3,28 @@ package src.Controller;
 import javafx.event.*;//hadu should be f gaa controller sinn athm9kom matkhdmch 
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class searchController {
+public class searchController implements Initializable{
 	private DialogPane dialog;
 	   @FXML
 	    private Button btn_information;
@@ -25,7 +32,24 @@ public class searchController {
 	  
 	   @FXML
 	    private Button btn_notification;
+	   
+	   @FXML
+	    private ComboBox<String> choice;
+	  
+	   
+	   
+	   
+	  private String [] Ville = {"Rabat","Agadir","Fez","Tanger","Tetouan","Sale","Casablanca","Zagora","Nador","Oujda","Marrakech","Safi","Meknes","Kenitra","Asila","Ifrane","Ouarzazate","Alhoceima"};
 
+	  
+	  
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+		
+			choice.getItems().addAll( Ville);
+		}
+		
+	  
 	    @FXML
 	    void gonotification(ActionEvent event) {
          	
@@ -153,6 +177,7 @@ public class searchController {
 			}
         
 	    }
+	
 
 	
 
