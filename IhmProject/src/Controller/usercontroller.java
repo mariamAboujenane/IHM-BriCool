@@ -18,7 +18,9 @@ import java.sql.SQLException;
 
 
 public class usercontroller {
-   
+	 @FXML
+	    private Button back;
+	
     private DialogPane dialog;
     @FXML
     private Button create;
@@ -32,6 +34,31 @@ public class usercontroller {
     private TextField txtuser;
  	
    //zineb
+    
+    
+    @FXML
+    void Back_To_choose(ActionEvent event) {
+    	
+      	try {
+			Parent parent;
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
+			
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			
+			Stage stage = (Stage) back.getScene().getWindow();
+		    // do what you have to do
+		    stage.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    }
    
 	@FXML
 	public void createOnAction(ActionEvent e) {
