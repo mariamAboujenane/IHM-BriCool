@@ -33,7 +33,7 @@ public class AccountProvider {
 				
 				Stage stage = (Stage) back.getScene().getWindow();
 			    // do what you have to do
-			  stage.close();
+			    stage.close();
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

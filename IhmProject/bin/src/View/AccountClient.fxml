@@ -73,7 +73,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="back" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
+            <Button fx:id="back" layoutX="14.0" layoutY="27.0" mnemonicParsing="false"  style="-fx-background-color: #B6D0BD;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
