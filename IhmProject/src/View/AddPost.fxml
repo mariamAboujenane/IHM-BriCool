@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,16 +9,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.AddPostController">
    <top>
       <AnchorPane prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: b6d0bd;" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="34.0" layoutY="120.0" prefHeight="36.0" prefWidth="535.0" promptText="Enter title here" />
-            <Button layoutX="263.0" layoutY="379.0" mnemonicParsing="false" onAction="#notifications" prefHeight="42.0" prefWidth="79.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
+            <TextField fx:id="posttitle" layoutX="34.0" layoutY="119.0" onAction="#textChanged" prefHeight="36.0" prefWidth="538.0" promptText="Enter title here" />
+            <Button fx:id="addButton" disable="true" layoutX="277.0" layoutY="443.0" mnemonicParsing="false" onAction="#addAction" prefHeight="42.0" prefWidth="79.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="83.0" prefHeight="46.0" prefWidth="174.0" text="add new post" textFill="#2c7a6a">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="82.0" prefHeight="46.0" prefWidth="174.0" text="add new post" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -31,55 +29,17 @@
                   <Image url="@icons/logo.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="36.0" layoutY="164.0" prefHeight="182.0" prefWidth="534.0" style="-fx-background-color: white;" />
-            <Button layoutX="225.0" layoutY="272.0" mnemonicParsing="false" style="-fx-background-color: white;" text="drag files to upload ">
+            <Button layoutX="528.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;" />
+            <ImageView fx:id="imageView" fitHeight="270.0" fitWidth="288.0" layoutX="173.0" layoutY="164.0" onDragDropped="#handledrop" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="uploadImage" fitHeight="95.0" fitWidth="64.0" layoutX="285.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/upload.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="draganddrop" layoutX="243.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;" text="drag &amp; drop files here .">
                <font>
-                  <Font name="System Bold" size="13.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
-            </Button>
-            <Button layoutX="246.0" layoutY="175.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="114.0" style="-fx-background-color: white;">
-               <graphic>
-                  <ImageView fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/upload.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-           
-            <MenuButton layoutX="570.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: b6d0bd;">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Edit Profile" />
-                <MenuItem mnemonicParsing="false" text="History" />
-                  <MenuItem mnemonicParsing="false" text="Sign out" />
-              </items>
-               <graphic>
-                
-               </graphic>
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/icons8-user-96.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
-            <Button layoutX="528.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/icons8-info-50.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="477.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: b6d0bd;">
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/icons8-notification-96.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
             </Button>
          </children>
       </AnchorPane>

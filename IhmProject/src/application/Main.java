@@ -3,6 +3,7 @@ package src.application;
 //sss
 
 import src.Model.*;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ public class Main extends Application {
 	
 	public void start(Stage primaryStage) {
 		try {
+
 
 			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AccountProvider.fxml"));
 			Scene scene = new Scene(parent);
