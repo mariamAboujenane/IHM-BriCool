@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -30,7 +30,6 @@
             </ImageView>
          </graphic></Button>
       <TextField layoutX="79.0" layoutY="112.0" prefHeight="26.0" prefWidth="307.0" promptText="SEARCH" />
-      <ChoiceBox layoutX="388.0" layoutY="112.0" prefHeight="26.0" prefWidth="129.0" />
       <ImageView fitHeight="100.0" fitWidth="117.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/logogris.png" />
@@ -133,10 +132,11 @@
          </graphic>
       </MenuButton>
       <Button layoutX="514.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="528.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="548.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/search_black.png" />
          </image>
       </ImageView>
+      <ComboBox fx:id="choice" layoutX="392.0" layoutY="112.0" prefWidth="150.0" promptText="City" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,35 +11,98 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="473.0" prefWidth="605.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<AnchorPane prefHeight="473.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.informationController">
    <children>
       <Pane layoutX="-1.0" layoutY="-10.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #E8EAEE;">
          <children>
-            <ImageView fitHeight="105.0" fitWidth="91.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="182.0" fitWidth="241.0" layoutX="215.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
-            <Label layoutX="213.0" layoutY="34.0" prefHeight="47.0" prefWidth="241.0" text="Information">
+            <Label layoutX="207.0" layoutY="68.0" prefHeight="47.0" prefWidth="241.0" text="Information">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
                         <Stop>
                            <color>
-                              <Color />
+                              <Color red="0.29019609093666077" green="0.12941177189350128" blue="0.12941177189350128" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5" green="0.26273149251937866" blue="0.1527777761220932" opacity="0.7300000190734863" />
+                              <Color red="0.3960784375667572" green="0.27843138575553894" blue="0.27843138575553894" opacity="0.8999999761581421" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </textFill>
                <font>
-                  <Font name="System Bold Italic" size="32.0" />
+                  <Font name="System Bold Italic" size="40.0" />
+               </font>
+            </Label>
+            <Button fx:id="back" layoutX="35.0" layoutY="44.0" mnemonicParsing="false" onAction="#Back_To_choose" prefHeight="27.0" prefWidth="28.0" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/backmarron.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="35.0" layoutY="266.0" prefHeight="17.0" prefWidth="135.0" text="Name : " textFill="#4a2121">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="299.0" text="Category : " textFill="#4a2121">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="129.0" layoutY="334.0" text="Bricool is a service app that allows clients to search for a nearby and suitable ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="362.0" text="service  provider and it allows the service provider to search for more clients easily ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="431.0" text="Created : " textFill="#4a2121">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="400.0" text="For reclamation you can contact us : " textFill="#4a2121">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="266.0" prefHeight="17.0" prefWidth="135.0" text=" BriCOOL" textFill="#161515">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="116.0" layoutY="299.0" text=" Services">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="334.0" text="Description :" textFill="#4a2121">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="293.0" layoutY="400.0" text=" bricool@gmail.com">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="108.0" layoutY="431.0" text="December 2022">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Label>
          </children>

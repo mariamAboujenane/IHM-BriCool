@@ -19,11 +19,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
+
 import javafx.stage.Stage;
 
 public class AccountProvider implements Initializable{
+
 	    @FXML
-	    private ChoiceBox<String> Mychoicebox; 
+	    private ComboBox<String> Mychoicebox; 
 	    private String [] speciality = {"CARPENTER","PLUMBER","CLEANER","TAILOR HAIR STYLIST","ELECTRICIAN"};
 	    @FXML
 	    private Button back;

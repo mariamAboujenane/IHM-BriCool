@@ -10,8 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class informationController {
-
+public class EditProfileUserController {
+	
 	@FXML
     private Button back;
 
@@ -33,5 +33,6 @@ public class informationController {
 		}
 
     }
+
 
 }
