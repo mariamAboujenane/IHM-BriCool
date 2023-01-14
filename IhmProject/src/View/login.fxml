@@ -59,18 +59,22 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="149.0" layoutY="325.0" text="Not a member ? " textFill="#513b3d">
+            <Label layoutX="149.0" layoutY="325.0" prefHeight="16.0" prefWidth="89.0" text="Not a member ? " textFill="#513b3d">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label layoutX="229.0" layoutY="319.0" prefHeight="27.0" prefWidth="135.0" text="Create Account" textFill="#2c7a6a" underline="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <PasswordField fx:id="passwordTextField" layoutX="85.0" layoutY="190.0" prefHeight="37.0" prefWidth="292.0" promptText="password" />
             <Label fx:id="testlabel" layoutX="68.0" layoutY="104.0" prefHeight="38.0" prefWidth="309.0" />
+            <Button fx:id="create" layoutX="234.0" layoutY="315.0" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: #b6d0bd;">
+               <graphic>
+                  <Label prefHeight="27.0" prefWidth="135.0" text="Create Account" textFill="#2c7a6a" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </right>
