@@ -24,6 +24,8 @@ public class PreProfileController {
 					Stage  primaryStage = new Stage();
 					primaryStage.setScene(scene);
 					primaryStage.show();
+					Stage stage1 = (Stage) reservebtn.getScene().getWindow();
+    			    stage1.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

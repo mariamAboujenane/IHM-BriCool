@@ -27,10 +27,13 @@ public class ClientOrProviderController {
 
     @FXML
     private ToggleGroup type;
+    
+    @FXML
+    private Button loginbtn;
 
     @FXML
     void CreateAccount(ActionEvent event) {
-    	Parent parent = null;
+    	Parent parent = null ;
 		try {
 			if(clientbtn.isSelected()) {
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AccountClient.fxml"));
@@ -45,10 +48,32 @@ public class ClientOrProviderController {
 			Stage  primaryStage = new Stage();
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			Stage stage1 = (Stage) createbtn.getScene().getWindow();
+		    stage1.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+    }
+    @FXML
+    void login(ActionEvent event) {
+    	Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			Stage stage1 = (Stage) loginbtn.getScene().getWindow();
+		    stage1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 
     }
 }
