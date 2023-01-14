@@ -2,6 +2,7 @@ package src.Controller;
 
 import java.io.IOException;
 
+
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ public class EditProfileController {
     void Back_To_choose(ActionEvent event) {
     	Parent parent;
 		try {
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
 			Scene scene = new Scene(parent);
 			
 			Stage  primaryStage = new Stage();
