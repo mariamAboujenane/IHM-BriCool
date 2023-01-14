@@ -30,7 +30,6 @@ public class usercontroller {
     private TextField txtpswd;
     @FXML
     private TextField txtuser;
-    
    //zineb
    
 	@FXML

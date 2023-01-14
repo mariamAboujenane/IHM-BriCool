@@ -10,7 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 	import javafx.scene.control.PasswordField;
-	import javafx.scene.control.TextField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -23,22 +24,20 @@ import javafx.event.ActionEvent;
 	
 	public class LoginController {
 		
-		  @FXML
-		    private Button create;
-		
+	    @FXML
+	    private Button create;
 	    @FXML
 	    private PasswordField passwordTextField;
-
 	    @FXML
 	    private Button submitButton;
-
 	    @FXML
 	    private TextField usernameTextField;
-	    
 	    @FXML
 	    private Label testlabel;
-
-	    
+	    @FXML
+	    private RadioButton providerbtn;
+	    @FXML
+	    private RadioButton clientbtn;
 	    
 	    
 	    @FXML
@@ -76,29 +75,47 @@ import javafx.event.ActionEvent;
 	    	}
 	
 	    }
-	    
-	    
+	
 	    public void validateLogin(){
-	    	 DatabaseConnection connectNow=new  DatabaseConnection();
+	    	DatabaseConnection connectNow=new  DatabaseConnection();
 	    	Connection connect = connectNow.getConnection();
-	    	String verifyLogin ="Select count(1) from service_provider where username = '"+usernameTextField.getText()+ "' and password= '"+passwordTextField.getText()+"'";
-          
-	    	try {
-				Statement statement=connect.createStatement();
-				ResultSet queryResult=statement.executeQuery(verifyLogin);
-				
-				while (queryResult.next()){
-		    		if(queryResult.getInt(1)==1) {
-		    			testlabel.setText("welcome");
-		    		}else {
-		    			testlabel.setText("username or password is not correct. Please try again");
-		    		}
-		    	}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			if(clientbtn.isSelected()) {
+			    String verifyLogin ="Select count(1) from user where username = '"+usernameTextField.getText()+ "' and password= '"+passwordTextField.getText()+"'";
+				try {
+					Statement statement=connect.createStatement();
+					ResultSet queryResult=statement.executeQuery(verifyLogin);	
+					while(queryResult.next()){
+			    		if(queryResult.getInt(1)==1) {
+			    			testlabel.setText("welcome");
+			    		}else {
+			    			testlabel.setText("username or password is not correct. Please try again");
+			    		}
+			    	}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}	
+			}else if(providerbtn.isSelected()) {
+				   String verifyLogin ="Select count(1) from service_provider where username = '"+usernameTextField.getText()+ "' and password= '"+passwordTextField.getText()+"'";
+					try {
+						Statement statement=connect.createStatement();
+						ResultSet queryResult=statement.executeQuery(verifyLogin);
+						while(queryResult.next()){
+				    		if(queryResult.getInt(1)==1) {
+				    			testlabel.setText("welcome");
+				    		}else {
+				    			testlabel.setText("username or password is not correct. Please try again");
+				    		}
+				    	}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+		  }
+	    	
+	    	
+	    	
+	    
 	    	
 	    	
  }
 }
+	    

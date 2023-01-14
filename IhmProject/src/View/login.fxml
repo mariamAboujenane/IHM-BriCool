@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -46,27 +47,27 @@
    <right>
       <AnchorPane prefHeight="532.0" prefWidth="489.0" style="-fx-background-color: b6d0bd;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="usernameTextField" layoutX="84.0" layoutY="141.0" prefHeight="36.0" prefWidth="290.0" promptText="User name">
+            <TextField fx:id="usernameTextField" layoutX="61.0" layoutY="168.0" prefHeight="36.0" prefWidth="290.0" promptText="User name">
                <cursor>
                   <Cursor fx:constant="DISAPPEAR" />
                </cursor></TextField>
-            <Button fx:id="submitButton" layoutX="162.0" layoutY="264.0" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="41.0" prefWidth="148.0" style="-fx-background-color: #513b3d;" text="Submit" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="submitButton" layoutX="116.0" layoutY="277.0" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="41.0" prefWidth="148.0" style="-fx-background-color: #513b3d;" text="Submit" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Label layoutX="182.0" layoutY="68.0" prefHeight="36.0" prefWidth="93.0" text="LOGIN" textFill="#2c7a6a">
+            <Label layoutX="159.0" layoutY="49.0" prefHeight="36.0" prefWidth="93.0" text="LOGIN" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="149.0" layoutY="325.0" prefHeight="16.0" prefWidth="89.0" text="Not a member ? " textFill="#513b3d">
+            <Label layoutX="127.0" layoutY="342.0" prefHeight="16.0" prefWidth="89.0" text="Not a member ? " textFill="#513b3d">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordTextField" layoutX="85.0" layoutY="190.0" prefHeight="37.0" prefWidth="292.0" promptText="password" />
-            <Label fx:id="testlabel" layoutX="68.0" layoutY="104.0" prefHeight="38.0" prefWidth="309.0" />
-            <Button fx:id="create" layoutX="234.0" layoutY="315.0" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: #b6d0bd;">
+            <PasswordField fx:id="passwordTextField" layoutX="60.0" layoutY="219.0" prefHeight="37.0" prefWidth="292.0" promptText="password" />
+            <Label fx:id="testlabel" layoutX="8.0" layoutY="14.0" prefHeight="25.0" prefWidth="132.0" />
+            <Button fx:id="create" layoutX="206.0" layoutY="332.0" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: #b6d0bd;">
                <graphic>
                   <Label prefHeight="27.0" prefWidth="135.0" text="Create Account" textFill="#2c7a6a" underline="true">
                      <font>
@@ -75,6 +76,8 @@
                   </Label>
                </graphic>
             </Button>
+            <RadioButton fx:id="clientbtn" layoutX="64.0" layoutY="120.0" mnemonicParsing="false" text="Client" />
+            <RadioButton fx:id="providerbtn" layoutX="137.0" layoutY="119.0" mnemonicParsing="false" text="Service Provider" />
          </children>
       </AnchorPane>
    </right>
