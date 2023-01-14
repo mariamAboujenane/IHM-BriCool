@@ -3,15 +3,22 @@ package src.Controller;
 import javafx.event.*;//hadu should be f gaa controller sinn athm9kom matkhdmch 
 
 import java.io.IOException;
+import java.util.Optional;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class searchController {
+	private DialogPane dialog;
 	   @FXML
 	    private Button btn_information;
 	   
@@ -91,19 +98,34 @@ public class searchController {
 	    }
 	    @FXML
 	    void singnout(ActionEvent event) {
+	    	
 	    	try {
-				Parent parent;
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
-				
-				Scene scene1 = new Scene(parent);
-				
-				Stage  primaryStage1 = new Stage();
-				primaryStage1.setScene(scene1);
-				primaryStage1.show();
-				
-				Stage stage1 = (Stage) btn_information.getScene().getWindow();
-			    // do what you have to do
-			     stage1.close();
+	    		
+	    		Alert alert = new Alert(AlertType.CONFIRMATION );
+	    		alert.setHeaderText(null);
+	    		alert.setContentText("Are you sure that you want to log out !");
+	    		alert.initModality(Modality.NONE);
+	    		dialog= alert.getDialogPane();  
+    			dialog.getStylesheets().add(getClass().getResource("style2.css").toString());
+    			 dialog.getStyleClass().add("dialog");
+      			Optional<ButtonType> result = alert.showAndWait();
+      			 if(result.isEmpty()) {
+      				System.out.print("Alert closed ");
+      		     }else if(result.get()==ButtonType.OK) {
+      	
+      		    	Parent parent;
+    				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+    				
+    				Scene scene1 = new Scene(parent);
+    				
+    				Stage  primaryStage1 = new Stage();
+    				primaryStage1.setScene(scene1);
+    				primaryStage1.show();
+    				Stage stage1 = (Stage) btn_information.getScene().getWindow();
+    			     stage1.close(); 
+      		     }else if(result.get()==ButtonType.OK) {  
+      		    	System.out.print("Alert closed "); 
+      		     }
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -114,7 +136,7 @@ public class searchController {
 	    void goeditprofil(ActionEvent event) {
 	    	try {
 				Parent parent;
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfile.fxml"));
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfileUser.fxml"));
 				
 				Scene scene1 = new Scene(parent);
 				
