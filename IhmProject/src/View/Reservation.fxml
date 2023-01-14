@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540.0" prefWidth="660.0" style="-fx-background-color: #B6D0BD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="540.0" prefWidth="660.0" style="-fx-background-color: #B6D0BD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.ReservationController">
    <children>
       <Label alignment="CENTER" layoutX="214.0" prefHeight="36.0" prefWidth="242.0" text="Reservation" textAlignment="CENTER" textFill="#503a3c">
          <font>
@@ -57,11 +57,13 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: #B6D0BD;" />
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="8.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/icons8-left-75.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="back" layoutX="14.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-left-75.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

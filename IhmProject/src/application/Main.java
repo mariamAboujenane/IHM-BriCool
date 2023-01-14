@@ -17,7 +17,7 @@ public class Main extends Application {
 	
 	public void start(Stage primaryStage) {
 		try {
-			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
+			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
 	
 			Scene scene = new Scene(parent);
 		
