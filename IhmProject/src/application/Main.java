@@ -19,11 +19,10 @@ public class Main extends Application {
 		try {
 
 
-<<<<<<< HEAD
-			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
-=======
-			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AddPost.fxml"));
->>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
+
+			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
+
+
 			Scene scene = new Scene(parent);
 			primaryStage.setScene(scene);
 			primaryStage.show();

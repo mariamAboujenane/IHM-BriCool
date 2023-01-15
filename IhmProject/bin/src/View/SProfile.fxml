@@ -54,7 +54,8 @@
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Button layoutX="561.0" layoutY="6.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="AddBtn" layoutX="561.0" layoutY="6.0" mnemonicParsing="false" onAction="#AddBio" text="+" />
+                        <TextField fx:id="BioTxt" layoutX="44.0" layoutY="6.0" prefHeight="25.0" prefWidth="511.0" />
                      </children>
                   </Pane>
                   <Pane layoutX="7.0" layoutY="170.0" prefHeight="227.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
@@ -90,12 +91,12 @@
                         <Image url="@icons/down.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="486.0" layoutY="45.0" text="16 K">
+                  <Label fx:id="DislikeLabel" layoutX="486.0" layoutY="45.0" text="16 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="528.0" layoutY="16.0" text="1 K">
+                  <Label fx:id="LikeLabel" layoutX="528.0" layoutY="16.0" text="1 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
