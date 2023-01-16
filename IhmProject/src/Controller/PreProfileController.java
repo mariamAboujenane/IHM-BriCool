@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,8 +15,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -51,13 +54,56 @@ public class PreProfileController implements Initializable {
 	void Dislike(ActionEvent event) {
 		DislikeImage.setImage(dislikeimage);
 		Dislike_increment++;
+		String dislike = DislikeLbl.getText();
+		int dislike_int = Integer.parseInt(dislike);
+		int dislike_number = dislike_int + Dislike_increment;
+		String dislike_modify = String.valueOf(dislike_number);
+		LikeLbl.setText(dislike_modify);
+		  String updateQuery = "UPDATE bio SET Dislikes = ? WHERE id = '1'";
+		 
+  	  try {
+         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+   		  preparedStmt.setString   (1, dislike_modify);
+
+   		 preparedStmt.execute();
+ 			Alert alert = new Alert(AlertType.WARNING, "You have dis disliked this service provider.", javafx.scene.control.ButtonType.OK);
+ 			 alert.showAndWait();
+ 			 
+ 	  }catch(SQLException e1) {
+ 		e1.printStackTrace();
+
+ 	  }
 
 	}
 
 	@FXML
 	void Like(ActionEvent event) {
+		
 		LikeImage.setImage(likeimage);
 		Like_increment++;
+		String like = LikeLbl.getText();
+		int like_int = Integer.parseInt(like);
+		int like_number = like_int + Like_increment;
+		String like_modify = String.valueOf(like_number);
+		LikeLbl.setText(like_modify);
+		  String updateQuery = "UPDATE bio SET Likes = ? WHERE id = '1'";
+		 
+  	  try {
+         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+   		  preparedStmt.setString   (1, like_modify);
+
+   		 preparedStmt.execute();
+ 			Alert alert = new Alert(AlertType.WARNING, "You have liked this service provider.", javafx.scene.control.ButtonType.OK);
+ 			 alert.showAndWait();
+ 			 
+ 	  }catch(SQLException e1) {
+ 		e1.printStackTrace();
+
+ 	  }
+
+
 
 	}
 
@@ -102,6 +148,7 @@ public class PreProfileController implements Initializable {
 			e1.printStackTrace();
 		}
 		LikeLbl.setText(like);
+		
 		try {
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 			Statement statement = cnx.createStatement();

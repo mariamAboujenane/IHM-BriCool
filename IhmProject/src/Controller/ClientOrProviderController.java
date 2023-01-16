@@ -42,6 +42,7 @@ public class ClientOrProviderController {
 			}else {
 				Alert alert = new Alert(AlertType.CONFIRMATION, "You should select", javafx.scene.control.ButtonType.OK);
       			alert.showAndWait();
+      			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
 			}
 			Scene scene = new Scene(parent);
 			
