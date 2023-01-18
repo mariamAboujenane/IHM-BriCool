@@ -20,7 +20,7 @@ public class Main extends Application {
 
 
 
-			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+			Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
 
 
 			Scene scene = new Scene(parent);

@@ -47,7 +47,10 @@ public class PreProfileController implements Initializable {
 
 	@FXML
 	private Label LikeLbl;
-	@FXML
+	
+    
+    @FXML
+	
 	private Button reservebtn;
 
 	@FXML

@@ -56,7 +56,7 @@ public class usercontroller {
 	@FXML
 	public void createOnAction(ActionEvent e) {
 		String sql="insert into user(name,username,password) values(?,?,?)";
-             if(txtpswd.getText().equalsIgnoreCase(txtconfirmpswd.getText())){
+             if(txtpswd.getText().equals(txtconfirmpswd.getText())){
 	          	   try {
 	                  	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 	          			PreparedStatement st = cnx.prepareStatement(sql);   

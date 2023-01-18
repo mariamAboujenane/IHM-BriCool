@@ -81,7 +81,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button layoutX="581.0" layoutY="97.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="30.0" style="-fx-background-color: #E8EAEE;" textFill="#b3561c">
+            <Button fx:id="report" layoutX="581.0" layoutY="97.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="30.0" style="-fx-background-color: #E8EAEE;" textFill="#b3561c">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
