@@ -47,7 +47,8 @@ public class PreProfileController implements Initializable {
 
 	@FXML
 	private Label LikeLbl;
-	
+	@FXML
+    private Button report;
     
     @FXML
 	
@@ -109,6 +110,67 @@ public class PreProfileController implements Initializable {
 
 
 	}
+	
+	
+    @FXML
+    void report(ActionEvent event) {
+        
+    	String signaler = null;
+		String sql1 = "select nbr_signal from service_provider where idprovider='1'";
+	
+		try {
+
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			Statement statement = cnx.createStatement();
+			ResultSet rs = statement.executeQuery(sql1);
+
+			while (rs.next()) {
+				signaler = rs.getString("nbr_signal");
+			}
+
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		int signaler_int = Integer.parseInt(signaler);
+		signaler_int++;
+		String signaler_modify = String.valueOf(signaler_int);
+		
+		 String updateQuery = "UPDATE service_provider SET nbr_signal = ? WHERE idprovider = '1'";
+		 
+	  	  try {
+	         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+	         	 PreparedStatement preparedStmt2 = cnx2.prepareStatement(updateQuery);
+	   		  preparedStmt2.setString   (1, signaler_modify);
+
+	   		 preparedStmt2.execute();
+	 			Alert alert = new Alert(AlertType.WARNING, "You have signaled this service provider.", javafx.scene.control.ButtonType.OK);
+	 			 alert.showAndWait();
+	 			 
+	 	  }catch(SQLException e1) {
+	 		e1.printStackTrace();
+
+	 	  }
+	  	  if(signaler_int == 15) {
+	  		  String delete = "DELETE FROM service_provider WHERE idprovider = '1'";
+	  	  	  try {
+		         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		         	 PreparedStatement preparedStmt2 = cnx2.prepareStatement(delete);
+		   
+
+		   		 preparedStmt2.execute();
+		 			Alert alert = new Alert(AlertType.WARNING, "this service provider is deleted.", javafx.scene.control.ButtonType.OK);
+		 			 alert.showAndWait();
+		 			 
+		 	  }catch(SQLException e1) {
+		 		e1.printStackTrace();
+
+		 	  }
+	  		  
+	  	  }
+
+    }
+	
 
 	@FXML
 	void reservation(ActionEvent event) {
