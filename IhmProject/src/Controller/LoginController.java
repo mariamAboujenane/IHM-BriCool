@@ -1,28 +1,31 @@
 package src.Controller;
 
-import src.Model.*;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-
-
-	import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-	import javafx.scene.control.PasswordField;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-
-import java.io.IOException;
-import java.sql.*;
-
-import javafx.event.ActionEvent;
+import src.Model.DatabaseConnection;
 	
 	
 	public class LoginController {
+		
+		Image closeeye = new Image("src/View/icons/closeeye.png");
+		Image openeye = new Image("src/View/icons/openeye.png");
 		
 	    @FXML
 	    private Button create;
@@ -39,6 +42,19 @@ import javafx.event.ActionEvent;
 	    @FXML
 	    private RadioButton clientbtn;
 	    
+	    @FXML
+	    private Button showhide_btn;
+	    @FXML
+	    private ImageView eyeimg;
+
+	    @FXML
+	    void ShowHide(ActionEvent event) {
+	    	
+	    	eyeimg.setImage(closeeye);
+	    	passwordTextField.setText( passwordTextField.getText());
+	    
+	    }
+
 	    
 	    @FXML
 	    void createAccount(ActionEvent event) {
@@ -117,5 +133,6 @@ import javafx.event.ActionEvent;
 	    	
 	    	
  }
+
 }
 	    
