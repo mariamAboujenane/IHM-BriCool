@@ -116,7 +116,7 @@ public class PreProfileController implements Initializable {
     void report(ActionEvent event) {
         
     	String signaler = null;
-		String sql1 = "select nbr_signal from service_provider where idprovider='1'";
+		String sql1 = "select nbr_signal from service_provider where idprovider='4'";
 	
 		try {
 
@@ -136,7 +136,7 @@ public class PreProfileController implements Initializable {
 		signaler_int++;
 		String signaler_modify = String.valueOf(signaler_int);
 		
-		 String updateQuery = "UPDATE service_provider SET nbr_signal = ? WHERE idprovider = '1'";
+		 String updateQuery = "UPDATE service_provider SET nbr_signal = ? WHERE idprovider = '4'";
 		 
 	  	  try {
 	         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -151,8 +151,30 @@ public class PreProfileController implements Initializable {
 	 		e1.printStackTrace();
 
 	 	  }
-	  	  if(signaler_int == 15) {
-	  		  String delete = "DELETE FROM service_provider WHERE idprovider = '1'";
+	  	  
+	  	  int users = 0;
+	  	  String count ="SELECT COUNT(iduser) FROM user";
+	  	try {
+
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			Statement statement = cnx.createStatement();
+			ResultSet rs = statement.executeQuery(count);
+			
+
+			while (rs.next()) {
+				users = rs.getInt(1);
+				
+			}
+		    System.out.println(users);
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	  	
+	  	int test = (users*20)/100;
+	  	  
+	  	  if(signaler_int == test) {
+	  		  String delete = "DELETE FROM service_provider WHERE idprovider = '4'";
 	  	  	  try {
 		         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt2 = cnx2.prepareStatement(delete);
