@@ -30,6 +30,9 @@ public class PreProfileController implements Initializable {
 	int Dislike_increment;
 	int Like_increment;
 
+    @FXML
+    private Label usernameLabel;
+    
 	@FXML
 	private Button DislikeBtn;
 
@@ -54,6 +57,7 @@ public class PreProfileController implements Initializable {
 	
 	private Button reservebtn;
 
+    int id;
 	@FXML
 	void Dislike(ActionEvent event) {
 		DislikeImage.setImage(dislikeimage);
@@ -216,11 +220,11 @@ public class PreProfileController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+	   int id =MyAppContext.selectedIdPersonInSearch;
 		String like = null;
 		String dislike = null;
 		String sql1 = "select Likes from bio where Id='1'";
-		String sql2 = "select Dislikes from bio where Id='1'";
+		
 		try {
 
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");

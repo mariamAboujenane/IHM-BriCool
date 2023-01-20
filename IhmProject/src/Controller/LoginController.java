@@ -87,6 +87,7 @@ import javafx.event.ActionEvent;
 					while(queryResult.next()){
 			    		if(queryResult.getInt(1)==1) {
 			    			testlabel.setText("welcome");
+			    	
 			    		}else {
 			    			testlabel.setText("username or password is not correct. Please try again");
 			    		}
@@ -102,6 +103,29 @@ import javafx.event.ActionEvent;
 						while(queryResult.next()){
 				    		if(queryResult.getInt(1)==1) {
 				    			testlabel.setText("welcome");
+				    			String 	connectedWorkerUsername = usernameTextField.getText();
+					    		String 	connectedWorkerPassword=passwordTextField.getText();
+					    			MyAppContext.workerUsername=connectedWorkerUsername;
+					    			MyAppContext.workerPassword=connectedWorkerPassword;
+					    		System.out.println("login : username :"+MyAppContext.workerUsername +",password :"+MyAppContext.workerPassword);
+					    		try {
+									Parent parent;
+									parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
+									
+									Scene scene = new Scene(parent);
+									
+									Stage  primaryStage = new Stage();
+									primaryStage.setScene(scene);
+									primaryStage.show();
+									
+									Stage stage = (Stage) submitButton.getScene().getWindow();
+								    // do what you have to do
+								  stage.close();
+									
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 				    		}else {
 				    			testlabel.setText("username or password is not correct. Please try again");
 				    		}

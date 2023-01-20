@@ -1,5 +1,6 @@
 package src.Model;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 import com.mysql.cj.jdbc.Blob;
 
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class SearchModel {
+	int id ;
      String name;
      String username;
      String speciality;
@@ -16,12 +18,17 @@ public class SearchModel {
      int Likes;
      int Dislikes;
      
+     ImageView photo;
+     
+     
 
      public SearchModel() {
   	   super();
      }
 
-public SearchModel (String name, String username, String speciality, int phone_number, int Likes, int Dislikes, String city) {
+     
+public SearchModel (int id ,String name, String username, String speciality, int phone_number, int Likes, int Dislikes, String city , ImageView photo) {
+	this.id=id;
 	this.name=name;
 	this.username=username;
 	this.speciality=speciality;
@@ -29,7 +36,7 @@ public SearchModel (String name, String username, String speciality, int phone_n
 	this.city=city;
 	this.Likes=Likes;
 	this.Dislikes=Dislikes;
-	
+	this.photo=photo;
 }
 
 public String getName() {
@@ -76,6 +83,7 @@ public int getDislikes() {
 	return Dislikes;
 }
 
+
 public void setDislikes(int dislikes) {
 	Dislikes = dislikes;
 }
@@ -88,6 +96,19 @@ public void setCity(String city) {
 	this.city = city;
 }
 
+public ImageView getPhoto() {
+	return photo;
 }
 
-	 
+public void setPhoto(ImageView photo) {
+	this.photo=photo;
+}
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
+}
+
+}
