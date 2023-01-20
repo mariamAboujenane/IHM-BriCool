@@ -18,7 +18,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.PreProfileController">
    <children>
-      <Button layoutX="498.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+      <Button fx:id="btn_notification" layoutX="498.0" layoutY="17.0" mnemonicParsing="false" onAction="#gonotification" style="-fx-background-color: #E8EAEE;">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -42,9 +42,9 @@
          </image></ImageView>
       <MenuButton layoutX="594.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
         <items>
-          <MenuItem mnemonicParsing="false" text="Edit Profile" />
-            <MenuItem mnemonicParsing="false" text="History" />
-          <MenuItem mnemonicParsing="false" text="Sign out" />
+          <MenuItem fx:id="edit" mnemonicParsing="false" onAction="#goeditprofile" text="Edit Profile" />
+            <MenuItem fx:id="history" mnemonicParsing="false" onAction="#gohistory" text="History" />
+          <MenuItem fx:id="signout" mnemonicParsing="false" onAction="#signout" text="Sign out" />
         </items>
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
@@ -54,7 +54,7 @@
             </ImageView>
          </graphic>
       </MenuButton>
-      <Button layoutX="550.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+      <Button fx:id="btn_information" layoutX="550.0" layoutY="21.0" mnemonicParsing="false" onAction="#goinformation" style="-fx-background-color: #E8EAEE;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>

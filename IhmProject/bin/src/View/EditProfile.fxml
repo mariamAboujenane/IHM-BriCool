@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.EditProfileController">
    <right>
-      <AnchorPane prefHeight="520.0" prefWidth="353.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="566.0" prefWidth="304.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="174.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -48,62 +48,75 @@
       </AnchorPane>
    </right>
    <left>
-      <AnchorPane prefHeight="550.0" prefWidth="475.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="469.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="162.0" layoutY="15.0" prefHeight="45.0" prefWidth="242.0" text="Edit profile" textFill="#503a3c">
-               <font>
-                  <Font name="System Bold" size="29.0" />
-               </font>
-            </Label>
-            <TextField layoutX="28.0" layoutY="87.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="28.0" layoutY="352.0" prefHeight="26.0" prefWidth="307.0" />
-            <TextField layoutX="28.0" layoutY="415.0" prefHeight="26.0" prefWidth="307.0" />
-            <Label layoutX="28.0" layoutY="58.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
+            <TextField fx:id="txtname" layoutX="28.0" layoutY="74.0" prefHeight="29.0" prefWidth="300.0" />
+            <TextField fx:id="txtuser" layoutX="28.0" layoutY="126.0" prefHeight="29.0" prefWidth="300.0" />
+            <TextField fx:id="txtpswd" layoutX="28.0" layoutY="403.0" prefHeight="30.0" prefWidth="300.0" />
+            <TextField fx:id="txtconfirmpswd" layoutX="27.0" layoutY="459.0" prefHeight="30.0" prefWidth="300.0" />
+            <Label layoutX="28.0" layoutY="99.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Username" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="323.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="376.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="386.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="431.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="183.0" layoutY="455.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Edit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+            <Button fx:id="create" layoutX="128.0" layoutY="498.0" mnemonicParsing="false" onAction="#createOnAction" prefHeight="35.0" prefWidth="128.0" style="-fx-background-color: #503A3C;" text="Create" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="28.0" layoutY="124.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Specialty" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="152.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Specialty" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="191.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="211.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="28.0" layoutY="220.0" prefHeight="26.0" prefWidth="307.0" />
-            <Label layoutX="28.0" layoutY="260.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
+            <TextField fx:id="txtnumber" layoutX="28.0" layoutY="237.0" prefHeight="30.0" prefWidth="300.0" />
+            <Label layoutX="29.0" layoutY="322.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="28.0" layoutY="289.0" prefHeight="26.0" prefWidth="307.0" />
-            <Button fx:id="back" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
+            <TextField fx:id="txtaddress" layoutX="28.0" layoutY="348.0" prefHeight="30.0" prefWidth="300.0" />
+            <Button fx:id="back1" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
                <graphic>
-                  <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="37.0" opacity="0.69" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/icons8-left-green.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <ComboBox fx:id="Mychoicebox" layoutX="28.0" layoutY="153.0" prefHeight="26.0" prefWidth="307.0" style="-fx-background-color: #ffffff;" />
+               </graphic>
+            </Button>
+            <ComboBox fx:id="Mychoicebox1" layoutX="28.0" layoutY="180.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;" />
+            <Label layoutX="28.0" layoutY="46.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="txtcity" layoutX="29.0" layoutY="292.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;" />
+            <Label layoutX="28.0" layoutY="265.0" prefHeight="29.0" prefWidth="193.0" text="City" textFill="#2c7a6a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="128.0" layoutY="14.0" prefHeight="45.0" prefWidth="242.0" text="Edit profile" textFill="#503a3c">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </left>

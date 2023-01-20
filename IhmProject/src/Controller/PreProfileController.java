@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.event.*;
@@ -19,14 +20,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PreProfileController implements Initializable {
-
+	
+	int id =MyAppContext.selectedIdPersonInSearch;
 	Image dislikeimage = new Image("src/View/icons/down.png");
 	Image likeimage = new Image("src/View/icons/upp.png");
 	Image dislikeimage_gris = new Image("src/View/icons/down_gris_new.png");
@@ -35,6 +41,7 @@ public class PreProfileController implements Initializable {
 	Image nodispoimage = new Image("src/View/icons/red_circle.png");
 	int contour_like = 0;
 	int contour_dislike = 0;
+	private DialogPane dialog;
 
     @FXML
     private Label usernameLabel;
@@ -51,6 +58,11 @@ public class PreProfileController implements Initializable {
 	@FXML
 	private Button LikeBtn;
 
+    @FXML
+    private MenuItem edit;
+    @FXML
+    private MenuItem history;
+
 	@FXML
 	private ImageView LikeImage;
 	
@@ -58,6 +70,10 @@ public class PreProfileController implements Initializable {
     private Label addresslabel;
     @FXML
     private Label biolabel;
+    @FXML
+    private Button btn_information;
+    @FXML
+    private Button btn_notification;
 
     @FXML
     private Label nameLabel;
@@ -81,8 +97,9 @@ public class PreProfileController implements Initializable {
     @FXML
 	
 	private Button reservebtn;
+    @FXML
+    private MenuItem signout;
 
-    int id;
 	@FXML
 	void Dislike(ActionEvent event) {
 		String dislike_modify;
@@ -102,7 +119,7 @@ public class PreProfileController implements Initializable {
 			DislikeLbl.setText(dislike_modify);
 			contour_dislike ++;
 		}
-		  String updateQuery = "UPDATE bio SET Dislikes = ? WHERE id = '1'";
+		  String updateQuery = "UPDATE bio SET Dislikes = ? WHERE id = '" +id+ "'";
 		 
   	  try {
          	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -140,7 +157,7 @@ public class PreProfileController implements Initializable {
 			LikeLbl.setText(like_modify);
 			contour_like ++;
 		}
-		  String updateQuery = "UPDATE bio SET Likes = ? WHERE id = '1'";
+		  String updateQuery = "UPDATE bio SET Likes = ? WHERE id = '" +id+ "'";
 		 
   	  try {
          	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -159,13 +176,133 @@ public class PreProfileController implements Initializable {
 
 
 	}
-	
+	   @FXML
+	    void goeditprofile(ActionEvent event) {
+			try {
+				Parent parent;
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfileUser.fxml"));
+
+				Scene scene1 = new Scene(parent);
+
+				Stage primaryStage1 = new Stage();
+				primaryStage1.setScene(scene1);
+				primaryStage1.show();
+
+				Stage stage1 = (Stage) btn_information.getScene().getWindow();
+				// do what you have to do
+				stage1.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+	    @FXML
+	    void gohistory(ActionEvent event) {
+	    	try {
+				Parent parent;
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/ClientHistory.fxml"));
+
+				Scene scene1 = new Scene(parent);
+
+				Stage primaryStage1 = new Stage();
+				primaryStage1.setScene(scene1);
+				primaryStage1.show();
+
+				Stage stage1 = (Stage) btn_information.getScene().getWindow();
+				// do what you have to do
+				stage1.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	    }
+	    @FXML
+	    void goinformation(ActionEvent event) {
+	    	try {
+				Parent parent;
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/information.fxml"));
+
+				Scene scene1 = new Scene(parent);
+
+				Stage primaryStage1 = new Stage();
+				primaryStage1.setScene(scene1);
+				primaryStage1.show();
+
+				Stage stage1 = (Stage) btn_information.getScene().getWindow();
+				// do what you have to do
+				stage1.close();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	    }
+	    @FXML
+	    void gonotification(ActionEvent event) {
+	    	try {
+				Parent parent;
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/Notification.fxml"));
+
+				Scene scene = new Scene(parent);
+
+				Stage primaryStage = new Stage();
+				primaryStage.setScene(scene);
+				primaryStage.show();
+
+				Stage stage = (Stage) btn_notification.getScene().getWindow();
+				// do what you have to do
+				stage.close();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	    }
+
+	    @FXML
+	    void signout(ActionEvent event) {
+	    	try {
+
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setHeaderText(null);
+				alert.setContentText("Are you sure that you want to log out !");
+				alert.initModality(Modality.NONE);
+				dialog = alert.getDialogPane();
+				dialog.getStylesheets().add(getClass().getResource("style2.css").toString());
+				dialog.getStyleClass().add("dialog");
+				Optional<ButtonType> result = alert.showAndWait();
+				if (result.isEmpty()) {
+					System.out.print("Alert closed ");
+				} else if (result.get() == ButtonType.OK) {
+
+					Parent parent;
+					parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+
+					Scene scene1 = new Scene(parent);
+
+					Stage primaryStage1 = new Stage();
+					primaryStage1.setScene(scene1);
+					primaryStage1.show();
+					Stage stage1 = (Stage) btn_information.getScene().getWindow();
+					stage1.close();
+				} else if (result.get() == ButtonType.OK) {
+					System.out.print("Alert closed ");
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	    }
 	
     @FXML
     void report(ActionEvent event) {
         
     	String signaler = null;
-		String sql1 = "select nbr_signal from service_provider where idprovider='4'";
+		String sql1 = "select nbr_signal from service_provider where idprovider='" +id+ "'";
 	
 		try {
 
@@ -185,7 +322,7 @@ public class PreProfileController implements Initializable {
 		signaler_int++;
 		String signaler_modify = String.valueOf(signaler_int);
 		
-		 String updateQuery = "UPDATE service_provider SET nbr_signal = ? WHERE idprovider = '4'";
+		 String updateQuery = "UPDATE service_provider SET nbr_signal = ? WHERE idprovider = '" +id+ "'";
 		 
 	  	  try {
 	         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -223,7 +360,7 @@ public class PreProfileController implements Initializable {
 	  	int test = (users*20)/100;
 	  	  
 	  	  if(signaler_int == test) {
-	  		  String delete = "DELETE FROM service_provider WHERE idprovider = '4'";
+	  		  String delete = "DELETE FROM service_provider WHERE idprovider = '" +id+ "'";
 	  	  	  try {
 		         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt2 = cnx2.prepareStatement(delete);
@@ -265,7 +402,7 @@ public class PreProfileController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	   int id =MyAppContext.selectedIdPersonInSearch;
+	   
 		String name = null;
 		int status = 0;
 		String address = null;

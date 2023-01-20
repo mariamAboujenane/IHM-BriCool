@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -65,6 +66,8 @@ import src.Model.DatabaseConnection;
 		private Hyperlink insta;
 		@FXML
 	    private Hyperlink twitter;
+	    @FXML
+	    private ToggleGroup type;
 		
 	    @FXML
 	    void facebooklink(ActionEvent event) {
@@ -224,7 +227,7 @@ import src.Model.DatabaseConnection;
 					    		System.out.println("login : username :"+MyAppContext.workerUsername +",password :"+MyAppContext.workerPassword);
 					    		try {
 									Parent parent;
-									parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
+									parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
 									
 									Scene scene = new Scene(parent);
 									

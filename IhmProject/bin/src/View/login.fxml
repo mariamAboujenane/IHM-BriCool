@@ -7,6 +7,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -145,8 +146,11 @@
             <RadioButton fx:id="clientbtn" layoutX="58.0" layoutY="152.0" mnemonicParsing="false" text="Client" textFill="#513b3d">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
-               </font></RadioButton>
-            <RadioButton fx:id="providerbtn" layoutX="140.0" layoutY="152.0" mnemonicParsing="false" text="Service Provider" textFill="#513b3d">
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="type" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="providerbtn" layoutX="140.0" layoutY="152.0" mnemonicParsing="false" text="Service Provider" textFill="#513b3d" toggleGroup="$type">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></RadioButton>
