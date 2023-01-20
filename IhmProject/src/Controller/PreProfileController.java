@@ -1,6 +1,8 @@
 package src.Controller;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,8 +29,10 @@ public class PreProfileController implements Initializable {
 
 	Image dislikeimage = new Image("src/View/icons/down.png");
 	Image likeimage = new Image("src/View/icons/upp.png");
-	int Dislike_increment;
-	int Like_increment;
+	Image dislikeimage_gris = new Image("src/View/icons/down_gris_new.png");
+	Image likeimage_gris = new Image("src/View/icons/up_gris_new.png");
+	int contour_like = 0;
+	int contour_dislike = 0;
 
     @FXML
     private Label usernameLabel;
@@ -50,12 +54,17 @@ public class PreProfileController implements Initializable {
 	
     @FXML
     private Label addresslabel;
+    @FXML
+    private Label biolabel;
 
     @FXML
     private Label nameLabel;
 
     @FXML
     private Label phonelabel;
+
+    @FXML
+    private ImageView photolabel;
     @FXML
     private Label specialitylabel;
 
@@ -71,13 +80,23 @@ public class PreProfileController implements Initializable {
     int id;
 	@FXML
 	void Dislike(ActionEvent event) {
-		DislikeImage.setImage(dislikeimage);
-		Dislike_increment++;
+		String dislike_modify;
 		String dislike = DislikeLbl.getText();
+		if(contour_dislike % 2 == 0) {
+		DislikeImage.setImage(dislikeimage);
 		int dislike_int = Integer.parseInt(dislike);
-		int dislike_number = dislike_int + Dislike_increment;
-		String dislike_modify = String.valueOf(dislike_number);
-		LikeLbl.setText(dislike_modify);
+		int dislike_number = dislike_int +1;
+		dislike_modify = String.valueOf(dislike_number);
+		DislikeLbl.setText(dislike_modify);
+		contour_dislike ++;
+		}else {
+			DislikeImage.setImage(dislikeimage_gris);
+			int dislike_int = Integer.parseInt(dislike);
+			int dislike_number = dislike_int -1;
+			dislike_modify = String.valueOf(dislike_number);
+			DislikeLbl.setText(dislike_modify);
+			contour_dislike ++;
+		}
 		  String updateQuery = "UPDATE bio SET Dislikes = ? WHERE id = '1'";
 		 
   	  try {
@@ -99,13 +118,23 @@ public class PreProfileController implements Initializable {
 	@FXML
 	void Like(ActionEvent event) {
 		
-		LikeImage.setImage(likeimage);
-		Like_increment++;
+		String like_modify;
 		String like = LikeLbl.getText();
+		if(contour_like % 2 == 0) {
+		LikeImage.setImage(likeimage);
 		int like_int = Integer.parseInt(like);
-		int like_number = like_int + Like_increment;
-		String like_modify = String.valueOf(like_number);
+		int like_number = like_int +1;
+		like_modify = String.valueOf(like_number);
 		LikeLbl.setText(like_modify);
+		contour_like ++;
+		}else {
+			LikeImage.setImage(likeimage_gris);
+			int like_int = Integer.parseInt(like);
+			int like_number = like_int -1;
+			like_modify = String.valueOf(like_number);
+			LikeLbl.setText(like_modify);
+			contour_like ++;
+		}
 		  String updateQuery = "UPDATE bio SET Likes = ? WHERE id = '1'";
 		 
   	  try {
@@ -240,7 +269,12 @@ public class PreProfileController implements Initializable {
 		String address = null;
 		String phone = null;
 		String speciality = null;
-		String sql = "select * from service_provider where idprovider='" +id+ "'";
+		String bio = null;
+		String likes = null;
+		String dislikes = null;
+		java.sql.Blob photo;
+		byte[] imageBytes = null;
+		String sql = "select name,speciality,phone_number,address,Bio,Likes,Dislikes,photo from service_provider where idprovider='" +id+ "'";
 		
 		try {
 
@@ -253,7 +287,13 @@ public class PreProfileController implements Initializable {
 				address = rs.getString("address");
 				phone = rs.getString("phone_number");
 				speciality = rs.getString("speciality");
+				bio = rs.getString("Bio");
+				likes = rs.getString("Likes");
+				dislikes = rs.getString("Dislikes");
+				photo = rs.getBlob("photo");
+				imageBytes = photo.getBytes(1, (int) photo.length());
 			}
+			
 
 		} catch (SQLException e1) {
 			e1.printStackTrace();
@@ -262,6 +302,15 @@ public class PreProfileController implements Initializable {
 		addresslabel.setText(address);
 		phonelabel.setText(phone);
 		specialitylabel.setText(speciality);
+		biolabel.setText(bio);
+		LikeLbl.setText(likes);
+		DislikeLbl.setText(dislikes);
+		InputStream inputStream = new ByteArrayInputStream(imageBytes);
+
+		   Image imge = new Image(inputStream);
+		  photolabel.setImage(imge);
+
+		
 		try {
 
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");

@@ -29,7 +29,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="275.0" layoutY="473.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Submit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="submit" layoutX="275.0" layoutY="473.0" mnemonicParsing="false" onAction="#submit" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Submit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
