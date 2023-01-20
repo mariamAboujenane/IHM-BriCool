@@ -186,6 +186,8 @@ public class AccountProvider implements Initializable{
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			 Mychoicebox.getItems().addAll(speciality);
+			 txtcity.getItems().addAll(city);
+
 			
 		}
 
