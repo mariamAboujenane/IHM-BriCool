@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,19 +9,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.AddPhotoController">
-   <center>
-      <AnchorPane prefHeight="393.0" prefWidth="481.0" style="-fx-background-color: b6 #E8EAEEd0bd;" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.AddPhotoController">
+   <top>
+      <AnchorPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="81.0" fitWidth="94.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="95.0" fitWidth="159.0" layoutX="30.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/logo.jpg" />
+                  <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
-            <Pane layoutX="156.0" layoutY="79.0" prefHeight="235.0" prefWidth="307.0" style="-fx-border-color: b6d0bd;">
+            <Pane layoutX="51.0" layoutY="96.0" prefHeight="331.0" prefWidth="499.0" style="-fx-border-color: b6d0bd;">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="233.0" fitWidth="303.0" layoutX="2.0" layoutY="1.0" onDragDropped="#handledrop" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="draganddrop" layoutX="17.0" layoutY="60.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="273.0" style="-fx-background-color: b6d0bd;" text="drag &amp; drop your photi herre." textFill="#503a3c">
+                  <ImageView fx:id="imageView" fitHeight="235.0" fitWidth="304.0" layoutX="98.0" layoutY="37.0" onDragDropped="#handledrop" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="draganddrop" layoutX="129.0" layoutY="93.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="273.0" style="-fx-background-color: #E8EAEE;" text="choose your profile picture" textFill="#503a3c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -34,17 +35,80 @@
                   </Button>
                </children>
             </Pane>
-            <Button fx:id="cancel" layoutX="160.0" layoutY="332.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="22.0" prefWidth="80.0" style="-fx-background-color: #E8EAEE;" text="Cancel" textFill="#503a3c">
+            <Button fx:id="cancel" layoutX="338.0" layoutY="438.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #308a77;" text="Skip" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="addButton" disable="true" layoutX="326.0" layoutY="332.0" mnemonicParsing="false" onAction="#addAction" prefHeight="22.0" prefWidth="80.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="addButton" layoutX="449.0" layoutY="438.0" mnemonicParsing="false" onAction="#addAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #513b3d;" text="Add" textFill="#e8eaee" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+            <Button fx:id="cancel1" layoutX="231.0" layoutY="438.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #308a77;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="226.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="194.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="258.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="176.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/checkmark.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="323.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/checkmark.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="290.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="341.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="374.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="407.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="104.0" layoutX="440.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-horizontal-line-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="473.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-full-moon-50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="154.0" layoutY="29.0" text="Personal info" textFill="#513b3d" />
+            <Label layoutX="300.0" layoutY="28.0" text="Add photo" textFill="#513b3d" />
+            <Label layoutX="466.0" layoutY="28.0" text="Profile" textFill="#513b3d" />
          </children>
       </AnchorPane>
-   </center>
+   </top>
 </BorderPane>

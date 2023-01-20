@@ -36,7 +36,7 @@ public class AccountProvider implements Initializable{
 	   
 	    @FXML
 	    private ComboBox<String> txtcity;
-	    private String [] city = {"Tanger","Casablanca","Fes","Zagora","Oujda"};
+	    private String [] city = {"Tanger","Casablanca","Fes","Zagora","Oujda","Tétouan","Rabat","El Jadida","Agadir","Salé","Meknès","Marrakech","Kénitra","Laayoune","Mohammédia","Béni Mellal","Nador","Safi","Témara","Berkane"};
 
 	    @FXML
 	    private Button back;
