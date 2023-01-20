@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,8 +15,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -27,6 +30,9 @@ public class PreProfileController implements Initializable {
 	int Dislike_increment;
 	int Like_increment;
 
+    @FXML
+    private Label usernameLabel;
+    
 	@FXML
 	private Button DislikeBtn;
 
@@ -41,25 +47,167 @@ public class PreProfileController implements Initializable {
 
 	@FXML
 	private ImageView LikeImage;
+	
+    @FXML
+    private Label addresslabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label phonelabel;
+    @FXML
+    private Label specialitylabel;
 
 	@FXML
 	private Label LikeLbl;
 	@FXML
+    private Button report;
+    
+    @FXML
+	
 	private Button reservebtn;
 
+    int id;
 	@FXML
 	void Dislike(ActionEvent event) {
 		DislikeImage.setImage(dislikeimage);
 		Dislike_increment++;
+		String dislike = DislikeLbl.getText();
+		int dislike_int = Integer.parseInt(dislike);
+		int dislike_number = dislike_int + Dislike_increment;
+		String dislike_modify = String.valueOf(dislike_number);
+		LikeLbl.setText(dislike_modify);
+		  String updateQuery = "UPDATE bio SET Dislikes = ? WHERE id = '1'";
+		 
+  	  try {
+         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+   		  preparedStmt.setString   (1, dislike_modify);
+
+   		 preparedStmt.execute();
+ 			Alert alert = new Alert(AlertType.WARNING, "You have dis disliked this service provider.", javafx.scene.control.ButtonType.OK);
+ 			 alert.showAndWait();
+ 			 
+ 	  }catch(SQLException e1) {
+ 		e1.printStackTrace();
+
+ 	  }
 
 	}
 
 	@FXML
 	void Like(ActionEvent event) {
+		
 		LikeImage.setImage(likeimage);
 		Like_increment++;
+		String like = LikeLbl.getText();
+		int like_int = Integer.parseInt(like);
+		int like_number = like_int + Like_increment;
+		String like_modify = String.valueOf(like_number);
+		LikeLbl.setText(like_modify);
+		  String updateQuery = "UPDATE bio SET Likes = ? WHERE id = '1'";
+		 
+  	  try {
+         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+   		  preparedStmt.setString   (1, like_modify);
+
+   		 preparedStmt.execute();
+ 			Alert alert = new Alert(AlertType.WARNING, "You have liked this service provider.", javafx.scene.control.ButtonType.OK);
+ 			 alert.showAndWait();
+ 			 
+ 	  }catch(SQLException e1) {
+ 		e1.printStackTrace();
+
+ 	  }
+
+
 
 	}
+	
+	
+    @FXML
+    void report(ActionEvent event) {
+        
+    	String signaler = null;
+		String sql1 = "select nbr_signal from service_provider where idprovider='4'";
+	
+		try {
+
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			Statement statement = cnx.createStatement();
+			ResultSet rs = statement.executeQuery(sql1);
+
+			while (rs.next()) {
+				signaler = rs.getString("nbr_signal");
+			}
+
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		int signaler_int = Integer.parseInt(signaler);
+		signaler_int++;
+		String signaler_modify = String.valueOf(signaler_int);
+		
+		 String updateQuery = "UPDATE service_provider SET nbr_signal = ? WHERE idprovider = '4'";
+		 
+	  	  try {
+	         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+	         	 PreparedStatement preparedStmt2 = cnx2.prepareStatement(updateQuery);
+	   		  preparedStmt2.setString   (1, signaler_modify);
+
+	   		 preparedStmt2.execute();
+	 			Alert alert = new Alert(AlertType.WARNING, "You have signaled this service provider.", javafx.scene.control.ButtonType.OK);
+	 			 alert.showAndWait();
+	 			 
+	 	  }catch(SQLException e1) {
+	 		e1.printStackTrace();
+
+	 	  }
+	  	  
+	  	  int users = 0;
+	  	  String count ="SELECT COUNT(iduser) FROM user";
+	  	try {
+
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			Statement statement = cnx.createStatement();
+			ResultSet rs = statement.executeQuery(count);
+			
+
+			while (rs.next()) {
+				users = rs.getInt(1);
+				
+			}
+		    System.out.println(users);
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	  	
+	  	int test = (users*20)/100;
+	  	  
+	  	  if(signaler_int == test) {
+	  		  String delete = "DELETE FROM service_provider WHERE idprovider = '4'";
+	  	  	  try {
+		         	Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		         	 PreparedStatement preparedStmt2 = cnx2.prepareStatement(delete);
+		   
+
+		   		 preparedStmt2.execute();
+		 			Alert alert = new Alert(AlertType.WARNING, "this service provider is deleted.", javafx.scene.control.ButtonType.OK);
+		 			 alert.showAndWait();
+		 			 
+		 	  }catch(SQLException e1) {
+		 		e1.printStackTrace();
+
+		 	  }
+	  		  
+	  	  }
+
+    }
+	
 
 	@FXML
 	void reservation(ActionEvent event) {
@@ -83,11 +231,37 @@ public class PreProfileController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+	   int id =MyAppContext.selectedIdPersonInSearch;
 		String like = null;
 		String dislike = null;
-		String sql1 = "select Likes from bio where Id='1'";
-		String sql2 = "select Dislikes from bio where Id='1'";
+		String sql1 = "select Likes from service_provider where idprovider='" +id+ "'";
+		String sql2 = "select Dislikes from service_provider where idprovider='" +id+ "'";
+		String name = null;
+		String address = null;
+		String phone = null;
+		String speciality = null;
+		String sql = "select * from service_provider where idprovider='" +id+ "'";
+		
+		try {
+
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			Statement statement = cnx.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+
+			while (rs.next()) {
+				name = rs.getString("name");
+				address = rs.getString("address");
+				phone = rs.getString("phone_number");
+				speciality = rs.getString("speciality");
+			}
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		nameLabel.setText(name);
+		addresslabel.setText(address);
+		phonelabel.setText(phone);
+		specialitylabel.setText(speciality);
 		try {
 
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -102,6 +276,7 @@ public class PreProfileController implements Initializable {
 			e1.printStackTrace();
 		}
 		LikeLbl.setText(like);
+		
 		try {
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 			Statement statement = cnx.createStatement();

@@ -30,11 +30,32 @@ public class usercontroller {
     @FXML
     private TextField txtuser;
    //zineb
-   
+    @FXML
+    private Button back;
+
+    @FXML
+    void Back_To_choose(ActionEvent event) {
+    	Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			Stage stage1 = (Stage) back.getScene().getWindow();
+		    stage1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    }
+
 	@FXML
 	public void createOnAction(ActionEvent e) {
 		String sql="insert into user(name,username,password) values(?,?,?)";
-             if(txtpswd.getText().equalsIgnoreCase(txtconfirmpswd.getText())){
+             if(txtpswd.getText().equals(txtconfirmpswd.getText())){
 	          	   try {
 	                  	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 	          			PreparedStatement st = cnx.prepareStatement(sql);   

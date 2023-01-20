@@ -10,11 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ClientOrProviderController {
+	
+    private DialogPane dialog;
 
     @FXML
     private RadioButton clientbtn;
@@ -40,8 +45,14 @@ public class ClientOrProviderController {
 			}else if(providerbtn.isSelected()) {
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AccountProvider.fxml"));
 			}else {
-				Alert alert = new Alert(AlertType.CONFIRMATION, "You should select", javafx.scene.control.ButtonType.OK);
+				Alert alert  = new Alert(AlertType.NONE,"You should select one ",ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.initModality(Modality.NONE);
+			    dialog= alert.getDialogPane(); 
+				dialog.getStylesheets().add(getClass().getResource("style2.css").toString());
+   			    dialog.getStyleClass().add("dialog");
       			alert.showAndWait();
+      			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
 			}
 			Scene scene = new Scene(parent);
 			
