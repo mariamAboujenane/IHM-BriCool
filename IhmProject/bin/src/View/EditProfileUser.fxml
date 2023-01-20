@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.EditProfileUserController">
+  <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="660.0">
+         <right>
+            <AnchorPane prefHeight="497.0" prefWidth="209.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="174.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/logogris.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="142.0" layoutY="219.0" prefHeight="21.0" prefWidth="161.0" text="Please enter reliable " textFill="#513b3d">
+                     <font>
+                        <Font name="Segoe Script" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="126.0" layoutY="249.0" prefHeight="21.0" prefWidth="161.0" text=" information  to develop" textFill="#513b3d">
+                     <font>
+                        <Font name="Segoe Script" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="136.0" layoutY="284.0" prefHeight="21.0" prefWidth="144.0" text="CREDEBILITY " textFill="#513b3d">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </right>
+         <left>
+            <AnchorPane prefHeight="550.0" prefWidth="475.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="162.0" layoutY="15.0" prefHeight="45.0" prefWidth="242.0" text="Edit profile" textFill="#503a3c">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtname" layoutX="28.0" layoutY="111.0" prefHeight="26.0" prefWidth="307.0" />
+                  <TextField fx:id="txtpassword" layoutX="28.0" layoutY="247.0" prefHeight="26.0" prefWidth="307.0" />
+                  <TextField fx:id="txtconpassword" layoutX="28.0" layoutY="313.0" prefHeight="26.0" prefWidth="307.0" />
+                  <Label layoutX="29.0" layoutY="82.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="29.0" layoutY="218.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="29.0" layoutY="283.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="edit" layoutX="179.0" layoutY="366.0" mnemonicParsing="false" onAction="#edit_profile" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Edit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="back" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-left-75.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Label layoutX="29.0" layoutY="153.0" prefHeight="29.0" prefWidth="193.0" text="Username" textFill="#2c7a6a">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtusername" layoutX="28.0" layoutY="182.0" prefHeight="26.0" prefWidth="307.0" />
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+  </children>
+</VBox>

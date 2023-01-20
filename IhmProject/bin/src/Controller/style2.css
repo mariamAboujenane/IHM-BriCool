@@ -1,0 +1,6 @@
+.dialog-pane {
+    -fx-background-color: linear-gradient(to left,#B6D0BD,white);   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: null;
+    -fx-font-size:17px;
+}
