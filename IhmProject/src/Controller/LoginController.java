@@ -1,6 +1,8 @@
 package src.Controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -50,6 +53,49 @@ import src.Model.DatabaseConnection;
 	    private Button showhide_btn1;
 	    @FXML
 	    private ImageView eyeimg;
+	    
+	    
+	    @FXML
+		private Hyperlink facebook;
+		@FXML
+		private Hyperlink insta;
+		@FXML
+	    private Hyperlink twitter;
+		
+	    @FXML
+	    void facebooklink(ActionEvent event) {
+	    	try {
+	    	    Desktop.getDesktop().browse(new URL("https://www.facebook.com/").toURI());
+	    	} catch (IOException e) {
+	    	    e.printStackTrace();
+	    	} catch (URISyntaxException e) {
+	    	    e.printStackTrace();
+	    	}
+	    }
+	   
+	    @FXML
+	    void instalink(ActionEvent event) {
+	    	try {
+	    	    Desktop.getDesktop().browse(new URL("https://www.instagram.com/").toURI());
+	    	} catch (IOException e) {
+	    	    e.printStackTrace();
+	    	} catch (URISyntaxException e) {
+	    	    e.printStackTrace();
+	    	}
+	    }
+
+	    @FXML
+	    void twitterlink(ActionEvent event) {
+	    	try {
+	    	    Desktop.getDesktop().browse(new URL("https://twitter.com/").toURI());
+	    	} catch (IOException e) {
+	    	    e.printStackTrace();
+	    	} catch (URISyntaxException e) {
+	    	    e.printStackTrace();
+	    	}
+	    }
+	    
+
 
 	    @FXML
 	    void ShowHide(ActionEvent event) {
