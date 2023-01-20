@@ -1,32 +1,41 @@
 package src.Controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class SProfileController {
+public class SProfileController implements Initializable{
 	
 	  @FXML
 	    private Button AddBtn;
 	   @FXML
 	    private TextField BioTxt;
 
+	   
+	    @FXML
+	    private Label usernameLabel;
+	    
     @FXML
     private Button editbtn;
     
+    int id;
     @FXML
     void AddBio(ActionEvent event) {
     	String sql="insert into bio(Bio) values(?)";
@@ -68,6 +77,12 @@ public class SProfileController {
 		}
 
     }
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+	    usernameLabel.setText(MyAppContext.workerUsername);
+    	System.err.println("username :"+MyAppContext.workerUsername +",password :"+MyAppContext.workerPassword);
+	}
 
 }
 

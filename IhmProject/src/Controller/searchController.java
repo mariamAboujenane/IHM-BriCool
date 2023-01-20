@@ -3,13 +3,11 @@ package src.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+
 import javafx.collections.*;
 import javafx.event.*;//hadu should be f gaa controller sinn athm9kom matkhdmch 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -21,6 +19,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import src.Controller.MyAppContext;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +35,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -58,6 +58,9 @@ public class searchController implements Initializable {
 
 	@FXML
 	private ComboBox<String> cityChoice;
+	
+	@FXML
+    private Button searchbtn;
 
 	@FXML
 	private ComboBox<String> specialityChoice;
@@ -73,10 +76,16 @@ public class searchController implements Initializable {
 
 	@FXML
 	private TableColumn<SearchModel, Integer> phoneNumberC4;
-	
+
+	@FXML
+	private TableColumn<SearchModel, String> cityC7;
 
     @FXML
-    private TableColumn<SearchModel, String> cityC7;
+    private TableColumn<SearchModel, Integer> idColumn;
+
+
+	@FXML
+	private TableColumn<SearchModel, Image> imageColumn;
 
 	@FXML
 	private TextField searchBar;
@@ -86,34 +95,24 @@ public class searchController implements Initializable {
 
 	@FXML
 	private TableView<SearchModel> tableViewId;
-	
-	@FXML
-	private TableColumn<SearchModel, ImageView> photoC0;
 
 	@FXML
 	private TableColumn<SearchModel, String> usernameC2;
-	
-	@FXML
-	private Image image;
-	private FileInputStream fis;
-	
 
 	ObservableList<SearchModel> SearchResultList = FXCollections.observableArrayList();
 
-	private String[] Cities = { "Rabat", "Agadir", "Fez", "Tanger", "Tetouan", "Sale", "Casablanca", "Zagora", "Nador",
-			"Oujda", "Marrakech", "Safi", "Meknes", "Kenitra", "Asila", "Ifrane", "Ouarzazate", "Alhoceima" };
+	private String[] Cities = { "Rabat", "AGADIR", "Fez", "Tanger", "Tetouan" };
 	private String[] specialities = { "CARPENTER", "PLUMBER", "CLEANER", "TAILOR HAIR STYLIST", "ELECTRICIAN" };
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// Use a data access object (DAO) to retrieve the images from the database
-	   
-	    
+		
 		specialityChoice.getItems().addAll(specialities);
 		cityChoice.getItems().addAll(Cities);
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
-		String SearchQuery = "SELECT name, username, speciality,Likes,Dislikes, phone_number, city FROM service_provider";
+		String SearchQuery = "SELECT idprovider , name, username, speciality,Likes,Dislikes, phone_number, city, photo FROM service_provider";
 
 		try {
 
@@ -122,6 +121,7 @@ public class searchController implements Initializable {
 			ResultSet rs = st.executeQuery(SearchQuery);
 
 			while (rs.next()) {
+				Integer id = rs.getInt("idprovider");
 				String name = rs.getString("name");
 				String username = rs.getString("username");
 				String speciality = rs.getString("speciality");
@@ -130,23 +130,23 @@ public class searchController implements Initializable {
 				Integer Dislikes = rs.getInt("Dislikes");
 				Integer phone_number = rs.getInt("phone_number");
 
-				InputStream is = rs.getBinaryStream(1);
-				OutputStream os = new FileOutputStream(new File("photo.jpg"));
-				byte[] contents = new byte[1024];
-				int size =0;
-				try {
-					while((size=is.read(contents))!=-1) {
-						os.write(contents,0,size);
-					}
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				image=new Image("file.photo.jpg");
-			    System.out.println(image);
-				SearchResultList.add(new SearchModel(name, username, speciality, phone_number, Likes, Dislikes, city));
+				java.sql.Blob blob = rs.getBlob("photo");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
+
+				// Create an InputStream from the byte array
+				InputStream inputStream = new ByteArrayInputStream(imageBytes);
+
+				Image imge = new Image(inputStream);
+				ImageView image = new ImageView(imge);
+
+				image.setFitWidth(60);
+				image.setFitHeight(60);
+
+				// Creating the image view
+
+				SearchResultList.add(new SearchModel(id,name, username, speciality, phone_number, Likes, Dislikes, city, image));
 			}
+			idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 			nameC1.setCellValueFactory(new PropertyValueFactory<>("name"));
 			usernameC2.setCellValueFactory(new PropertyValueFactory<>("username"));
 			specialityC3.setCellValueFactory(new PropertyValueFactory<>("speciality"));
@@ -154,6 +154,7 @@ public class searchController implements Initializable {
 			likeC5.setCellValueFactory(new PropertyValueFactory<>("Likes"));
 			dislikeC6.setCellValueFactory(new PropertyValueFactory<>("Dislikes"));
 			cityC7.setCellValueFactory(new PropertyValueFactory<>("city"));
+			imageColumn.setCellValueFactory(new PropertyValueFactory<>("photo"));
 
 			tableViewId.setItems(SearchResultList);
 
@@ -167,9 +168,11 @@ public class searchController implements Initializable {
 						return true;
 					}
 
-					String searchKeyword = newValue.toLowerCase(); // fonctionality that changes uper case words to
-																	// lower case
-					if (SearchModel.getName().toLowerCase().indexOf(searchKeyword) > -1) {
+					String searchKeyword = newValue.toLowerCase(); // fonctionality that changes uper case words to lower case
+					
+					if (String.valueOf(SearchModel.getId()).indexOf(searchKeyword) > -1) {
+						return true;
+					} else if (SearchModel.getName().toLowerCase().indexOf(searchKeyword) > -1) {
 						return true;
 
 					} else if (SearchModel.getUsername().toLowerCase().indexOf(searchKeyword) > -1) {
@@ -177,10 +180,9 @@ public class searchController implements Initializable {
 
 					} else if (SearchModel.getSpeciality().toLowerCase().indexOf(searchKeyword) > -1) {
 						return true;
-						
+
 					} else if (SearchModel.getCity().toLowerCase().indexOf(searchKeyword) > -1) {
 						return true;
-
 
 					} else if (String.valueOf(SearchModel.getPhone_number()).indexOf(searchKeyword) > -1) {
 						return true;
@@ -189,68 +191,59 @@ public class searchController implements Initializable {
 					} else if (String.valueOf(SearchModel.getLikes()).indexOf(searchKeyword) > -1) {
 						return true;
 					} else {
-						return false;        
-					
+						return false;
+
 					}
 				});
 
 			});
-			
-			
-			
+
 			SortedList<SearchModel> SortedData = new SortedList<>(FiltetredData);
 			SortedData.comparatorProperty().bind(tableViewId.comparatorProperty());
 			tableViewId.setItems(SortedData);
+
+
+			
+			cityChoice.valueProperty().addListener((observable, oldValue, newValue) -> {
+				// Filter the list of data based on the selected item in the combo box
+				String selectedValue = (String) newValue;
+				FiltetredData.setPredicate(data -> {
+					if (selectedValue == null || selectedValue.isEmpty()) {
+						return true;
+					}
+				String lowerCaseFilter = selectedValue.toLowerCase();
+					if (data.getCity().toLowerCase().contains(lowerCaseFilter)) {
+						return true;
+					}
+					return false;
+				});
+
+			});
 			
 			specialityChoice.valueProperty().addListener((observable, oldValue, newValue) -> {
-			    //Filter the list of data based on the selected item in the combo box
-			    String selectedValue = (String) newValue;
-			    FiltetredData.setPredicate(data -> {
-			    	if (selectedValue == null || selectedValue.isEmpty()) {
-			            return true;
-			        }
-			        String lowerCaseFilter = selectedValue.toLowerCase();
-			        if (data.getSpeciality().toLowerCase().contains(lowerCaseFilter)) {
-			            return true; 
-			        }
-			        return false;
-			    });
-			  });
-			    
-				
-				cityChoice.valueProperty().addListener((observable, oldValue, newValue) -> {
-				    //Filter the list of data based on the selected item in the combo box
-				    String selectedValue = (String) newValue;
-				    FiltetredData.setPredicate(data -> {
-				    	if (selectedValue == null || selectedValue.isEmpty()) {
-				            return true;
-				        }
-				        String lowerCaseFilter = selectedValue.toLowerCase();
-				        if (data.getSpeciality().toLowerCase().contains(lowerCaseFilter)) {
-				            return true; 
-				        }
-				        return false;
-				    });
-			    
+				// Filter the list of data based on the selected item in the combo box
+				String selectedValue = (String) newValue;
+				FiltetredData.setPredicate(data -> {
+					if (selectedValue == null || selectedValue.isEmpty()) {
+						return true;
+					}
+					String lowerCaseFilter = selectedValue.toLowerCase();
+					if (data.getSpeciality().toLowerCase().contains(lowerCaseFilter)) {
+						return true;
+					}
+					return false;
 				});
-			    SortedList<SearchModel> SortedDataC = new SortedList<>(FiltetredData);
-				SortedDataC.comparatorProperty().bind(tableViewId.comparatorProperty());
-				tableViewId.setItems(SortedDataC);
+			});
+		
 			
 			
-				
-			} catch (SQLException e) {
+
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		}
 
-		
-		
 	}
-	
 
 	@FXML
 	void gonotification(ActionEvent event) {
@@ -379,5 +372,35 @@ public class searchController implements Initializable {
 		}
 
 	}
+	
+
+    @FXML
+    void search(ActionEvent event) {
+    	SearchModel selectedPerson = tableViewId.getSelectionModel().getSelectedItem();
+    	 
+    	int id = selectedPerson.getId();
+    	System.out.println(id);
+    	MyAppContext.selectedIdPersonInSearch = id;
+    	try {
+			Parent parent;
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
+			
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			
+			Stage stage = (Stage) searchbtn.getScene().getWindow();
+		    // do what you have to do
+		  stage.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+    }
 
 }

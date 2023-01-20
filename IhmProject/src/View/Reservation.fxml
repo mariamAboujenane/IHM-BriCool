@@ -16,9 +16,9 @@
             <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <TextField layoutX="28.0" layoutY="74.0" prefHeight="26.0" prefWidth="323.0" />
-      <TextField layoutX="27.0" layoutY="269.0" prefHeight="26.0" prefWidth="323.0" />
-      <TextField layoutX="27.0" layoutY="403.0" prefHeight="55.0" prefWidth="323.0" />
+      <TextField fx:id="servicetxt" layoutX="28.0" layoutY="74.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="phonetxt" layoutX="27.0" layoutY="269.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="descriptiontxt" layoutX="27.0" layoutY="403.0" prefHeight="55.0" prefWidth="323.0" />
       <Label layoutX="28.0" layoutY="240.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -44,14 +44,14 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="27.0" layoutY="139.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="nametxt" layoutX="27.0" layoutY="139.0" prefHeight="26.0" prefWidth="323.0" />
       <Label layoutX="28.0" layoutY="173.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="27.0" layoutY="199.0" prefHeight="26.0" prefWidth="323.0" />
-      <DatePicker layoutX="27.0" layoutY="335.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="addresstxt" layoutX="27.0" layoutY="199.0" prefHeight="26.0" prefWidth="323.0" />
+      <DatePicker fx:id="time" layoutX="27.0" layoutY="335.0" prefHeight="26.0" prefWidth="323.0" />
       <Label layoutX="27.0" layoutY="374.0" prefHeight="29.0" prefWidth="307.0" text="Description Of The Problem" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />

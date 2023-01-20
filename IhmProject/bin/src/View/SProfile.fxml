@@ -68,7 +68,7 @@
                      </children>
                   </Pane>
                   <ScrollBar layoutX="610.0" layoutY="173.0" orientation="VERTICAL" prefHeight="221.0" prefWidth="15.0" />
-                  <Label layoutX="85.0" layoutY="14.0" text="Full name -Service " textFill="#513b3d">
+                  <Label fx:id="usernameLabel" layoutX="85.0" layoutY="14.0" textFill="#513b3d">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

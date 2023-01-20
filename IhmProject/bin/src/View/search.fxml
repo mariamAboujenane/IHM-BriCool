@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.searchController">
+<AnchorPane prefHeight="483.0" prefWidth="826.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.searchController">
    <children>
       <Button layoutX="497.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
          <graphic>
@@ -52,19 +52,23 @@
          </graphic>
       </MenuButton>
       <Button layoutX="514.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
-      <ImageView fx:id="searchButton" fitHeight="25.0" fitWidth="25.0" layoutX="622.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/search_black.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="searchbtn" layoutX="625.0" layoutY="110.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="34.0">
+         <graphic>
+            <ImageView fx:id="searchButton" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/search_black.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
       <ComboBox fx:id="cityChoice" layoutX="336.0" layoutY="118.0" opacity="0.9" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #2c7a6a;" visibleRowCount="20" />
       <ComboBox fx:id="specialityChoice" layoutX="479.0" layoutY="118.0" opacity="0.9" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #2c7a6a;" />
-      <Label layoutX="374.0" layoutY="119.0" prefHeight="11.0" prefWidth="90.0" text="City" textAlignment="RIGHT" textFill="#fdfdfd">
+      <Label layoutX="374.0" layoutY="119.0" prefHeight="26.0" prefWidth="70.0" text="City" textAlignment="RIGHT" textFill="#fdfdfd">
          <font>
             <Font name="Bell MT" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="spe" layoutX="508.0" layoutY="121.0" prefHeight="17.0" prefWidth="90.0" text="Speciality" textAlignment="RIGHT" textFill="#fdfdfd">
+      <Label fx:id="spe" layoutX="508.0" layoutY="121.0" prefHeight="26.0" prefWidth="84.0" text="Speciality" textAlignment="RIGHT" textFill="#fdfdfd">
          <font>
             <Font name="Bell MT" size="16.0" />
          </font>
@@ -79,18 +83,19 @@
             <Image url="@icons/speciality.jpeg" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="-6.0" layoutY="158.0" prefHeight="328.0" prefWidth="683.0">
+      <ScrollPane layoutX="-7.0" layoutY="147.0" prefHeight="328.0" prefWidth="826.0">
          <content>
-            <TableView fx:id="tableViewId" prefHeight="324.0" prefWidth="685.0">
+            <TableView fx:id="tableViewId" prefHeight="324.0" prefWidth="824.0">
                <columns>
-                  <TableColumn fx:id="photoC0" minWidth="0.0" prefWidth="116.00002034505212" text="photo" />
-                  <TableColumn fx:id="nameC1" prefWidth="87.33331298828125" text="name" />
-                  <TableColumn fx:id="usernameC2" prefWidth="85.33334350585938" text="username" />
-                  <TableColumn fx:id="specialityC3" prefWidth="86.66665649414062" text="speciality" />
+                  <TableColumn fx:id="imageColumn" prefWidth="100.0" text="photo" />
+                  <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
+                  <TableColumn fx:id="nameC1" prefWidth="100.0" text="name" />
+                  <TableColumn fx:id="usernameC2" prefWidth="150.0" text="username" />
+                  <TableColumn fx:id="specialityC3" prefWidth="120.0" text="speciality" />
                   <TableColumn fx:id="cityC7" prefWidth="75.0" text="city" />
                   <TableColumn fx:id="phoneNumberC4" prefWidth="130.66668701171875" text="phone Number" />
-                  <TableColumn fx:id="likeC5" prefWidth="102.6666259765625" text="like" />
-                  <TableColumn fx:id="dislikeC6" minWidth="0.0" prefWidth="116.00002034505212" text="dislike" />
+                  <TableColumn fx:id="likeC5" maxWidth="50.0" prefWidth="50.0" text="like" />
+                  <TableColumn fx:id="dislikeC6" maxWidth="50.0" minWidth="0.0" prefWidth="50.0" text="dislike" />
                   
                </columns>
             </TableView>
