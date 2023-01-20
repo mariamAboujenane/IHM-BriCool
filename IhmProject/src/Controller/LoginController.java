@@ -1,14 +1,17 @@
 package src.Controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,21 +19,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import src.Model.DatabaseConnection;
 	
 	
-	public class LoginController {
-		
-		Image closeeye = new Image("src/View/icons/closeeye.png");
-		Image openeye = new Image("src/View/icons/openeye.png");
+	public class LoginController implements Initializable {
+		String password;
 		
 	    @FXML
 	    private Button create;
 	    @FXML
 	    private PasswordField passwordTextField;
+	    @FXML
+	    private TextField passwordtxt;
 	    @FXML
 	    private Button submitButton;
 	    @FXML
@@ -45,15 +47,32 @@ import src.Model.DatabaseConnection;
 	    @FXML
 	    private Button showhide_btn;
 	    @FXML
+	    private Button showhide_btn1;
+	    @FXML
 	    private ImageView eyeimg;
 
 	    @FXML
 	    void ShowHide(ActionEvent event) {
 	    	
-	    	eyeimg.setImage(closeeye);
-	    	passwordTextField.setText( passwordTextField.getText());
+	    	password = passwordTextField.getText();
+	    	passwordtxt.setVisible(true);
+			showhide_btn1.setVisible(true);
+			passwordTextField.setVisible(false);
+			showhide_btn.setVisible(false);
+			passwordtxt.setText(password);
 	    
 	    }
+	    @FXML
+	    void ShowHide1(ActionEvent event) {
+	    	password = passwordtxt.getText();
+	    	passwordtxt.setVisible(false);
+			showhide_btn1.setVisible(false);
+			passwordTextField.setVisible(true);
+			showhide_btn.setVisible(true);
+			passwordTextField.setText(password);
+
+	    }
+
 
 	    
 	    @FXML
@@ -133,6 +152,14 @@ import src.Model.DatabaseConnection;
 	    	
 	    	
  }
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+	    	passwordtxt.setVisible(false);
+			showhide_btn1.setVisible(false);
+			passwordTextField.setVisible(true);
+			showhide_btn.setVisible(true);
+			
+		}
 
 }
 	    

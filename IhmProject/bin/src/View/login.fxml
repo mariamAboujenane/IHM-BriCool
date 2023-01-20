@@ -124,9 +124,19 @@
                </font></RadioButton>
             <Button fx:id="showhide_btn" layoutX="323.0" layoutY="246.0" mnemonicParsing="false" onAction="#ShowHide" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #FFFFFF;">
                <graphic>
-                  <ImageView fx:id="eyeimg" fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/openeye.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="passwordtxt" layoutX="55.0" layoutY="239.0" prefHeight="37.0" prefWidth="300.0" />
+            <Button fx:id="showhide_btn1" layoutX="323.0" layoutY="246.0" mnemonicParsing="false" onAction="#ShowHide1" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #FFFFFF;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/closeeye.png" />
                      </image>
                   </ImageView>
                </graphic>
