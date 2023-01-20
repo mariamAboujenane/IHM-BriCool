@@ -31,6 +31,8 @@ public class PreProfileController implements Initializable {
 	Image likeimage = new Image("src/View/icons/upp.png");
 	Image dislikeimage_gris = new Image("src/View/icons/down_gris_new.png");
 	Image likeimage_gris = new Image("src/View/icons/up_gris_new.png");
+	Image dispoimage = new Image("src/View/icons/green_circle.png");
+	Image nodispoimage = new Image("src/View/icons/red_circle.png");
 	int contour_like = 0;
 	int contour_dislike = 0;
 
@@ -59,6 +61,9 @@ public class PreProfileController implements Initializable {
 
     @FXML
     private Label nameLabel;
+    
+    @FXML
+    private ImageView dispo;
 
     @FXML
     private Label phonelabel;
@@ -261,11 +266,8 @@ public class PreProfileController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	   int id =MyAppContext.selectedIdPersonInSearch;
-		String like = null;
-		String dislike = null;
-		String sql1 = "select Likes from service_provider where idprovider='" +id+ "'";
-		String sql2 = "select Dislikes from service_provider where idprovider='" +id+ "'";
 		String name = null;
+		int status = 0;
 		String address = null;
 		String phone = null;
 		String speciality = null;
@@ -274,7 +276,7 @@ public class PreProfileController implements Initializable {
 		String dislikes = null;
 		java.sql.Blob photo;
 		byte[] imageBytes = null;
-		String sql = "select name,speciality,phone_number,address,Bio,Likes,Dislikes,photo from service_provider where idprovider='" +id+ "'";
+		String sql = "select name,speciality,phone_number,address,status,Bio,Likes,Dislikes,photo from service_provider where idprovider='" +id+ "'";
 		
 		try {
 
@@ -285,6 +287,7 @@ public class PreProfileController implements Initializable {
 			while (rs.next()) {
 				name = rs.getString("name");
 				address = rs.getString("address");
+				status = rs.getInt("status");
 				phone = rs.getString("phone_number");
 				speciality = rs.getString("speciality");
 				bio = rs.getString("Bio");
@@ -309,36 +312,12 @@ public class PreProfileController implements Initializable {
 
 		   Image imge = new Image(inputStream);
 		  photolabel.setImage(imge);
+		  if(status == 0) {
+			  dispo.setImage(nodispoimage);
+		  }else if(status == 1){
+			  dispo.setImage(dispoimage);
+		  }
 
-		
-		try {
-
-			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-			Statement statement = cnx.createStatement();
-			ResultSet rs = statement.executeQuery(sql1);
-
-			while (rs.next()) {
-				like = rs.getString("Likes");
-			}
-
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		LikeLbl.setText(like);
-		
-		try {
-			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-			Statement statement = cnx.createStatement();
-			ResultSet rs = statement.executeQuery(sql2);
-
-			while (rs.next()) {
-				dislike = rs.getString("Dislikes");
-			}
-
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		DislikeLbl.setText(dislike);
 	}
 
 }
