@@ -17,5 +17,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/Users/pc/Desktop/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
+>>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
