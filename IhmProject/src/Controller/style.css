@@ -1,14 +1,14 @@
 .button {
 	-fx-cursor : hand;
 	-fx-background-radius: #513b3d;
-	-fx-background-color: orange;
+	-fx-background-color: #2c7a6a;
 	
 }
 .dialog{
-	-fx-background-color: linear-gradient(to left,#B6D0BD,white);
+	-fx-background-color: linear-gradient(to right,#B6D0BD,white);
 }
 .dialog:header *.header-panel{
-	-fx-background-color: linear-gradient(to left,#B6D0BD,white);
+	-fx-background-color: linear-gradient(to right,#B6D0BD,white);
 }
 .dialog > *.contenant.label{
 	-fx-font-size:20px;

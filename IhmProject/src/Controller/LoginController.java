@@ -1,6 +1,8 @@
 package src.Controller;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,11 +16,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import src.Model.DatabaseConnection;
@@ -50,6 +56,50 @@ import src.Model.DatabaseConnection;
 	    private Button showhide_btn1;
 	    @FXML
 	    private ImageView eyeimg;
+	    
+	    @FXML
+	    private DialogPane dialog;
+	    @FXML
+		private Hyperlink facebook;
+		@FXML
+		private Hyperlink insta;
+		@FXML
+	    private Hyperlink twitter;
+		
+	    @FXML
+	    void facebooklink(ActionEvent event) {
+	    	try {
+	    	    Desktop.getDesktop().browse(new URL("https://www.facebook.com/").toURI());
+	    	} catch (IOException e) {
+	    	    e.printStackTrace();
+	    	} catch (URISyntaxException e) {
+	    	    e.printStackTrace();
+	    	}
+	    }
+	   
+	    @FXML
+	    void instalink(ActionEvent event) {
+	    	try {
+	    	    Desktop.getDesktop().browse(new URL("https://www.instagram.com/").toURI());
+	    	} catch (IOException e) {
+	    	    e.printStackTrace();
+	    	} catch (URISyntaxException e) {
+	    	    e.printStackTrace();
+	    	}
+	    }
+
+	    @FXML
+	    void twitterlink(ActionEvent event) {
+	    	try {
+	    	    Desktop.getDesktop().browse(new URL("https://twitter.com/").toURI());
+	    	} catch (IOException e) {
+	    	    e.printStackTrace();
+	    	} catch (URISyntaxException e) {
+	    	    e.printStackTrace();
+	    	}
+	    }
+	    
+
 
 	    @FXML
 	    void ShowHide(ActionEvent event) {
@@ -121,6 +171,7 @@ import src.Model.DatabaseConnection;
 					ResultSet queryResult=statement.executeQuery(verifyLogin);	
 					while(queryResult.next()){
 			    		if(queryResult.getInt(1)==1) {
+
 			    			testlabel.setText("welcome");
 			    			String 	connectedWorkerUsername = usernameTextField.getText();
 				    		String 	connectedWorkerPassword=passwordTextField.getText();
@@ -144,9 +195,15 @@ import src.Model.DatabaseConnection;
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+
 			    	
 			    		}else {
-			    			testlabel.setText("username or password is not correct. Please try again");
+			    			 Alert alert = new Alert(AlertType.WARNING, "Your Username or password is incorrect, check again please.", javafx.scene.control.ButtonType.OK);
+			            	  alert.setHeaderText("Something happend... :( !");
+			      			  dialog= alert.getDialogPane();  
+			      			  dialog.getStylesheets().add(getClass().getResource("style.css").toString());
+			      			  dialog.getStyleClass().add("dialog");
+			      			  alert.showAndWait();
 			    		}
 			    	}
 				} catch (SQLException e) {
@@ -163,7 +220,7 @@ import src.Model.DatabaseConnection;
 				    			String 	connectedWorkerUsername = usernameTextField.getText();
 					    		String 	connectedWorkerPassword=passwordTextField.getText();
 					    			MyAppContext.workerUsername=connectedWorkerUsername;
-					    			MyAppContext.workerPassword=connectedWorkerPassword;
+				           			MyAppContext.workerPassword=connectedWorkerPassword;
 					    		System.out.println("login : username :"+MyAppContext.workerUsername +",password :"+MyAppContext.workerPassword);
 					    		try {
 									Parent parent;
@@ -176,12 +233,10 @@ import src.Model.DatabaseConnection;
 									primaryStage.show();
 									
 									Stage stage = (Stage) submitButton.getScene().getWindow();
-								    // do what you have to do
-								  stage.close();
+								    stage.close();
 									
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+								   e.printStackTrace();
 								}
 				    		}else {
 				    			testlabel.setText("username or password is not correct. Please try again");
@@ -190,6 +245,13 @@ import src.Model.DatabaseConnection;
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
+		  }else {
+			  Alert alert = new Alert(AlertType.WARNING, "You must select one .", javafx.scene.control.ButtonType.OK);
+        	  alert.setHeaderText("Something happend... :( !");
+  			  dialog= alert.getDialogPane();  
+  			  dialog.getStylesheets().add(getClass().getResource("style.css").toString());
+  			  dialog.getStyleClass().add("dialog");
+  			  alert.showAndWait();
 		  }
 	    	
 	    	

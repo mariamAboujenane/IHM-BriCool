@@ -135,8 +135,17 @@ public class AddPhotoController {
 	   	 	    PreparedStatement st = connect.prepareStatement(addPhotoQuery);
 	   	        st.setBytes(1, imageBytes);
 				st.execute();
-	  			Alert alert = new Alert(AlertType.CONFIRMATION, "post added succesfully!", javafx.scene.control.ButtonType.OK);
-	  			alert.showAndWait();
+				   Alert alert = new Alert(Alert.AlertType.ERROR);
+				    alert.setTitle("Confirmation");
+				    alert.setHeaderText("Photo added succesfully !");
+				    dialog= alert.getDialogPane();  
+				    dialog.getStylesheets().add(getClass().getResource("style.css").toString());
+	      			dialog.getStyleClass().add("dialog");
+				    ImageView icon = new ImageView(new Image(String.valueOf(this.getClass().getResource("/src/View/icons/checkmark.png"))));
+				    icon.setFitHeight(48);
+				    icon.setFitWidth(48);
+				    alert.getDialogPane().setGraphic(icon);
+				    alert.show();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

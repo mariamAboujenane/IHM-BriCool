@@ -33,6 +33,11 @@ public class AccountProvider implements Initializable{
 	    @FXML
 	    private ComboBox<String> Mychoicebox; 
 	    private String [] speciality = {"CARPENTER","PLUMBER","CLEANER","TAILOR HAIR STYLIST","ELECTRICIAN"};
+	   
+	    @FXML
+	    private ComboBox<String> txtcity;
+	    private String [] city = {"Tanger","Casablanca","Fes","Zagora","Oujda","Tétouan","Rabat","El Jadida","Agadir","Salé","Meknès","Marrakech","Kénitra","Laayoune","Mohammédia","Béni Mellal","Nador","Safi","Témara","Berkane"};
+
 	    @FXML
 	    private Button back;
 	    @FXML
@@ -53,8 +58,7 @@ public class AccountProvider implements Initializable{
 	    private TextField txtaddress;
 	    @FXML
 	    private Button AddPhoto;
-	    @FXML
-	    private TextField txtcity;
+	    
 		public static String id;
 	    
 	    public String getId() {
@@ -108,8 +112,8 @@ public class AccountProvider implements Initializable{
 		          			st.setString(5,txtaddress.getText());
 		          			st.setString(6,txtpswd.getText());
 		          			st.setString(7,"0");
-		          			st.setString(8,txtcity.getText());
-		          			st.setBytes(9, imageBytes);
+		          			st.setString(8,txtcity.getValue().toString());
+                            st.setBytes(9, imageBytes);
 		          			
 		          			txtname.setText("");
 		          			txtuser.setText(""); 
@@ -118,7 +122,7 @@ public class AccountProvider implements Initializable{
 		          			txtnumber.setText(""); 
 		          			Mychoicebox.setValue("");
 		          			txtconfirmpswd.setText("");
-		          			txtcity.setText("");
+		          			txtcity.setValue("");
 
 		          			st.execute();
 		          			
@@ -182,6 +186,8 @@ public class AccountProvider implements Initializable{
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			 Mychoicebox.getItems().addAll(speciality);
+			 txtcity.getItems().addAll(city);
+
 			
 		}
 
