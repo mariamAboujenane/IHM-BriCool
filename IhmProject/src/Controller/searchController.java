@@ -3,17 +3,11 @@ package src.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.beans.property.SimpleObjectProperty;
+
 import javafx.collections.*;
 import javafx.event.*;//hadu should be f gaa controller sinn athm9kom matkhdmch 
 
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,11 +19,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import javax.imageio.ImageIO;
-import javax.security.auth.callback.Callback;
-
-import com.mysql.cj.jdbc.Blob;
+import src.Controller.MyAppContext;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -390,7 +380,7 @@ public class searchController implements Initializable {
     	 
     	int id = selectedPerson.getId();
     	System.out.println(id);
-    	MyAppContext.selectedIdPersonInSearch=id;
+    	MyAppContext.selectedIdPersonInSearch = id;
     	try {
 			Parent parent;
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));

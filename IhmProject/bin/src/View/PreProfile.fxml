@@ -99,7 +99,7 @@
                </children>
             </Pane>
             <Label layoutX="66.0" layoutY="39.0" text="Hay El Qods 02 N854 ZAGORA" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
-            <Label fx:id="usernameLabel" layoutX="66.0" layoutY="14.0" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Label fx:id="nameLabel" layoutX="66.0" layoutY="14.0" prefHeight="25.0" prefWidth="130.0" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

@@ -47,6 +47,17 @@ public class PreProfileController implements Initializable {
 
 	@FXML
 	private ImageView LikeImage;
+	
+    @FXML
+    private Label addresslabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label phonelabel;
+    @FXML
+    private Label specialitylabel;
 
 	@FXML
 	private Label LikeLbl;
@@ -223,8 +234,34 @@ public class PreProfileController implements Initializable {
 	   int id =MyAppContext.selectedIdPersonInSearch;
 		String like = null;
 		String dislike = null;
-		String sql1 = "select Likes from bio where Id='1'";
+		String sql1 = "select Likes from service_provider where idprovider='" +id+ "'";
+		String sql2 = "select Dislikes from service_provider where idprovider='" +id+ "'";
+		String name = null;
+		String address = null;
+		String phone = null;
+		String speciality = null;
+		String sql = "select * from service_provider where idprovider='" +id+ "'";
 		
+		try {
+
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			Statement statement = cnx.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+
+			while (rs.next()) {
+				name = rs.getString("name");
+				address = rs.getString("address");
+				phone = rs.getString("phone_number");
+				speciality = rs.getString("speciality");
+			}
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		nameLabel.setText(name);
+		addresslabel.setText(address);
+		phonelabel.setText(phone);
+		specialitylabel.setText(speciality);
 		try {
 
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
