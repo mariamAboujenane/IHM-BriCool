@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import src.Controller.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,7 +45,8 @@ import src.Model.SearchModel;
 public class searchController implements Initializable {
 	private DialogPane dialog;
 	//private DialogPane dialog1;
-
+	 @FXML
+	    private Button back;
 	@FXML
 	private Button btn_information;
 
@@ -110,7 +112,26 @@ public class searchController implements Initializable {
 
 	
 	//
-	
+
+    @FXML
+    void back(ActionEvent event) {
+    	Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			Stage stage1 = (Stage) back.getScene().getWindow();
+		    stage1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    }
+
 	
 	//
 	@Override
@@ -381,6 +402,8 @@ public class searchController implements Initializable {
 		}
 
 	}
+	 
+
 	
 
     @FXML

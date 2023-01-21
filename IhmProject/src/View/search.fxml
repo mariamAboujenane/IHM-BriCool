@@ -44,10 +44,6 @@
             </ImageView>
          </graphic></Button>
       <TextField fx:id="searchBar" layoutX="109.0" layoutY="81.0" prefHeight="27.0" prefWidth="293.0" promptText="SEARCH" />
-      <ImageView fitHeight="88.0" fitWidth="118.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/logogris.png" />
-         </image></ImageView>
       <Button layoutX="514.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
       <Button fx:id="searchbtn" layoutX="681.0" layoutY="78.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="41.0" style="-fx-background-color: #E8EAEE;">
          <graphic>
@@ -84,5 +80,14 @@
             <Image url="@icons/icons8-group-48.png" />
          </image>
       </ImageView>
+      <Button fx:id="back" layoutX="20.0" layoutY="1.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #E8EAEE;">
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logogris.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

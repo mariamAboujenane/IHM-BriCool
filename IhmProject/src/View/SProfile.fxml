@@ -8,13 +8,10 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.SProfileController">
@@ -23,15 +20,6 @@
          <children>
             <Button layoutX="414.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
             <Button layoutX="533.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
-            <TextField layoutX="92.0" layoutY="41.0" prefHeight="21.0" prefWidth="307.0" promptText="SEARCH">
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="0.15839999914169312" green="0.36000001430511475" blue="0.25248000025749207" opacity="0.1155330166220665" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </TextField>
             <Pane layoutX="14.0" layoutY="81.0" prefHeight="507.0" prefWidth="631.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #B6D0BD;">
                <children>
                   <Pane layoutX="16.0" layoutY="142.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #B6D0BD;">
@@ -119,41 +107,47 @@
                   <Label fx:id="phoneP" layoutX="65.0" layoutY="59.0" prefHeight="17.0" prefWidth="189.0" text="+212 665342478" />
                </children>
             </Pane>
-            <ImageView fitHeight="63.0" fitWidth="83.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/logogris.png" />
-               </image>
-            </ImageView>
-            <MenuButton layoutX="580.0" layoutY="32.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="63.0" style="-fx-background-color: #E8EAEE;">
+            <Button fx:id="btn_notification" layoutX="490.0" layoutY="33.0" mnemonicParsing="false" onAction="#gonotification" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-notification-96.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_information" layoutX="541.0" layoutY="37.0" mnemonicParsing="false" onAction="#goinformation" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-info-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <MenuButton layoutX="585.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Edit profile" />
-                  <MenuItem mnemonicParsing="false" text="history" />
-                  <MenuItem mnemonicParsing="false" text="sign out" />
+                  <MenuItem fx:id="edit" mnemonicParsing="false" onAction="#goeditprofile" text="Edit Profile" />
+                  <MenuItem fx:id="history" mnemonicParsing="false" onAction="#gohistory" text="History" />
+                  <MenuItem fx:id="signout" mnemonicParsing="false" onAction="#signout" text="Sign out" />
                </items>
                <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/icons8-user-96.png" />
                      </image>
                   </ImageView>
                </graphic>
             </MenuButton>
-            <Button layoutX="564.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
-            <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="523.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-notification-96.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="559.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-info-50.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="24.0" layoutX="410.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-search-60.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="14.0" layoutY="5.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+               <graphic>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/logogris.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </children>
