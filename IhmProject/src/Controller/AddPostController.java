@@ -26,9 +26,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -71,7 +71,7 @@ public class AddPostController {
 	    private Button btn_notification;
 	   @FXML
 	    private Button back;
-
+	   int id ;
 	    @FXML
 	    void Back_To_choose(ActionEvent event) {
 	    	Parent parent;
@@ -264,35 +264,74 @@ public class AddPostController {
     	LocalDate today = LocalDate.now( z );
     	String currentDate = today.toString() ;
     	
-    	    	
-    	
-   	 
+
    	 DatabaseConnection connectNow=new  DatabaseConnection();
    	Connection connect = connectNow.getConnection();
-   	String addPostQuery ="insert into post(postTitle,postContent,publishedAt) values(?,?,?)";
    
+   	String selectId = "SELECT idprovider FROM service_provider WHERE username = ? and password = ?";
+   	String name = MyAppContext.workerUsername;
+   	String password = MyAppContext.workerPassword;
+
+   	try {
+   	    PreparedStatement st = connect.prepareStatement(selectId);
+   	    st.setString(1, name);
+   	    st.setString(2, password);
+   	    ResultSet result = st.executeQuery();
+   	   id = -1;
+   	    if (result.next()) {
+   	        id = result.getInt("idprovider");
+   	    }
+   	    if(id != -1){
+   	        System.out.println("id =" + id);
+   	        // do something with the retrieved id
+   	    } else {
+   	        System.out.println("No matching user found");
+   	    }
+   	} catch (SQLException e) {
+   	    System.out.println("An error occurred while retrieving the id: " + e.getMessage());
+   	}
+
+   	
+	String addPostQuery ="insert into post(idp,postTitle,postContent,publishedAt) values(?,?,?,?)";
    	try {
    		
-   	 	PreparedStatement st = connect.prepareStatement(addPostQuery); 
-			
-			st.setString(1, posttitle.getText());
+   	 	PreparedStatement st1 = connect.prepareStatement(addPostQuery); 
+   	 st1.setInt(1, id);
+			st1.setString(2, posttitle.getText());
 			if(postImage==null) {
-				st.setBinaryStream(2, null);
+				st1.setBinaryStream(3, null);
 			}else {
-		    st.setBinaryStream(2, (InputStream) postImage);
+		    st1.setBinaryStream(3, (InputStream) postImage);
 			}
-			st.setString(3, currentDate);
-			st.execute();
+			st1.setString(4, currentDate);
+			st1.execute();
   			Alert alert = new Alert(AlertType.CONFIRMATION, "post added succesfully!", javafx.scene.control.ButtonType.OK);
-  			alert.showAndWait();
+  			
+  		alert.showAndWait();
+  		Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
+			Scene scene1 = new Scene(parent);
+			
+			Stage  primaryStage1 = new Stage();
+			primaryStage1.setScene(scene1);
+			primaryStage1.show();
+			Stage stage1 = (Stage) addButton.getScene().getWindow();
+		     stage1.close(); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-   	
+	
    	
 }
 
-    
-    
+
+
 }
