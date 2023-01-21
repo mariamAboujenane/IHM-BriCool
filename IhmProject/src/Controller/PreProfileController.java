@@ -145,8 +145,8 @@ public class PreProfileController implements Initializable {
 		 	 try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
-		   		  preparedStmt.setBoolean   (1, true);
-		   		preparedStmt.setBoolean   (2, false);
+		   		  preparedStmt.setBoolean   (1, false);
+		   		preparedStmt.setBoolean   (2, true);
 
 		   		 preparedStmt.execute();
 		 			 

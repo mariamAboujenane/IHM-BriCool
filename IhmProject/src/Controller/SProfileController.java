@@ -101,6 +101,7 @@ public class SProfileController implements Initializable {
 	private Button editbtn;
 
 	int id;
+	 boolean status = false;
 
 	@FXML
 	void EditProfile(ActionEvent event) {
@@ -122,7 +123,7 @@ public class SProfileController implements Initializable {
 	}
 	  @FXML
 	    void disponible(ActionEvent event) {
-		  boolean status = false;
+		 
 		  String name = MyAppContext.workerUsername;
 			String password = MyAppContext.workerPassword;
 		  if(dispo.isSelected() == true) {
@@ -188,7 +189,7 @@ public class SProfileController implements Initializable {
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
 
-		String selectData = "SELECT  speciality , phone_number,address,Bio , Likes, Dislikes,photo FROM service_provider WHERE username = ? and password = ?";
+		String selectData = "SELECT  speciality , phone_number,address,status,Bio , Likes, Dislikes,photo FROM service_provider WHERE username = ? and password = ?";
 		String name = MyAppContext.workerUsername;
 		String password = MyAppContext.workerPassword;
 		System.out.println("Name: " + name + " Password: " + password);
@@ -204,6 +205,7 @@ public class SProfileController implements Initializable {
 				String speciality = result.getString("speciality");
 				String phone_number = Integer.toString(result.getInt("phone_number"));
 				String address = result.getString("address");
+				status = result.getBoolean("status");
 				String Bio = result.getString("Bio");
 				String Likes = Integer.toString(result.getInt("Likes"));
 				String Dislikes = Integer.toString(result.getInt("Dislikes"));
@@ -233,6 +235,11 @@ public class SProfileController implements Initializable {
 
 		} catch (SQLException e) {
 			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
+		}
+		if(status == true) {
+			dispo.setSelected(true);
+		}else if(status == false) {
+			dispo.setSelected(false);	
 		}
 
 	}
