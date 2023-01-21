@@ -2,10 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +18,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.SProfileController">
    <children>
-      <Pane layoutX="-8.0" layoutY="-25.0" prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;">
+      <Pane prefHeight="593.0" prefWidth="658.0" style="-fx-background-color: #E8EAEE;">
          <children>
             <Button layoutX="414.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
             <Button layoutX="533.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
@@ -30,77 +31,83 @@
                   </DropShadow>
                </effect>
             </TextField>
-            <Pane layoutX="21.0" layoutY="83.0" prefHeight="404.0" prefWidth="631.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #B6D0BD;">
+            <Pane layoutX="14.0" layoutY="81.0" prefHeight="507.0" prefWidth="631.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #B6D0BD;">
                <children>
-                  <Pane layoutX="7.0" layoutY="127.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #B6D0BD;">
+                  <Pane layoutX="16.0" layoutY="139.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #B6D0BD;">
                      <children>
                         <Label layoutX="14.0" layoutY="10.0" text="Add Post " textFill="#513b3d">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Button layoutX="561.0" layoutY="6.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="addPostBtn" layoutX="561.0" layoutY="6.0" mnemonicParsing="false" onAction="#addPost" text="+" />
                      </children>
                   </Pane>
-                  <ImageView fitHeight="67.0" fitWidth="63.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/userPr.png" />
-                     </image>
-                  </ImageView>
-                  <Pane layoutX="7.0" layoutY="84.0" prefHeight="36.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
+                  <ImageView fx:id="photoP" fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pane layoutX="17.0" layoutY="97.0" prefHeight="36.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
                      <children>
                         <Label layoutX="14.0" layoutY="9.0" text="Bio" textFill="#513b3d">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Button fx:id="AddBtn" layoutX="561.0" layoutY="6.0" mnemonicParsing="false" onAction="#AddBio" text="+" />
-                        <TextField fx:id="BioTxt" layoutX="44.0" layoutY="6.0" prefHeight="25.0" prefWidth="511.0" />
+                        <TextField fx:id="BioP" disable="true" layoutX="65.0" layoutY="3.0" prefHeight="25.0" prefWidth="519.0" />
                      </children>
                   </Pane>
-                  <Pane layoutX="7.0" layoutY="170.0" prefHeight="227.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="14.0" text="Posts" textFill="#513b3d">
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <ScrollBar layoutX="610.0" layoutY="173.0" orientation="VERTICAL" prefHeight="221.0" prefWidth="15.0" />
-                  <Label fx:id="usernameLabel" layoutX="85.0" layoutY="14.0" textFill="#513b3d">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="85.0" layoutY="37.0" text="Adress University Euroumed" />
-                  <Label layoutX="85.0" layoutY="54.0" text="07 70 31 11 67" />
-                  <Button fx:id="editbtn" layoutX="265.0" layoutY="25.0" mnemonicParsing="false" onAction="#EditProfile" text="Edit Profile" textFill="#2c7a6a">
+                  <Label fx:id="addressP" layoutX="67.0" layoutY="39.0" prefHeight="24.0" prefWidth="179.0" />
+                  <Label fx:id="addressP" layoutX="66.0" layoutY="42.0" prefHeight="17.0" prefWidth="189.0" text="med Zniber ,hay tariq , fes " />
+                  <Button fx:id="editbtn" layoutX="276.0" layoutY="46.0" mnemonicParsing="false" onAction="#EditProfile" text="Edit Profile" textFill="#2c7a6a">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <RadioButton layoutX="348.0" layoutY="29.0" mnemonicParsing="false" text="Disponible" />
-                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="485.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <RadioButton layoutX="371.0" layoutY="49.0" mnemonicParsing="false" text="Disponible" />
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="474.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/upp.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="525.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="516.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/down.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="DislikeLabel" layoutX="486.0" layoutY="45.0" text="16 K">
+                  <Label fx:id="DislikeP" layoutX="474.0" layoutY="58.0" text="16 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LikeLabel" layoutX="528.0" layoutY="16.0" text="1 K">
+                  <Label fx:id="LikeP" layoutX="519.0" layoutY="20.0" text="1 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
+                  <Label fx:id="specialityP" layoutX="205.0" layoutY="23.0" prefHeight="17.0" prefWidth="179.0" text="moulat l bstilat" textFill="#513b3d">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="111.0" layoutY="180.0" prefHeight="319.0" prefWidth="386.0">
+                     <content>
+                        <ListView fx:id="listView" prefHeight="314.0" prefWidth="382.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="3.0" layoutY="180.0" prefHeight="27.0" prefWidth="104.0" text="     Posts :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="usernameP" layoutX="60.0" layoutY="24.0" prefHeight="17.0" prefWidth="138.0" text="tasnime amrani nejjar" textFill="#513b3d">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="188.0" layoutY="17.0" text="-">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneP" layoutX="65.0" layoutY="59.0" prefHeight="17.0" prefWidth="189.0" text="+212 665342478" />
                </children>
             </Pane>
             <ImageView fitHeight="63.0" fitWidth="83.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
