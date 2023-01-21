@@ -23,6 +23,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class EditProfileUserController implements Initializable  {
+	String username_Client = MyAppContext.workerUsername;
+	String password_Client = MyAppContext.workerPassword;
 	
     @FXML
     private TextField txtconpassword;
@@ -70,7 +72,7 @@ public class EditProfileUserController implements Initializable  {
 		String password = txtpassword.getText();
 		String conpassword = txtconpassword.getText();
 		if(password.equals(conpassword)) {
-		  String updateQuery = "UPDATE user SET name = ?, username = ?, password = ? WHERE iduser = '1'";
+		  String updateQuery = "UPDATE user SET name = ?, username = ?, password = ? WHERE username='" +username_Client+ "' and password = '"+password_Client+"'";
 		 
   	  try {
          	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -85,7 +87,7 @@ public class EditProfileUserController implements Initializable  {
 		 alert.showAndWait();
 		 Parent parent;
 			try {
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
 				Scene scene = new Scene(parent);
 				
 				Stage  primaryStage = new Stage();
@@ -117,7 +119,7 @@ public class EditProfileUserController implements Initializable  {
 		String username = null;
 		String password = null;
 
-		String sql = "select * from user where iduser='1'";
+		String sql = "select name,username,password from user where username='" +username_Client+ "' and password = '"+password_Client+"'";
 		try {
 
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");

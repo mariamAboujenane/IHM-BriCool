@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -65,6 +66,8 @@ import src.Model.DatabaseConnection;
 		private Hyperlink insta;
 		@FXML
 	    private Hyperlink twitter;
+	    @FXML
+	    private ToggleGroup type;
 		
 	    @FXML
 	    void facebooklink(ActionEvent event) {
@@ -221,10 +224,9 @@ import src.Model.DatabaseConnection;
 					    		String 	connectedWorkerPassword=passwordTextField.getText();
 					    			MyAppContext.workerUsername=connectedWorkerUsername;
 				           			MyAppContext.workerPassword=connectedWorkerPassword;
-					    		System.out.println("login : username :"+MyAppContext.workerUsername +",password :"+MyAppContext.workerPassword);
 					    		try {
 									Parent parent;
-									parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
+									parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
 									
 									Scene scene = new Scene(parent);
 									
@@ -239,7 +241,14 @@ import src.Model.DatabaseConnection;
 								   e.printStackTrace();
 								}
 				    		}else {
-				    			testlabel.setText("username or password is not correct. Please try again");
+				    			
+				    			  Alert alert = new Alert(AlertType.WARNING, "username or password is not correct. Please try again", javafx.scene.control.ButtonType.OK);
+				            	  alert.setHeaderText("Something happend... :( !");
+				      			  dialog= alert.getDialogPane();  
+				      			  dialog.getStylesheets().add(getClass().getResource("style.css").toString());
+				      			  dialog.getStyleClass().add("dialog");
+				      			  alert.showAndWait();
+				    	
 				    		}
 				    	}
 					} catch (SQLException e) {
