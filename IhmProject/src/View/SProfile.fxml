@@ -61,7 +61,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <RadioButton layoutX="371.0" layoutY="49.0" mnemonicParsing="false" text="Disponible" />
+                  <RadioButton fx:id="dispo" layoutX="371.0" layoutY="49.0" mnemonicParsing="false" onAction="#disponible" text="Disponible" />
                   <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="474.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/upp.png" />

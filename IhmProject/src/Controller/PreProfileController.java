@@ -129,7 +129,7 @@ public class PreProfileController implements Initializable {
 			dislike_modify = String.valueOf(dislike_number);
 			DislikeLbl.setText(dislike_modify);
 			String updateQueryLike = "UPDATE service_provider SET Likes = ?,Dislikes = ? WHERE idprovider = '" +id+ "'";
-			String updateQuery = "UPDATE liked_or_not SET Liked = ? Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			String updateQuery = "UPDATE liked_or_not SET Liked = ?,Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
 		  	  try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQueryLike);

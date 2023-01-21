@@ -29,6 +29,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -57,6 +58,8 @@ public class SProfileController implements Initializable {
 
 	@FXML
 	private Label addressP;
+	@FXML
+    private RadioButton dispo;
 
 	@FXML
 	private Label phoneP;
@@ -117,6 +120,30 @@ public class SProfileController implements Initializable {
 		}
 
 	}
+	  @FXML
+	    void disponible(ActionEvent event) {
+		  boolean status = false;
+		  String name = MyAppContext.workerUsername;
+			String password = MyAppContext.workerPassword;
+		  if(dispo.isSelected() == true) {
+			  status = true;
+			  
+		  }	 else {
+			  status = false;
+		  }
+		  
+		  String disponible="update service_provider set status= ? where username= '"+name+"' and password= '"+password+"'";
+		  try {
+		       	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		       	 PreparedStatement preparedStmt = cnx.prepareStatement(disponible);
+		 		  preparedStmt.setBoolean   (1, status);
+		 		 preparedStmt.execute();
+					 
+			  }catch(SQLException e1) {
+				e1.printStackTrace();
+
+			  }
+	    }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
