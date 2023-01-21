@@ -41,6 +41,7 @@ public class PreProfileController implements Initializable {
 	Image nodispoimage = new Image("src/View/icons/red_circle.png");
 	int contour_like = 0;
 	int contour_dislike = 0;
+	
 	private DialogPane dialog;
 
     @FXML
@@ -104,10 +105,44 @@ public class PreProfileController implements Initializable {
     @FXML
     private MenuItem signout;
 
+
+
 	@FXML
 	void Dislike(ActionEvent event) {
 		String dislike_modify;
 		String dislike = DislikeLbl.getText();
+		String like_modify;
+		String like = LikeLbl.getText();
+
+		if(LikeImage.getImage()==likeimage) {
+			LikeImage.setImage(likeimage_gris);
+			int like_int = Integer.parseInt(like);
+			int like_number = like_int -1;
+			like_modify = String.valueOf(like_number);
+			LikeLbl.setText(like_modify);
+			DislikeImage.setImage(dislikeimage);
+			int dislike_int = Integer.parseInt(dislike);
+			int dislike_number = dislike_int +1;
+			dislike_modify = String.valueOf(dislike_number);
+			DislikeLbl.setText(dislike_modify);
+			String updateQueryLike = "UPDATE service_provider SET Likes = ?,Dislikes = ? WHERE idprovider = '" +id+ "'";
+			 
+		  	  try {
+		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQueryLike);
+		   		  preparedStmt.setString   (1, like_modify);
+		   		  preparedStmt.setString   (2, dislike_modify);
+
+		   		 preparedStmt.execute();
+		 			 
+		 	  }catch(SQLException e1) {
+		 		e1.printStackTrace();
+
+		 	  }
+		  	  
+
+			
+		}else {
 		if(contour_dislike % 2 == 0) {
 		DislikeImage.setImage(dislikeimage);
 		int dislike_int = Integer.parseInt(dislike);
@@ -123,7 +158,8 @@ public class PreProfileController implements Initializable {
 			DislikeLbl.setText(dislike_modify);
 			contour_dislike ++;
 		}
-		  String updateQuery = "UPDATE bio SET Dislikes = ? WHERE id = '" +id+ "'";
+		
+		  String updateQuery = "UPDATE service_provider SET Dislikes = ? WHERE idprovider = '" +id+ "'";
 		 
   	  try {
          	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -131,21 +167,56 @@ public class PreProfileController implements Initializable {
    		  preparedStmt.setString   (1, dislike_modify);
 
    		 preparedStmt.execute();
- 			Alert alert = new Alert(AlertType.WARNING, "You have dis disliked this service provider.", javafx.scene.control.ButtonType.OK);
+ 			Alert alert = new Alert(AlertType.WARNING, "You have disliked this service provider.", javafx.scene.control.ButtonType.OK);
  			 alert.showAndWait();
  			 
  	  }catch(SQLException e1) {
  		e1.printStackTrace();
 
  	  }
-
+		}
+		
 	}
 
 	@FXML
 	void Like(ActionEvent event) {
-		
 		String like_modify;
 		String like = LikeLbl.getText();
+		String dislike_modify;
+		String dislike = DislikeLbl.getText();
+	
+		if(DislikeImage.getImage()==dislikeimage) {
+			DislikeImage.setImage(dislikeimage_gris);
+			int dislike_int = Integer.parseInt(dislike);
+			int dislike_number = dislike_int -1;
+			dislike_modify = String.valueOf(dislike_number);
+			DislikeLbl.setText(dislike_modify);
+			LikeImage.setImage(likeimage);
+			int like_int = Integer.parseInt(like);
+			int like_number = like_int +1;
+			like_modify = String.valueOf(like_number);
+			LikeLbl.setText(like_modify);
+			
+
+				  String updateQuery = "UPDATE service_provider SET Likes = ?, Dislikes = ? WHERE idprovider = '" +id+ "'";
+				 
+		  	  try {
+		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+		   		  preparedStmt.setString   (1, like_modify);
+		   		  preparedStmt.setString(2, dislike_modify);
+
+		   		 preparedStmt.execute();
+		 			Alert alert = new Alert(AlertType.WARNING, "You have liked this service provider.", javafx.scene.control.ButtonType.OK);
+		 			 alert.showAndWait();
+		 			 
+		 	  }catch(SQLException e1) {
+		 		e1.printStackTrace();
+
+		 	  }
+
+		
+		}else {
 		if(contour_like % 2 == 0) {
 		LikeImage.setImage(likeimage);
 		int like_int = Integer.parseInt(like);
@@ -161,7 +232,7 @@ public class PreProfileController implements Initializable {
 			LikeLbl.setText(like_modify);
 			contour_like ++;
 		}
-		  String updateQuery = "UPDATE bio SET Likes = ? WHERE id = '" +id+ "'";
+		  String updateQuery = "UPDATE service_provider SET Likes = ? WHERE idprovider = '" +id+ "'";
 		 
   	  try {
          	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -177,7 +248,7 @@ public class PreProfileController implements Initializable {
 
  	  }
 
-
+		}
 
 	}
 	
