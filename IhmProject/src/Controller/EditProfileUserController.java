@@ -87,7 +87,7 @@ public class EditProfileUserController implements Initializable  {
 		 alert.showAndWait();
 		 Parent parent;
 			try {
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
 				Scene scene = new Scene(parent);
 				
 				Stage  primaryStage = new Stage();

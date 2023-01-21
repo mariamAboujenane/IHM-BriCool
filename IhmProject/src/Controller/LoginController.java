@@ -224,7 +224,6 @@ import src.Model.DatabaseConnection;
 					    		String 	connectedWorkerPassword=passwordTextField.getText();
 					    			MyAppContext.workerUsername=connectedWorkerUsername;
 				           			MyAppContext.workerPassword=connectedWorkerPassword;
-					    		System.out.println("login : username :"+MyAppContext.workerUsername +",password :"+MyAppContext.workerPassword);
 					    		try {
 									Parent parent;
 									parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
@@ -242,7 +241,14 @@ import src.Model.DatabaseConnection;
 								   e.printStackTrace();
 								}
 				    		}else {
-				    			testlabel.setText("username or password is not correct. Please try again");
+				    			
+				    			  Alert alert = new Alert(AlertType.WARNING, "username or password is not correct. Please try again", javafx.scene.control.ButtonType.OK);
+				            	  alert.setHeaderText("Something happend... :( !");
+				      			  dialog= alert.getDialogPane();  
+				      			  dialog.getStylesheets().add(getClass().getResource("style.css").toString());
+				      			  dialog.getStyleClass().add("dialog");
+				      			  alert.showAndWait();
+				    	
 				    		}
 				    	}
 					} catch (SQLException e) {
