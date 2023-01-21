@@ -1,26 +1,22 @@
 package src.Controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
-
-import javafx.collections.*;
-import javafx.event.*;//hadu should be f gaa controller sinn athm9kom matkhdmch 
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import src.Controller.MyAppContext;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+//hadu should be f gaa controller sinn athm9kom matkhdmch 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,19 +26,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableCell;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.Model.DatabaseConnection;
@@ -50,11 +43,20 @@ import src.Model.SearchModel;
 
 public class searchController implements Initializable {
 	private DialogPane dialog;
+	//private DialogPane dialog1;
+
 	@FXML
 	private Button btn_information;
 
 	@FXML
 	private Button btn_notification;
+	@FXML
+    private MenuItem goeditprofil;
+	@FXML
+	 private MenuItem gohistory;
+	 @FXML
+	 private MenuItem singnout;
+
 
 	@FXML
 	private ComboBox<String> cityChoice;
@@ -95,15 +97,22 @@ public class searchController implements Initializable {
 
 	@FXML
 	private TableView<SearchModel> tableViewId;
+	
 
 	@FXML
 	private TableColumn<SearchModel, String> usernameC2;
 
 	ObservableList<SearchModel> SearchResultList = FXCollections.observableArrayList();
 
-	private String[] Cities = { "Rabat", "AGADIR", "Fez", "Tanger", "Tetouan" };
+	private String[] Cities = {"Tanger","Casablanca","Fes","Zagora","Oujda","Tétouan","Rabat","El Jadida","Agadir","Salé","Meknès","Marrakech","Kénitra","Laayoune","Mohammédia","Béni Mellal","Nador","Safi"};
+ 
 	private String[] specialities = { "CARPENTER", "PLUMBER", "CLEANER", "TAILOR HAIR STYLIST", "ELECTRICIAN" };
 
+	
+	//
+	
+	
+	//
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// Use a data access object (DAO) to retrieve the images from the database
@@ -141,8 +150,9 @@ public class searchController implements Initializable {
 
 				image.setFitWidth(60);
 				image.setFitHeight(60);
-
-				// Creating the image view
+                
+				Circle circle = new Circle(25,25,25);
+				image.setClip(circle);
 
 				SearchResultList.add(new SearchModel(id,name, username, speciality, phone_number, Likes, Dislikes, city, image));
 			}
@@ -201,8 +211,7 @@ public class searchController implements Initializable {
 			SortedList<SearchModel> SortedData = new SortedList<>(FiltetredData);
 			SortedData.comparatorProperty().bind(tableViewId.comparatorProperty());
 			tableViewId.setItems(SortedData);
-
-
+			tableViewId.getStylesheets().add(getClass().getResource("table.css").toString());
 			
 			cityChoice.valueProperty().addListener((observable, oldValue, newValue) -> {
 				// Filter the list of data based on the selected item in the combo box

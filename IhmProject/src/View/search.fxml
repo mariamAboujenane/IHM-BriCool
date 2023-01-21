@@ -2,46 +2,22 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="483.0" prefWidth="826.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.searchController">
+<AnchorPane prefHeight="566.0" prefWidth="846.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.searchController">
    <children>
-      <Button layoutX="497.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-notification-96.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button layoutX="540.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-info-50.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <TextField fx:id="searchBar" layoutX="22.0" layoutY="119.0" prefHeight="26.0" prefWidth="307.0" promptText="SEARCH" />
-      <ImageView fitHeight="121.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/logogris.png" />
-         </image></ImageView>
-      <MenuButton layoutX="582.0" layoutY="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: #E8EAEE;">
+      <MenuButton layoutX="790.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="62.0" style="-fx-background-color: #E8EAEE;">
          <items>
-            <MenuItem mnemonicParsing="false" text="Edit profile" />
-            <MenuItem mnemonicParsing="false" text="history" />
-            <MenuItem mnemonicParsing="false" text="sign out" />
+            <MenuItem fx:id="goeditprofil" mnemonicParsing="false" onAction="#goeditprofil" text="Edit profile" />
+            <MenuItem fx:id="gohistory" mnemonicParsing="false" onAction="#gohistory" text="history" />
+            <MenuItem fx:id="singnout" mnemonicParsing="false" onAction="#singnout" text="sign out" />
          </items>
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -51,55 +27,62 @@
             </ImageView>
          </graphic>
       </MenuButton>
+      <Button fx:id="btn_notification" layoutX="715.0" layoutY="15.0" mnemonicParsing="false" onAction="#gonotification" style="-fx-background-color: #E8EAEE;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-notification-96.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btn_information" layoutX="752.0" layoutY="18.0" mnemonicParsing="false" onAction="#goinformation" style="-fx-background-color: #E8EAEE;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-info-50.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TextField fx:id="searchBar" layoutX="109.0" layoutY="81.0" prefHeight="27.0" prefWidth="293.0" promptText="SEARCH" />
+      <ImageView fitHeight="88.0" fitWidth="118.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/logogris.png" />
+         </image></ImageView>
       <Button layoutX="514.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
-      <Button fx:id="searchbtn" layoutX="625.0" layoutY="110.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="34.0">
+      <Button fx:id="searchbtn" layoutX="681.0" layoutY="78.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="41.0" style="-fx-background-color: #E8EAEE;">
          <graphic>
             <ImageView fx:id="searchButton" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons/search_black.png" />
+                  <Image url="@icons/icons8-search-50.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <ComboBox fx:id="cityChoice" layoutX="336.0" layoutY="118.0" opacity="0.9" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #2c7a6a;" visibleRowCount="20" />
-      <ComboBox fx:id="specialityChoice" layoutX="479.0" layoutY="118.0" opacity="0.9" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #2c7a6a;" />
-      <Label layoutX="374.0" layoutY="119.0" prefHeight="26.0" prefWidth="70.0" text="City" textAlignment="RIGHT" textFill="#fdfdfd">
-         <font>
-            <Font name="Bell MT" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="spe" layoutX="508.0" layoutY="121.0" prefHeight="26.0" prefWidth="84.0" text="Speciality" textAlignment="RIGHT" textFill="#fdfdfd">
-         <font>
-            <Font name="Bell MT" size="16.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="26.0" fitWidth="41.0" layoutX="336.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/city.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="41.0" layoutX="482.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/speciality.jpeg" />
-         </image>
-      </ImageView>
-      <ScrollPane layoutX="-7.0" layoutY="147.0" prefHeight="328.0" prefWidth="826.0">
-         <content>
-            <TableView fx:id="tableViewId" prefHeight="324.0" prefWidth="824.0">
-               <columns>
-                  <TableColumn fx:id="imageColumn" prefWidth="100.0" text="photo" />
-                  <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
-                  <TableColumn fx:id="nameC1" prefWidth="100.0" text="name" />
-                  <TableColumn fx:id="usernameC2" prefWidth="150.0" text="username" />
-                  <TableColumn fx:id="specialityC3" prefWidth="120.0" text="speciality" />
-                  <TableColumn fx:id="cityC7" prefWidth="75.0" text="city" />
-                  <TableColumn fx:id="phoneNumberC4" prefWidth="130.66668701171875" text="phone Number" />
-                  <TableColumn fx:id="likeC5" maxWidth="50.0" prefWidth="50.0" text="like" />
-                  <TableColumn fx:id="dislikeC6" maxWidth="50.0" minWidth="0.0" prefWidth="50.0" text="dislike" />
-                  
+      <ComboBox fx:id="cityChoice" layoutX="405.0" layoutY="81.0" prefHeight="25.0" prefWidth="137.0" promptText="City" style="-fx-background-color: #B6D0BD;" visibleRowCount="20" />
+      <ComboBox fx:id="specialityChoice" layoutX="547.0" layoutY="81.0" prefHeight="25.0" prefWidth="137.0" promptText="Speciality" style="-fx-background-color: #B6D0BD;" />
+      <TableView fx:id="tableViewId" layoutX="-2.0" layoutY="141.0" prefHeight="426.0" prefWidth="852.0">
+         <columns>
+            <TableColumn fx:id="imageColumn" prefWidth="100.0" text="Photo" />
+            <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="nameC1" prefWidth="100.0" text="Name" />
+            <TableColumn fx:id="usernameC2" prefWidth="150.0" text="Username" />
+            <TableColumn fx:id="specialityC3" prefWidth="120.0" text="Speciality" />
+            <TableColumn fx:id="cityC7" prefWidth="75.0" text="City" />
+            <TableColumn fx:id="phoneNumberC4" prefWidth="130.66668701171875" text="Phone Number" />
+            <TableColumn fx:id="likeC5" maxWidth="50.0" prefWidth="50.0" text="Like" />
+            <TableColumn fx:id="dislikeC6" maxWidth="50.0" minWidth="0.0" prefWidth="50.0" text="Dislike" />
+            
                </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
+      </TableView>
+      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="516.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/icons8-city-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="651.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/icons8-group-48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
