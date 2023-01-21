@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.PreProfileController">
@@ -26,20 +22,6 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TextField layoutX="97.0" layoutY="23.0" prefHeight="26.0" prefWidth="267.0" promptText="SEARCH" AnchorPane.rightAnchor="295.6666666666667" AnchorPane.topAnchor="23.0">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color opacity="0.24924015998840332" />
-               </color></DropShadow>
-         </effect>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets></TextField>
-      <ImageView fitHeight="86.0" fitWidth="97.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icons/logogris.png" />
-         </image></ImageView>
       <MenuButton layoutX="594.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
         <items>
           <MenuItem fx:id="edit" mnemonicParsing="false" onAction="#goeditprofile" text="Edit Profile" />
@@ -62,14 +44,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="364.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/icons8-search-60.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
+      <Button layoutX="364.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
     <AnchorPane layoutX="19.0" layoutY="70.0" minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="626.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
          <children>
             <Pane layoutX="10.0" layoutY="82.0" prefHeight="78.0" prefWidth="569.0" style="-fx-border-color: #bcbcbc;">
@@ -156,5 +131,14 @@
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="back" layoutX="19.0" layoutY="-4.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #E8EAEE;">
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logogris.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

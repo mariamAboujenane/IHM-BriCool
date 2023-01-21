@@ -62,6 +62,10 @@ public class PreProfileController implements Initializable {
     private MenuItem edit;
     @FXML
     private MenuItem history;
+    
+
+    @FXML
+    private Button back;
 
 	@FXML
 	private ImageView LikeImage;
@@ -176,6 +180,26 @@ public class PreProfileController implements Initializable {
 
 
 	}
+	
+    @FXML
+    void back(ActionEvent event) {
+    	Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			Stage stage1 = (Stage) back.getScene().getWindow();
+		    stage1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+    }
 	   @FXML
 	    void goeditprofile(ActionEvent event) {
 			try {
