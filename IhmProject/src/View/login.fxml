@@ -78,7 +78,7 @@
                   <Image url="@icons/icons8-horizontal-line-50.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="insta" layoutX="55.0" layoutY="355.0" onAction="#instalink">
+            <Hyperlink fx:id="insta" ellipsisString="" focusTraversable="false" layoutX="55.0" layoutY="355.0" onAction="#instalink">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -87,7 +87,7 @@
                   </ImageView>
                </graphic>
             </Hyperlink>
-            <Hyperlink fx:id="facebook" layoutX="94.0" layoutY="355.0" onAction="#facebooklink" prefHeight="35.0" prefWidth="35.0">
+            <Hyperlink fx:id="facebook" focusTraversable="false" layoutX="94.0" layoutY="355.0" onAction="#facebooklink" prefHeight="35.0" prefWidth="35.0">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -96,7 +96,7 @@
                   </ImageView>
                </graphic>
             </Hyperlink>
-            <Hyperlink fx:id="twitter" layoutX="135.0" layoutY="357.0" onAction="#twitterlink">
+            <Hyperlink fx:id="twitter" focusTraversable="false" layoutX="135.0" layoutY="357.0" onAction="#twitterlink">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="24.0" opacity="0.92" pickOnBounds="true" preserveRatio="true">
                      <image>
