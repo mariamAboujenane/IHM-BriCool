@@ -1,2 +1,3 @@
-![giphy (1)](https://user-images.githubusercontent.com/121026257/213879849-3c9de8eb-0c50-4685-b3ae-802825cd5c3e.gif =250x250)
+
+[<img style="margin-right: 30px" src=foo.svg height=30>](https://user-images.githubusercontent.com/121026257/213880628-c8fbae9f-a2e6-422b-900e-b802288ca78e.gif)
 # -------------------- Hi 👋, Welcome to our JavaProject ------------------
