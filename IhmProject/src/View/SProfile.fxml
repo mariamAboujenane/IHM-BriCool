@@ -33,7 +33,7 @@
             </TextField>
             <Pane layoutX="14.0" layoutY="81.0" prefHeight="507.0" prefWidth="631.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #B6D0BD;">
                <children>
-                  <Pane layoutX="16.0" layoutY="139.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #B6D0BD;">
+                  <Pane layoutX="16.0" layoutY="142.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #B6D0BD;">
                      <children>
                         <Label layoutX="14.0" layoutY="10.0" text="Add Post " textFill="#513b3d">
                            <font>
