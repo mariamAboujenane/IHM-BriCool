@@ -27,12 +27,15 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PreProfileController implements Initializable {
 	
 	int id =MyAppContext.selectedIdPersonInSearch;
+	String name_Client = MyAppContext.workerUsername;
+	String password_Client = MyAppContext.workerPassword;
 	Image dislikeimage = new Image("src/View/icons/down.png");
 	Image likeimage = new Image("src/View/icons/upp.png");
 	Image dislikeimage_gris = new Image("src/View/icons/down_gris_new.png");
@@ -63,6 +66,10 @@ public class PreProfileController implements Initializable {
     private MenuItem edit;
     @FXML
     private MenuItem history;
+    
+
+    @FXML
+    private Button back;
 
 	@FXML
 	private ImageView LikeImage;
@@ -122,7 +129,7 @@ public class PreProfileController implements Initializable {
 			dislike_modify = String.valueOf(dislike_number);
 			DislikeLbl.setText(dislike_modify);
 			String updateQueryLike = "UPDATE service_provider SET Likes = ?,Dislikes = ? WHERE idprovider = '" +id+ "'";
-			 
+			String updateQuery = "UPDATE liked_or_not SET Liked = ? Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
 		  	  try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQueryLike);
@@ -135,7 +142,18 @@ public class PreProfileController implements Initializable {
 		 		e1.printStackTrace();
 
 		 	  }
-		  	  
+		 	 try {
+		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+		   		  preparedStmt.setBoolean   (1, true);
+		   		preparedStmt.setBoolean   (2, false);
+
+		   		 preparedStmt.execute();
+		 			 
+		 	  }catch(SQLException e1) {
+		 		e1.printStackTrace();
+
+		 	  }
 
 			
 		}else {
@@ -146,6 +164,18 @@ public class PreProfileController implements Initializable {
 		dislike_modify = String.valueOf(dislike_number);
 		DislikeLbl.setText(dislike_modify);
 		contour_dislike ++;
+		String updateQuery = "UPDATE liked_or_not SET Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+		 try {
+	         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+	         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+	   		  preparedStmt.setBoolean   (1, true);
+
+	   		 preparedStmt.execute();
+	 			 
+	 	  }catch(SQLException e1) {
+	 		e1.printStackTrace();
+
+	 	  }
 		}else {
 			DislikeImage.setImage(dislikeimage_gris);
 			int dislike_int = Integer.parseInt(dislike);
@@ -153,6 +183,18 @@ public class PreProfileController implements Initializable {
 			dislike_modify = String.valueOf(dislike_number);
 			DislikeLbl.setText(dislike_modify);
 			contour_dislike ++;
+			String updateQuery2 = "UPDATE liked_or_not SET Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			 try {
+		        	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		        	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
+		  		  preparedStmt.setBoolean   (1, false);
+
+		  		 preparedStmt.execute();
+					 
+			  }catch(SQLException e1) {
+				e1.printStackTrace();
+
+			  }
 		}
 		
 		  String updateQuery = "UPDATE service_provider SET Dislikes = ? WHERE idprovider = '" +id+ "'";
@@ -195,7 +237,7 @@ public class PreProfileController implements Initializable {
 			
 
 				  String updateQuery = "UPDATE service_provider SET Likes = ?, Dislikes = ? WHERE idprovider = '" +id+ "'";
-				 
+				  String updateQuery2 = "UPDATE liked_or_not SET Liked = ?,Disliked = ?  WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
 		  	  try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
@@ -210,6 +252,30 @@ public class PreProfileController implements Initializable {
 		 		e1.printStackTrace();
 
 		 	  }
+		 	 try {
+		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
+		   		  preparedStmt.setBoolean   (1, true);
+		   		 preparedStmt.setBoolean   (2, false);
+
+		   		 preparedStmt.execute();
+		 			 
+		 	  }catch(SQLException e1) {
+		 		e1.printStackTrace();
+
+		 	  }
+		  	String updateQuery3 = "UPDATE liked_or_not SET Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			 try {
+		        	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		        	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery3);
+		  		  preparedStmt.setBoolean   (1, false);
+
+		  		 preparedStmt.execute();
+					 
+			  }catch(SQLException e1) {
+				e1.printStackTrace();
+
+			  }
 
 		
 		}else {
@@ -220,6 +286,18 @@ public class PreProfileController implements Initializable {
 		like_modify = String.valueOf(like_number);
 		LikeLbl.setText(like_modify);
 		contour_like ++;
+		  String updateQuery2 = "UPDATE liked_or_not SET Liked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+		  try {
+	         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+	         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
+	   		  preparedStmt.setBoolean   (1, true);
+
+	   		 preparedStmt.execute();
+	 			 
+	 	  }catch(SQLException e1) {
+	 		e1.printStackTrace();
+
+	 	  }
 		}else {
 			LikeImage.setImage(likeimage_gris);
 			int like_int = Integer.parseInt(like);
@@ -227,6 +305,18 @@ public class PreProfileController implements Initializable {
 			like_modify = String.valueOf(like_number);
 			LikeLbl.setText(like_modify);
 			contour_like ++;
+			 String updateQuery2 = "UPDATE liked_or_not SET Liked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			  try {
+		       	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		       	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
+		 		  preparedStmt.setBoolean   (1, false);
+
+		 		 preparedStmt.execute();
+					 
+			  }catch(SQLException e1) {
+				e1.printStackTrace();
+
+			  }
 		}
 		  String updateQuery = "UPDATE service_provider SET Likes = ? WHERE idprovider = '" +id+ "'";
 		 
@@ -243,10 +333,31 @@ public class PreProfileController implements Initializable {
  		e1.printStackTrace();
 
  	  }
+  	
 
 		}
 
 	}
+	
+    @FXML
+    void back(ActionEvent event) {
+    	Parent parent;
+		try {
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			Stage stage1 = (Stage) back.getScene().getWindow();
+		    stage1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+    }
 	   @FXML
 	    void goeditprofile(ActionEvent event) {
 			try {
@@ -484,6 +595,8 @@ public class PreProfileController implements Initializable {
 		String dislikes = null;
 		java.sql.Blob photo;
 		byte[] imageBytes = null;
+		int disliked = 0;
+		int liked = 0;
 		String sql = "select name,speciality,phone_number,address,status,Bio,Likes,Dislikes,photo from service_provider where idprovider='" +id+ "'";
 		
 		try {
@@ -520,11 +633,69 @@ public class PreProfileController implements Initializable {
 
 		   Image imge = new Image(inputStream);
 		  photolabel.setImage(imge);
+		  photolabel.setFitWidth(35);
+			photolabel.setFitHeight(35);
+			Circle circle = new Circle(15, 15, 15);
+			photolabel.setClip(circle);
 		  if(status == 0) {
 			  dispo.setImage(nodispoimage);
 		  }else if(status == 1){
 			  dispo.setImage(dispoimage);
 		  }
+		  String verifyLogin ="Select count(1) from liked_or_not where idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			 try {
+				 Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+					Statement statement=cnx.createStatement();
+					ResultSet queryResult=statement.executeQuery(verifyLogin);
+					while(queryResult.next()){
+			    		if(queryResult.getInt(1)==1) {
+			    			String SelectQueryDislike = "SELECT Liked,Disliked from liked_or_not WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			   			 try {
+			   					Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+			   					Statement statement2 = cnx2.createStatement();
+			   					ResultSet rs = statement2.executeQuery(SelectQueryDislike);
+			   					while (rs.next()) {
+			   						disliked = rs.getInt("Disliked");
+			   						liked = rs.getInt("Liked");
+			   					}
+			   					 
+			   			  }catch(SQLException e1) {
+			   				e1.printStackTrace();
+
+			   			  }
+			   			 if(disliked==1) {
+			   				 DislikeImage.setImage(dislikeimage);
+			   			 }else if(disliked==0) {
+			   				 DislikeImage.setImage(dislikeimage_gris);
+			   			 }
+			   			 if(liked==1) {
+			   				 LikeImage.setImage(likeimage);
+			   			 }else if(liked==0) {
+			   				 LikeImage.setImage(likeimage_gris);
+			   			 }
+
+				    		
+			    		}else {
+			    			
+			    			String InsertSql="insert into liked_or_not(idprovider,name_Client,password_Client,Liked,Disliked) values(?,?,?,?,?)";
+			    			Connection cnx3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		          			PreparedStatement st = cnx3.prepareStatement(InsertSql);   
+		          			st.setInt(1,id);
+		          			st.setString(2,name_Client);
+		          			st.setString(3,password_Client);
+		          			st.setBoolean(4,false);
+		          			st.setBoolean(5,false);
+		          			
+		          			st.execute();
+			    	
+			    		}
+			    	}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		  
+		  
+		  
 
 	}
 
