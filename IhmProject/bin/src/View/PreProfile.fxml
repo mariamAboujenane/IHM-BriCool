@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollBar?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.PreProfileController">
+<AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.PreProfileController">
    <children>
       <Button fx:id="btn_notification" layoutX="498.0" layoutY="17.0" mnemonicParsing="false" onAction="#gonotification" style="-fx-background-color: #E8EAEE;">
          <graphic>
@@ -72,6 +73,7 @@
                         <Font name="Arial Bold Italic" size="12.0" />
                      </font>
                   </Label>
+                  <ListView fx:id="listView" layoutX="89.0" layoutY="42.0" prefHeight="200.0" prefWidth="382.0" style="-fx-background-color: #E8EAEE;" />
                </children>
             </Pane>
             <Label fx:id="addresslabel" layoutX="66.0" layoutY="39.0" text="Hay El Qods 02 N854 ZAGORA" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
@@ -110,12 +112,12 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="LikeLbl" alignment="CENTER" layoutX="461.0" layoutY="54.0" prefHeight="18.0" prefWidth="25.0">
+            <Label fx:id="LikeLbl" alignment="CENTER" layoutX="453.0" layoutY="56.0" prefHeight="18.0" prefWidth="41.0">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="DislikeLbl" alignment="CENTER" layoutX="498.0" layoutY="19.0" prefHeight="18.0" prefWidth="26.0">
+            <Label fx:id="DislikeLbl" alignment="CENTER" layoutX="491.0" layoutY="18.0" prefHeight="18.0" prefWidth="41.0">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

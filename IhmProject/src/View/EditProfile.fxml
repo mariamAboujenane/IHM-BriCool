@@ -120,7 +120,7 @@
             </Label>
             <Pane layoutY="489.0" prefHeight="36.0" prefWidth="428.0">
                <children>
-                  <TextField layoutX="27.0" layoutY="6.0" prefHeight="37.0" prefWidth="355.0" />
+                  <TextField fx:id="bio" layoutX="27.0" layoutY="6.0" prefHeight="37.0" prefWidth="355.0" />
                </children>
             </Pane>
             <Label layoutX="28.0" layoutY="474.0" text="Bio" textFill="#2c7a6a">

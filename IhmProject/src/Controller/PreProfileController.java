@@ -13,6 +13,8 @@ import java.sql.Statement;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,13 +25,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import src.Model.DatabaseConnection;
 
 public class PreProfileController implements Initializable {
 	
@@ -46,7 +54,7 @@ public class PreProfileController implements Initializable {
 	int contour_dislike = 0;
 	
 	private DialogPane dialog;
-
+	
     @FXML
     private Label usernameLabel;
     
@@ -67,6 +75,8 @@ public class PreProfileController implements Initializable {
     @FXML
     private MenuItem history;
     
+    @FXML
+    private ListView<GridPane> listView = new ListView<>();;
 
     @FXML
     private Button back;
@@ -129,7 +139,7 @@ public class PreProfileController implements Initializable {
 			dislike_modify = String.valueOf(dislike_number);
 			DislikeLbl.setText(dislike_modify);
 			String updateQueryLike = "UPDATE service_provider SET Likes = ?,Dislikes = ? WHERE idprovider = '" +id+ "'";
-			String updateQuery = "UPDATE liked_or_not SET Liked = ? Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			String updateQuery = "UPDATE liked_or_not SET Liked = ?,Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
 		  	  try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQueryLike);
@@ -145,8 +155,8 @@ public class PreProfileController implements Initializable {
 		 	 try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
-		   		  preparedStmt.setBoolean   (1, true);
-		   		preparedStmt.setBoolean   (2, false);
+		   		  preparedStmt.setBoolean   (1, false);
+		   		preparedStmt.setBoolean   (2, true);
 
 		   		 preparedStmt.execute();
 		 			 
@@ -693,10 +703,123 @@ public class PreProfileController implements Initializable {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-		  
-		  
-		  
-
+			 selectPostsFromDatabase();
 	}
+	public ImageView selectPhoto() {
+		DatabaseConnection connectNow = new DatabaseConnection();
+		Connection connect = connectNow.getConnection();
+		String selectPhoto = "SELECT  photo FROM service_provider WHERE idprovider=?";
+		String name = MyAppContext.workerUsername;
+		String password = MyAppContext.workerPassword;
+		ImageView photo = new ImageView();
+		try {
+			PreparedStatement st = connect.prepareStatement(selectPhoto);
+			st.setInt(1, id);
+
+			ResultSet result = st.executeQuery();
+
+			while (result.next()) {
+
+				java.sql.Blob blob = result.getBlob("photo");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
+
+				// Create an InputStream from the byte array
+				InputStream inputStream = new ByteArrayInputStream(imageBytes);
+
+				Image imge = new Image(inputStream);
+				photo.setImage(imge);
+
+				photo.setFitWidth(35);
+				photo.setFitHeight(35);
+				Circle circle = new Circle(15, 15, 15);
+				photo.setClip(circle);
+				System.out.println("photo of the service provdier" + photo);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
+		}
+
+		return photo;
+	}
+	public void selectPostsFromDatabase() {
+		ObservableList<GridPane> postGrids = FXCollections.observableArrayList();
+		DatabaseConnection connectNow = new DatabaseConnection();
+
+		Connection connect = connectNow.getConnection();
+		try {
+			PreparedStatement st = connect
+					.prepareStatement("SELECT postTitle, postContent, publishedAt FROM post where idp=?");
+			st.setInt(1, id);
+			ResultSet result = st.executeQuery();
+			while (result.next()) {
+				String title = result.getString("postTitle");
+				java.sql.Blob blob = result.getBlob("postContent");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
+
+				// Create an InputStream from the byte array
+				InputStream inputStream = new ByteArrayInputStream(imageBytes);
+
+				Image imge = new Image(inputStream);
+				ImageView postContent = new ImageView(imge);
+
+				postContent.setFitWidth(355);
+				postContent.setFitHeight(330);
+
+				String publishedAt = result.getString("publishedAt");
+				ImageView photo = selectPhoto();
+				Label username = new Label(MyAppContext.workerUsername);
+				Label titleLabel = new Label(title);
+				System.out.println("photo:" + postContent);
+
+				Label publishedAtLabel = new Label("Published At: " + publishedAt);
+				publishedAtLabel.setStyle("-fx-text-fill: gray;-fx-font-size:10px;");
+
+				username.setStyle("-fx-font-weight: bold; -fx-font-size:12px;");
+
+				GridPane postGrid = new GridPane();
+				// Create ColumnConstraints for each column
+				ColumnConstraints col1 = new ColumnConstraints();
+				ColumnConstraints col2 = new ColumnConstraints();
+				ColumnConstraints col3 = new ColumnConstraints();
+				ColumnConstraints col4 = new ColumnConstraints();
+				// Add the ColumnConstraints to the GridPane
+				postGrid.getColumnConstraints().addAll(col1, col2, col3);
+				col1.setPrefWidth(40); // set width of column1
+				col2.setPrefWidth(160); // set width of column2
+				col3.setPrefWidth(140); // set width of column3
+				// Create RowConstraints for each row
+				RowConstraints row1 = new RowConstraints();
+				RowConstraints row2 = new RowConstraints();
+				RowConstraints row3 = new RowConstraints();
+				RowConstraints row4 = new RowConstraints();
+
+				RowConstraints row5 = new RowConstraints();
+				RowConstraints row6 = new RowConstraints();
+				// Add the RowConstraints to the GridPane
+				postGrid.getRowConstraints().addAll(row1, row2, row3, row4, row5, row6);
+
+				row1.setPrefHeight(5); // set width of column1
+				row2.setPrefHeight(10);
+				row3.setPrefHeight(10); // set width of column1
+
+				postGrid.setConstraints(photo, 0, 0, 1, 3);
+				postGrid.setConstraints(username, 1, 1, 2, 1);
+
+				postGrid.setConstraints(publishedAtLabel, 1, 2, 2, 1);
+				postGrid.setConstraints(titleLabel, 0, 3, 3, 1);
+				postGrid.setConstraints(postContent, 0, 5, 3, 1); // This element will span 2 columns in the 1st row
+				postGrid.getChildren().addAll(photo, username, publishedAtLabel, titleLabel, postContent);
+				postGrids.add(postGrid);
+				listView.setItems(postGrids);
+			}
+		} catch (SQLException e) {
+			System.out.println("An error occurred while retrieving the data: " + e.getMessage());
+		}
+
+	
+	}
+
 
 }

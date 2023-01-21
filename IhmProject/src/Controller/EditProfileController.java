@@ -33,29 +33,22 @@ public class EditProfileController implements Initializable  {
 	String password_Provider = MyAppContext.workerPassword;
     @FXML
     private Button back;
-    
     @FXML
     private Button edit;
-
     @FXML
     private TextField txtaddress;
-
     @FXML
     private ComboBox<String> txtcity;
-
     @FXML
     private TextField txtconfirmpswd;
-
     @FXML
     private TextField txtname;
-
     @FXML
     private TextField txtnumber;
-
     @FXML
     private TextField txtpswd;
-
-
+    @FXML
+    private TextField bio;
     @FXML
     private TextField txtusername;
 
@@ -87,9 +80,10 @@ public class EditProfileController implements Initializable  {
 		String address = txtaddress.getText();
 		String password = txtpswd.getText();
 		String compassword = txtconfirmpswd.getText();
+		String Bio = bio.getText();
 		String city = txtcity.getValue();
 		if(password.equals(compassword)) {
-		  String updateQuery = "UPDATE service_provider SET name = ?, username = ?, speciality = ?, phone_number = ?, address = ?, password = ?, city =? WHERE username='" +username_Provider+ "' and password = '"+password_Provider+"'";
+		  String updateQuery = "UPDATE service_provider SET name = ?, username = ?, speciality = ?, phone_number = ?, address = ?, password = ?,Bio =?, city =? WHERE username='" +username_Provider+ "' and password = '"+password_Provider+"'";
 		 
   	  try {
          	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -100,7 +94,8 @@ public class EditProfileController implements Initializable  {
    		preparedStmt.setString   (4,phone_number);
    		preparedStmt.setString   (5,address);
    		preparedStmt.setString   (6,password);
-   		preparedStmt.setString   (7,city);
+   		preparedStmt.setString   (7,Bio);
+   		preparedStmt.setString   (8,city);
 
    		 preparedStmt.execute();
    		 
@@ -144,12 +139,13 @@ public class EditProfileController implements Initializable  {
 		String phone_number = null;
 		String address = null;
 		String password = null;
+		String Bio = null;
 		String city = null;
 
 
 
 
-		String sql = "select name,username,speciality,phone_number,address,password,city from service_provider where username='" +username_Provider+ "' and password = '"+password_Provider+"'";
+		String sql = "select name,username,speciality,phone_number,address,password,Bio,city from service_provider where username='" +username_Provider+ "' and password = '"+password_Provider+"'";
 		try {
 
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
@@ -163,6 +159,7 @@ public class EditProfileController implements Initializable  {
 				phone_number = rs.getString("phone_number");
 				address = rs.getString("address");
 				password = rs.getString("password");
+				Bio = rs.getString("bio");
 				city = rs.getString("city");
 			}
 
@@ -177,6 +174,7 @@ public class EditProfileController implements Initializable  {
 		txtaddress.setText(address);
 		txtpswd.setText(password);
 		txtconfirmpswd.setText(password);
+		bio.setText(Bio);
 		txtcity.setValue(city);
 
 

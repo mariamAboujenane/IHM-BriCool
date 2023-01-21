@@ -29,6 +29,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -47,8 +49,7 @@ public class SProfileController implements Initializable {
 	private Button AddBtn;
 
 	@FXML
-	private TextField BioP;
-
+    private TextArea BioP;
 	@FXML
 	private Label DislikeP;
 
@@ -57,6 +58,8 @@ public class SProfileController implements Initializable {
 
 	@FXML
 	private Label addressP;
+	@FXML
+    private RadioButton dispo;
 
 	@FXML
 	private Label phoneP;
@@ -98,6 +101,7 @@ public class SProfileController implements Initializable {
 	private Button editbtn;
 
 	int id;
+	 boolean status = false;
 
 	@FXML
 	void EditProfile(ActionEvent event) {
@@ -117,6 +121,30 @@ public class SProfileController implements Initializable {
 		}
 
 	}
+	  @FXML
+	    void disponible(ActionEvent event) {
+		 
+		  String name = MyAppContext.workerUsername;
+			String password = MyAppContext.workerPassword;
+		  if(dispo.isSelected() == true) {
+			  status = true;
+			  
+		  }	 else {
+			  status = false;
+		  }
+		  
+		  String disponible="update service_provider set status= ? where username= '"+name+"' and password= '"+password+"'";
+		  try {
+		       	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+		       	 PreparedStatement preparedStmt = cnx.prepareStatement(disponible);
+		 		  preparedStmt.setBoolean   (1, status);
+		 		 preparedStmt.execute();
+					 
+			  }catch(SQLException e1) {
+				e1.printStackTrace();
+
+			  }
+	    }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -161,7 +189,7 @@ public class SProfileController implements Initializable {
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
 
-		String selectData = "SELECT  speciality , phone_number,address,Bio , Likes, Dislikes,photo FROM service_provider WHERE username = ? and password = ?";
+		String selectData = "SELECT  speciality , phone_number,address,status,Bio , Likes, Dislikes,photo FROM service_provider WHERE username = ? and password = ?";
 		String name = MyAppContext.workerUsername;
 		String password = MyAppContext.workerPassword;
 		System.out.println("Name: " + name + " Password: " + password);
@@ -177,6 +205,7 @@ public class SProfileController implements Initializable {
 				String speciality = result.getString("speciality");
 				String phone_number = Integer.toString(result.getInt("phone_number"));
 				String address = result.getString("address");
+				status = result.getBoolean("status");
 				String Bio = result.getString("Bio");
 				String Likes = Integer.toString(result.getInt("Likes"));
 				String Dislikes = Integer.toString(result.getInt("Dislikes"));
@@ -206,6 +235,11 @@ public class SProfileController implements Initializable {
 
 		} catch (SQLException e) {
 			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
+		}
+		if(status == true) {
+			dispo.setSelected(true);
+		}else if(status == false) {
+			dispo.setSelected(false);	
 		}
 
 	}
