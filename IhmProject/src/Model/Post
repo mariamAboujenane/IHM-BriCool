@@ -30,4 +30,3 @@ public class Post {
         return image;
     }
 }
-    
