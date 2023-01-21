@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.SProfileController">
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.SProfileController">
    <children>
       <Pane prefHeight="593.0" prefWidth="658.0" style="-fx-background-color: #E8EAEE;">
          <children>
@@ -72,12 +72,12 @@
                         <Image url="@icons/down.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="DislikeP" layoutX="474.0" layoutY="58.0" text="16 K">
+                  <Label fx:id="DislikeP" alignment="CENTER" layoutX="466.0" layoutY="59.0" prefHeight="18.0" prefWidth="41.0" text="16 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LikeP" layoutX="519.0" layoutY="20.0" text="1 K">
+                  <Label fx:id="LikeP" alignment="CENTER" layoutX="508.0" layoutY="20.0" prefHeight="18.0" prefWidth="41.0" text="1 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
