@@ -27,6 +27,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -53,7 +54,7 @@ public class PreProfileController implements Initializable {
 	int contour_dislike = 0;
 	
 	private DialogPane dialog;
-
+	
     @FXML
     private Label usernameLabel;
     
