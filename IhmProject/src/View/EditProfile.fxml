@@ -8,38 +8,39 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.EditProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.EditProfileController">
    <right>
-      <AnchorPane prefHeight="566.0" prefWidth="304.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="581.0" prefWidth="245.0" style="-fx-background-color: #E8EAEE;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="174.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="174.0" layoutX="39.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
                      <Image url="@icons/logogris.png" />
                </image>
             </ImageView>
-            <Label layoutX="142.0" layoutY="219.0" prefHeight="21.0" prefWidth="161.0" text="Please enter reliable " textFill="#513b3d">
+            <Label layoutX="64.0" layoutY="204.0" prefHeight="21.0" prefWidth="161.0" text="Please enter reliable " textFill="#513b3d">
                <font>
                   <Font name="Segoe Script" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="126.0" layoutY="249.0" prefHeight="21.0" prefWidth="161.0" text=" information  to develop" textFill="#513b3d">
+            <Label layoutX="51.0" layoutY="226.0" prefHeight="21.0" prefWidth="161.0" text=" information  to develop" textFill="#513b3d">
                <font>
                   <Font name="Segoe Script" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="121.0" layoutY="290.0" prefHeight="21.0" prefWidth="172.0" text="        CREDEBILITY " textFill="#513b3d">
+            <Label layoutX="59.0" layoutY="256.0" prefHeight="21.0" prefWidth="146.0" text="        CREDEBILITY " textFill="#513b3d">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="181.0" layoutY="333.0" prefHeight="21.0" prefWidth="109.0" text="CLIENT TRUST" textFill="#513b3d">
+            <Label layoutX="87.0" layoutY="298.0" prefHeight="21.0" prefWidth="109.0" text="CLIENT TRUST" textFill="#513b3d">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="200.0" layoutY="312.0" opacity="0.68" prefHeight="21.0" prefWidth="36.0" text="&amp;" textFill="#513b3d">
+            <Label layoutX="128.0" layoutY="278.0" opacity="0.68" prefHeight="21.0" prefWidth="36.0" text="&amp;" textFill="#513b3d">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -48,49 +49,49 @@
       </AnchorPane>
    </right>
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="469.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="591.0" prefWidth="449.0" style="-fx-background-color: #B6D0BD;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtname" layoutX="28.0" layoutY="74.0" prefHeight="29.0" prefWidth="300.0" />
-            <TextField fx:id="txtusername" layoutX="28.0" layoutY="126.0" prefHeight="29.0" prefWidth="300.0" />
-            <TextField fx:id="txtpswd" layoutX="28.0" layoutY="403.0" prefHeight="30.0" prefWidth="300.0" />
-            <TextField fx:id="txtconfirmpswd" layoutX="27.0" layoutY="459.0" prefHeight="30.0" prefWidth="300.0" />
-            <Label layoutX="28.0" layoutY="99.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Username" textFill="#2c7a6a">
+            <TextField fx:id="txtname" layoutX="28.0" layoutY="66.0" prefHeight="29.0" prefWidth="355.0" />
+            <TextField fx:id="txtusername" layoutX="28.0" layoutY="118.0" prefHeight="29.0" prefWidth="355.0" />
+            <TextField fx:id="txtpswd" layoutX="28.0" layoutY="389.0" prefHeight="30.0" prefWidth="355.0" />
+            <TextField fx:id="txtconfirmpswd" layoutX="27.0" layoutY="443.0" prefHeight="30.0" prefWidth="355.0" />
+            <Label layoutX="28.0" layoutY="91.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Username" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="376.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="363.0" prefHeight="29.0" prefWidth="193.0" text="Password" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="431.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="417.0" prefHeight="29.0" prefWidth="193.0" text="Confirm Password" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="edit" layoutX="128.0" layoutY="498.0" mnemonicParsing="false" onAction="#edit_profile" prefHeight="35.0" prefWidth="128.0" style="-fx-background-color: #503A3C;" text="Edit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+            <Button fx:id="edit" layoutX="125.0" layoutY="542.0" mnemonicParsing="false" onAction="#edit_profile" prefHeight="35.0" prefWidth="128.0" style="-fx-background-color: #503A3C;" text="Edit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="28.0" layoutY="152.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Specialty" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="144.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Specialty" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="211.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
+            <Label layoutX="28.0" layoutY="202.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="txtnumber" layoutX="28.0" layoutY="237.0" prefHeight="30.0" prefWidth="300.0" />
-            <Label layoutX="29.0" layoutY="322.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
+            <TextField fx:id="txtnumber" layoutX="28.0" layoutY="228.0" prefHeight="30.0" prefWidth="355.0" />
+            <Label layoutX="29.0" layoutY="312.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="txtaddress" layoutX="28.0" layoutY="348.0" prefHeight="30.0" prefWidth="300.0" />
+            <TextField fx:id="txtaddress" layoutX="28.0" layoutY="338.0" prefHeight="30.0" prefWidth="355.0" />
             <Button fx:id="back1" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="37.0" opacity="0.69" pickOnBounds="true" preserveRatio="true">
@@ -100,21 +101,31 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox fx:id="Mychoicebox" layoutX="28.0" layoutY="180.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;" />
-            <Label layoutX="28.0" layoutY="48.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
+            <ComboBox fx:id="Mychoicebox" layoutX="28.0" layoutY="171.0" prefHeight="30.0" prefWidth="355.0" style="-fx-background-color: #FFFFFF;" />
+            <Label layoutX="28.0" layoutY="42.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ComboBox fx:id="txtcity" layoutX="29.0" layoutY="292.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;" />
-            <Label layoutX="28.0" layoutY="265.0" prefHeight="29.0" prefWidth="193.0" text="City" textFill="#2c7a6a">
+            <ComboBox fx:id="txtcity" layoutX="29.0" layoutY="280.0" prefHeight="30.0" prefWidth="355.0" style="-fx-background-color: #FFFFFF;" />
+            <Label layoutX="28.0" layoutY="255.0" prefHeight="29.0" prefWidth="193.0" text="City" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="135.0" layoutY="5.0" prefHeight="45.0" prefWidth="163.0" text="Edit profile" textFill="#503a3c">
+            <Label layoutX="118.0" layoutY="1.0" prefHeight="45.0" prefWidth="163.0" text="Edit profile" textFill="#503a3c">
                <font>
-                  <Font name="System Bold" size="29.0" />
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Pane layoutY="489.0" prefHeight="36.0" prefWidth="428.0">
+               <children>
+                  <TextField layoutX="27.0" layoutY="6.0" prefHeight="37.0" prefWidth="355.0" />
+               </children>
+            </Pane>
+            <Label layoutX="28.0" layoutY="474.0" text="Bio" textFill="#2c7a6a">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
          </children>
