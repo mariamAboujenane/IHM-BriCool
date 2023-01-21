@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -18,7 +19,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.SProfileController">
    <children>
-      <Pane prefHeight="593.0" prefWidth="658.0" style="-fx-background-color: #E8EAEE;">
+      <Pane prefHeight="593.0" prefWidth="658.0" style="-fx-background-color: #E8EAEE; -fx-border-radius: 199;">
          <children>
             <Button layoutX="414.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
             <Button layoutX="533.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
@@ -44,14 +45,14 @@
                      </children>
                   </Pane>
                   <ImageView fx:id="photoP" fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <Pane layoutX="17.0" layoutY="97.0" prefHeight="36.0" prefWidth="594.0" style="-fx-border-color: #2c7a6a;">
+                  <Pane layoutX="17.0" layoutY="90.0" prefHeight="43.0" prefWidth="594.0">
                      <children>
                         <Label layoutX="14.0" layoutY="9.0" text="Bio" textFill="#513b3d">
                            <font>
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="BioP" disable="true" layoutX="65.0" layoutY="3.0" prefHeight="25.0" prefWidth="519.0" />
+                        <TextArea fx:id="BioP" layoutX="47.0" layoutY="2.0" prefHeight="25.0" prefWidth="519.0" style="-fx-border-radius: 10;" />
                      </children>
                   </Pane>
                   <Label fx:id="addressP" layoutX="67.0" layoutY="39.0" prefHeight="24.0" prefWidth="179.0" />
@@ -72,12 +73,12 @@
                         <Image url="@icons/down.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="DislikeP" layoutX="474.0" layoutY="58.0" text="16 K">
+                  <Label fx:id="LikeP" layoutX="474.0" layoutY="58.0" text="16 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LikeP" layoutX="519.0" layoutY="20.0" text="1 K">
+                  <Label fx:id="DislikeP" layoutX="519.0" layoutY="21.0" text="1 K">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
