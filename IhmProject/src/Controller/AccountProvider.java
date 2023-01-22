@@ -22,7 +22,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 
@@ -41,9 +43,26 @@ public class AccountProvider implements Initializable{
 	    @FXML
 	    private Button back;
 	    @FXML
+	    private PasswordField comPasswordField;
+	    @FXML
+	    private Button comhide;
+
+
+	    @FXML
 	    private DialogPane dialog;
 	    @FXML
 	    private Button create;
+	    @FXML
+	    private Button hide;
+
+	    @FXML
+	    private PasswordField passwordField;
+
+	    @FXML
+	    private Button show;
+
+	    @FXML
+	    private Button showcom;
 	    @FXML
 	    private TextField txtconfirmpswd;
 	    @FXML
@@ -60,6 +79,8 @@ public class AccountProvider implements Initializable{
 	    private Button AddPhoto;
 	    
 		public static String id;
+		static String password ;
+		static String compassword;
 	    
 	    public String getId() {
 			return id;
@@ -85,14 +106,80 @@ public class AccountProvider implements Initializable{
 	    	
 	    }
 	    
+		
 	    
+	    
+	
+	    
+	   public void Back_To_choose(ActionEvent event) {
+	    	try {
+				Parent parent;
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
+				Scene scene = new Scene(parent);
+				Stage  primaryStage = new Stage();
+				primaryStage.setScene(scene);
+				primaryStage.show();
+				Stage stage = (Stage) back.getScene().getWindow();
+			    stage.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	    }
+	   @FXML
+	    void comhide(ActionEvent event) {
+		   compassword = txtconfirmpswd.getText();
+	    	txtconfirmpswd.setVisible(false);
+	    	comhide.setVisible(false);
+	    	comPasswordField.setVisible(true);
+			showcom.setVisible(true);
+
+	    }
+	   @FXML
+	    void hide(ActionEvent event) {
+		   password = txtpswd.getText();
+	    	txtpswd.setVisible(false);
+	    	hide.setVisible(false);
+			passwordField.setVisible(true);
+			show.setVisible(true);
+			passwordField.setText(password);
+
+	    }
+
+	    @FXML
+	    void show(ActionEvent event) {
+	    	password = passwordField.getText();
+	    	txtpswd.setVisible(true);
+	    	hide.setVisible(true);
+			passwordField.setVisible(false);
+			show.setVisible(false);
+			txtpswd.setText(password);
+			System.out.println(password);
+
+	    }
+
+	    @FXML
+	    void showcom(ActionEvent event) {
+	    	compassword = comPasswordField.getText();
+	    	txtconfirmpswd.setVisible(true);
+	    	comhide.setVisible(true);
+	    	comPasswordField.setVisible(false);
+			showcom.setVisible(false);
+			txtconfirmpswd.setText(compassword);
+			System.out.println(compassword);
+
+	    }
+	    
+	    @FXML
 		public void createOnAction(ActionEvent e) throws FileNotFoundException {
+			password =  passwordField.getText();
+			compassword =  comPasswordField.getText();
+
 			String sql="insert into service_provider(name,username,speciality,phone_number,address,password,status,city,photo) values(?,?,?,?,?,?,?,?,?)";
-	             if(txtpswd.getText().equalsIgnoreCase(txtconfirmpswd.getText())){
+	             if(password.equals(compassword)){
 		          	   try {
 		          		   
 		          		   
-		          		    File imageFile = new File("C:/Users/user/git/IHM-BriCool/IhmProject/src/View/icons/defaultprofile.jpeg");
+		          		    File imageFile = new File("C:\\Users\\pc\\git\\IHM-BriCool\\IhmProject\\src\\View\\icons\\defaultprofile.jpeg");
 		                    FileInputStream fis = new FileInputStream(imageFile);
 		                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		                    byte[] buffer = new byte[1024];
@@ -110,7 +197,7 @@ public class AccountProvider implements Initializable{
 		          			st.setString(3,Mychoicebox.getValue().toString());
 		          			st.setString(4,txtnumber.getText());
 		          			st.setString(5,txtaddress.getText());
-		          			st.setString(6,txtpswd.getText());
+		          			st.setString(6,password);
 		          			st.setString(7,"0");
 		          			st.setString(8,txtcity.getValue().toString());
                             st.setBytes(9, imageBytes);
@@ -163,31 +250,23 @@ public class AccountProvider implements Initializable{
 		      			  alert.showAndWait();
 	              }
 	       }
-	    
-	    
-	
-	    
-	   public void Back_To_choose(ActionEvent event) {
-	    	try {
-				Parent parent;
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
-				Scene scene = new Scene(parent);
-				Stage  primaryStage = new Stage();
-				primaryStage.setScene(scene);
-				primaryStage.show();
-				Stage stage = (Stage) back.getScene().getWindow();
-			    stage.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	    }
+
 
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			 Mychoicebox.getItems().addAll(speciality);
 			 txtcity.getItems().addAll(city);
-
+			//to show the the textfield of password and comfirm password and the buttons to show the characters of password of each one
+				txtpswd.setVisible(false);
+				txtconfirmpswd.setVisible(false);
+				hide.setVisible(false);
+				comhide.setVisible(false);
+				passwordField.setVisible(true);
+				comPasswordField.setVisible(true);
+				show.setVisible(true);
+				showcom.setVisible(true);
+		
 			
 		}
 

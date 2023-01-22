@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -50,7 +51,26 @@ public class EditProfileController implements Initializable  {
     @FXML
     private TextField bio;
     @FXML
+    private PasswordField comPasswordField;
+
+    @FXML
+    private Button comhide;
+    @FXML
+    private Button hide;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private Button show;
+
+    @FXML
+    private Button showcom;
+    @FXML
     private TextField txtusername;
+    
+	static String password_field;
+	static String compassword;
 
 
     @FXML
@@ -69,8 +89,53 @@ public class EditProfileController implements Initializable  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
     }
+    @FXML
+    void comhide(ActionEvent event) {
+    	compassword = txtconfirmpswd.getText();
+    	txtconfirmpswd.setVisible(false);
+    	comhide.setVisible(false);
+    	comPasswordField.setVisible(true);
+		showcom.setVisible(true);
+		comPasswordField.setText(compassword);
+
+    }
+    @FXML
+    void hide(ActionEvent event) {
+    	 password_field = txtpswd.getText();
+	    	txtpswd.setVisible(false);
+	    	hide.setVisible(false);
+			passwordField.setVisible(true);
+			show.setVisible(true);
+			passwordField.setText(password_field);
+
+    }
+
+    @FXML
+    void show(ActionEvent event) {
+    	password_field = passwordField.getText();
+    	txtpswd.setVisible(true);
+    	hide.setVisible(true);
+		passwordField.setVisible(false);
+		show.setVisible(false);
+		txtpswd.setText(password_field);
+
+    }
+
+    @FXML
+    void showcom(ActionEvent event) {
+    	compassword = comPasswordField.getText();
+    	txtconfirmpswd.setVisible(true);
+    	comhide.setVisible(true);
+    	comPasswordField.setVisible(false);
+		showcom.setVisible(false);
+		txtconfirmpswd.setText(compassword);
+
+    }
+
+
     @FXML
     void edit_profile(ActionEvent event) {
 		String name = txtname.getText();
@@ -78,11 +143,11 @@ public class EditProfileController implements Initializable  {
 		String speciality = Mychoicebox.getValue();
 		String phone_number = txtnumber.getText();
 		String address = txtaddress.getText();
-		String password = txtpswd.getText();
-		String compassword = txtconfirmpswd.getText();
 		String Bio = bio.getText();
 		String city = txtcity.getValue();
-		if(password.equals(compassword)) {
+		password_field =  passwordField.getText();
+		compassword =  comPasswordField.getText();
+		if(password_field.equals(compassword)) {
 		  String updateQuery = "UPDATE service_provider SET name = ?, username = ?, speciality = ?, phone_number = ?, address = ?, password = ?,Bio =?, city =? WHERE username='" +username_Provider+ "' and password = '"+password_Provider+"'";
 		 
   	  try {
@@ -93,7 +158,7 @@ public class EditProfileController implements Initializable  {
    		preparedStmt.setString   (3,speciality);
    		preparedStmt.setString   (4,phone_number);
    		preparedStmt.setString   (5,address);
-   		preparedStmt.setString   (6,password);
+   		preparedStmt.setString   (6,password_field);
    		preparedStmt.setString   (7,Bio);
    		preparedStmt.setString   (8,city);
 
@@ -138,7 +203,6 @@ public class EditProfileController implements Initializable  {
 		String speciality = null;
 		String phone_number = null;
 		String address = null;
-		String password = null;
 		String Bio = null;
 		String city = null;
 
@@ -158,7 +222,7 @@ public class EditProfileController implements Initializable  {
 				speciality = rs.getString("speciality");
 				phone_number = rs.getString("phone_number");
 				address = rs.getString("address");
-				password = rs.getString("password");
+				password_field = rs.getString("password");
 				Bio = rs.getString("bio");
 				city = rs.getString("city");
 			}
@@ -172,10 +236,24 @@ public class EditProfileController implements Initializable  {
 		Mychoicebox.setValue(speciality);
 		txtnumber.setText(phone_number);
 		txtaddress.setText(address);
-		txtpswd.setText(password);
-		txtconfirmpswd.setText(password);
+		txtpswd.setText(password_field);
+		txtconfirmpswd.setText(password_field);
+		passwordField.setText(password_field);
+		comPasswordField.setText(password_field);
 		bio.setText(Bio);
 		txtcity.setValue(city);
+		
+		
+		//to show the the textfield of password and comfirm password and the buttons to show the characters of password of each one
+		txtpswd.setVisible(false);
+		txtconfirmpswd.setVisible(false);
+		hide.setVisible(false);
+		comhide.setVisible(false);
+		passwordField.setVisible(true);
+		comPasswordField.setVisible(true);
+		show.setVisible(true);
+		showcom.setVisible(true);
+
 
 
 

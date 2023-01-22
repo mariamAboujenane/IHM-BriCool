@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -44,6 +45,25 @@ public class EditProfileUserController implements Initializable  {
 
     @FXML
     private TextField txtusername;
+    @FXML
+    private PasswordField comPasswordField;
+
+    @FXML
+    private Button comhide;
+    @FXML
+    private Button hide;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private Button show;
+
+    @FXML
+    private Button showcom;
+    
+	static String password;
+	static String compassword;
 
 
     @FXML
@@ -64,14 +84,56 @@ public class EditProfileUserController implements Initializable  {
 		}
 
     }
+    @FXML
+    void comhide(ActionEvent event) {
+    	compassword = txtconpassword.getText();
+    	txtconpassword.setVisible(false);
+    	comhide.setVisible(false);
+    	comPasswordField.setVisible(true);
+		showcom.setVisible(true);
+		comPasswordField.setText(compassword);
+
+    }
+    @FXML
+    void hide(ActionEvent event) {
+    	password = txtpassword.getText();
+    	txtpassword.setVisible(false);
+    	hide.setVisible(false);
+		passwordField.setVisible(true);
+		show.setVisible(true);
+		passwordField.setText(password);
+
+    }
+
+    @FXML
+    void show(ActionEvent event) {
+    	password = passwordField.getText();
+    	txtpassword.setVisible(true);
+    	hide.setVisible(true);
+		passwordField.setVisible(false);
+		show.setVisible(false);
+		txtpassword.setText(password);
+
+    }
+
+    @FXML
+    void showcom(ActionEvent event) {
+    	compassword = comPasswordField.getText();
+    	txtconpassword.setVisible(true);
+    	comhide.setVisible(true);
+    	comPasswordField.setVisible(false);
+		showcom.setVisible(false);
+		txtconpassword.setText(compassword);
+
+    }
     
     @FXML
     void edit_profile(ActionEvent event) {
 		String name = txtname.getText();
 		String username = txtusername.getText();
-		String password = txtpassword.getText();
-		String conpassword = txtconpassword.getText();
-		if(password.equals(conpassword)) {
+		password =  passwordField.getText();
+		compassword =  comPasswordField.getText();
+		if(password.equals(compassword)) {
 		  String updateQuery = "UPDATE user SET name = ?, username = ?, password = ? WHERE username='" +username_Client+ "' and password = '"+password_Client+"'";
 		 
   	  try {
@@ -117,7 +179,6 @@ public class EditProfileUserController implements Initializable  {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		String name = null;
 		String username = null;
-		String password = null;
 
 		String sql = "select name,username,password from user where username='" +username_Client+ "' and password = '"+password_Client+"'";
 		try {
@@ -140,6 +201,19 @@ public class EditProfileUserController implements Initializable  {
 		txtusername.setText(username);
 		txtpassword.setText(password);
 		txtconpassword.setText(password);
+		passwordField.setText(password);
+		comPasswordField.setText(password);
+		
+		//to show the the textfield of password and comfirm password and the buttons to show the characters of password of each one
+		txtpassword.setVisible(false);
+		txtconpassword.setVisible(false);
+		hide.setVisible(false);
+		comhide.setVisible(false);
+		passwordField.setVisible(true);
+		comPasswordField.setVisible(true);
+		show.setVisible(true);
+		showcom.setVisible(true);
+
 		
 	}
 

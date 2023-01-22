@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -49,8 +50,6 @@
             </Label>
             <TextField fx:id="txtname" layoutX="28.0" layoutY="74.0" prefHeight="29.0" prefWidth="300.0" />
             <TextField fx:id="txtuser" layoutX="28.0" layoutY="126.0" prefHeight="29.0" prefWidth="300.0" />
-            <TextField fx:id="txtpswd" layoutX="28.0" layoutY="403.0" prefHeight="30.0" prefWidth="300.0" />
-            <TextField fx:id="txtconfirmpswd" layoutX="27.0" layoutY="459.0" prefHeight="30.0" prefWidth="300.0" />
             <Label layoutX="28.0" layoutY="99.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Username" textFill="#2c7a6a">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -109,6 +108,46 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <PasswordField fx:id="passwordField" layoutX="29.0" layoutY="403.0" prefHeight="30.0" prefWidth="300.0" />
+            <PasswordField fx:id="comPasswordField" layoutX="27.0" layoutY="459.0" prefHeight="30.0" prefWidth="300.0" />
+            <Button fx:id="showcom" layoutX="295.0" layoutY="462.0" mnemonicParsing="false" onAction="#showcom" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffffff;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/openeye.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="show" layoutX="295.0" layoutY="406.0" mnemonicParsing="false" onAction="#show" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffffff;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/openeye.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="txtpswd" layoutX="29.0" layoutY="403.0" prefHeight="30.0" prefWidth="300.0" />
+            <TextField fx:id="txtconfirmpswd" layoutX="27.0" layoutY="459.0" prefHeight="30.0" prefWidth="300.0" />
+            <Button fx:id="hide" layoutX="295.0" layoutY="406.0" mnemonicParsing="false" onAction="#hide" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffffff;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/closeeye.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="comhide" layoutX="295.0" layoutY="462.0" mnemonicParsing="false" onAction="#comhide" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffffff;">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/closeeye.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>

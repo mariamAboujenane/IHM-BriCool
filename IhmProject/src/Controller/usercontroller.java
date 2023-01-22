@@ -1,11 +1,13 @@
 package src.Controller;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -14,10 +16,11 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 
 
-public class usercontroller {
+public class usercontroller implements Initializable {
     private DialogPane dialog;
     @FXML
     private Button create;
@@ -32,6 +35,25 @@ public class usercontroller {
    //zineb
     @FXML
     private Button back;
+    @FXML
+    private PasswordField comPasswordField;
+
+    @FXML
+    private Button comhide;
+    @FXML
+    private Button hide;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private Button show;
+
+    @FXML
+    private Button showcom;
+    
+	static String password;
+	static String compassword;
 
     @FXML
     void Back_To_choose(ActionEvent event) {
@@ -51,17 +73,63 @@ public class usercontroller {
 		}
 
     }
+    @FXML
+    void comhide(ActionEvent event) {
+    	compassword = txtconfirmpswd.getText();
+    	txtconfirmpswd.setVisible(false);
+    	comhide.setVisible(false);
+    	comPasswordField.setVisible(true);
+		showcom.setVisible(true);
+		comPasswordField.setText(compassword);
+
+    }
+    @FXML
+    void hide(ActionEvent event) {
+    	 password = txtpswd.getText();
+	    	txtpswd.setVisible(false);
+	    	hide.setVisible(false);
+			passwordField.setVisible(true);
+			show.setVisible(true);
+			passwordField.setText(password);
+
+    }
+
+    @FXML
+    void show(ActionEvent event) {
+    	password = passwordField.getText();
+    	txtpswd.setVisible(true);
+    	hide.setVisible(true);
+		passwordField.setVisible(false);
+		show.setVisible(false);
+		txtpswd.setText(password);
+
+    }
+
+    @FXML
+    void showcom(ActionEvent event) {
+    	compassword = comPasswordField.getText();
+    	txtconfirmpswd.setVisible(true);
+    	comhide.setVisible(true);
+    	comPasswordField.setVisible(false);
+		showcom.setVisible(false);
+		txtconfirmpswd.setText(compassword);
+
+    }
 
 	@FXML
 	public void createOnAction(ActionEvent e) {
+		password =  passwordField.getText();
+		compassword =  comPasswordField.getText();
+		System.out.println(password);
+		System.out.println(compassword);
 		String sql="insert into user(name,username,password) values(?,?,?)";
-             if(txtpswd.getText().equals(txtconfirmpswd.getText())){
+             if(password.equals(compassword)){
 	          	   try {
 	                  	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 	          			PreparedStatement st = cnx.prepareStatement(sql);   
 	          			st.setString(1,txtname.getText());
 	          			st.setString(2,txtuser.getText());
-	          			st.setString(3,txtpswd.getText());
+	          			st.setString(3,password);
 	          			txtname.setText("");
 	          			txtuser.setText(""); 
 	          			txtpswd.setText("");
@@ -93,6 +161,21 @@ public class usercontroller {
 	      			  alert.showAndWait();
               }
        }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		//to show the the textfield of password and comfirm password and the buttons to show the characters of password of each one
+		txtpswd.setVisible(false);
+		txtconfirmpswd.setVisible(false);
+		hide.setVisible(false);
+		comhide.setVisible(false);
+		passwordField.setVisible(true);
+		comPasswordField.setVisible(true);
+		show.setVisible(true);
+		showcom.setVisible(true);
+
+		
+	}
 
 
    

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -47,9 +48,9 @@
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtname" layoutX="28.0" layoutY="111.0" prefHeight="26.0" prefWidth="307.0" />
-                  <TextField fx:id="txtpassword" layoutX="28.0" layoutY="247.0" prefHeight="26.0" prefWidth="307.0" />
-                  <TextField fx:id="txtconpassword" layoutX="28.0" layoutY="313.0" prefHeight="26.0" prefWidth="307.0" />
+                  <TextField fx:id="txtname" layoutX="28.0" layoutY="111.0" prefHeight="30.0" prefWidth="307.0" />
+                  <TextField fx:id="txtpassword" layoutX="28.0" layoutY="247.0" prefHeight="30.0" prefWidth="307.0" />
+                  <TextField fx:id="txtconpassword" layoutX="28.0" layoutY="313.0" prefHeight="30.0" prefWidth="307.0" />
                   <Label layoutX="29.0" layoutY="82.0" prefHeight="29.0" prefWidth="193.0" text="Full name" textFill="#2c7a6a">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -83,7 +84,45 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtusername" layoutX="28.0" layoutY="182.0" prefHeight="26.0" prefWidth="307.0" />
+                  <TextField fx:id="txtusername" layoutX="28.0" layoutY="182.0" prefHeight="30.0" prefWidth="307.0" />
+                  <PasswordField fx:id="passwordField" layoutX="28.0" layoutY="247.0" prefHeight="30.0" prefWidth="307.0" />
+                  <PasswordField fx:id="comPasswordField" layoutX="28.0" layoutY="313.0" prefHeight="30.0" prefWidth="307.0" />
+                  <Button fx:id="show" layoutX="301.0" layoutY="250.0" mnemonicParsing="false" onAction="#show" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffff;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/openeye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="showcom" layoutX="301.0" layoutY="316.0" mnemonicParsing="false" onAction="#showcom" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffff;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/openeye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="hide" layoutX="301.0" layoutY="250.0" mnemonicParsing="false" onAction="#hide" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffff;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/closeeye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="comhide" layoutX="301.0" layoutY="316.0" mnemonicParsing="false" onAction="#comhide" prefHeight="22.0" prefWidth="21.0" style="-fx-background-color: #ffffff;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/closeeye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </left>
