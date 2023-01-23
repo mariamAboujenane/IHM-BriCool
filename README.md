@@ -12,24 +12,27 @@ Bricool is a service app that allows clients to search for a nearby and suitable
 <br />
 
 ## Here is a preview of our App 📸 :
-> The first inteface that appears when we run the app is the login interface. Both client and service provider can log in from it.
+The first inteface that appears when we run the app is the login interface. Both client and service provider can log in from it.
 <img width="491" alt="login" src="https://user-images.githubusercontent.com/121026257/213884030-10ba6ca3-8d05-400b-8f69-8b103fcd6673.PNG">
 
 
-> If the user is a client he will be directed to the search interface
+If the user is a client he will be directed to the search interface
 
 
 
 
-> The service provider will be directed to his profile
+The service provider will be directed to his profile
 
 
 
 
-> If the user hasn't an account yet he will be directing to the registrition interface 
-for the service provider
+If the user hasn't an account yet he will be directing to the registrition interface 
+> The service provider's registration interface
+<img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/213885535-d964cbfc-f4dc-447b-b0a2-c1a9eb3bc923.PNG">
 
 
+
+> The clients's registration interface
 
 
 
