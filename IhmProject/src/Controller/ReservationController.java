@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class ReservationController implements Initializable {
@@ -62,6 +63,9 @@ public class ReservationController implements Initializable {
 			
 			Stage  primaryStage = new Stage();
 			primaryStage.setScene(scene);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			
 			Stage stage = (Stage) back.getScene().getWindow();
@@ -146,6 +150,9 @@ public class ReservationController implements Initializable {
    				Scene scene = new Scene(parent1);
    				Stage  primaryStage = new Stage();
    				primaryStage.setScene(scene);
+   			 Image image = new Image("src/View/icons/logo3.png");	 
+ 			primaryStage.getIcons().add(image);
+ 			primaryStage.setTitle("BriCOOL");
    				primaryStage.show(); 
    				Stage stage1 = (Stage) submit.getScene().getWindow();
    			     stage1.close();

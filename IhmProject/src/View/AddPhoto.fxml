@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="cancel1" layoutX="231.0" layoutY="438.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #308a77;" text="Back" textFill="WHITE">
+            <Button fx:id="Back" layoutX="231.0" layoutY="438.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #308a77;" text="Back" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

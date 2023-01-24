@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
@@ -64,6 +65,9 @@ public class usercontroller implements Initializable {
 			
 			Stage  primaryStage = new Stage();
 			primaryStage.setScene(scene);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) back.getScene().getWindow();
 		    stage1.close();
@@ -143,6 +147,9 @@ public class usercontroller implements Initializable {
 	    				Scene scene = new Scene(parent);
 	    				Stage  primaryStage = new Stage();
 	    				primaryStage.setScene(scene);
+	    				 Image image = new Image("src/View/icons/logo3.png");	 
+	    					primaryStage.getIcons().add(image);
+	    					primaryStage.setTitle("BriCOOL");
 	    				primaryStage.show(); 
 	    				Stage stage1 = (Stage) create.getScene().getWindow();
 	    			     stage1.close();

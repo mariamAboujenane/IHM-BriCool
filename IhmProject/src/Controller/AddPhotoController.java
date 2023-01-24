@@ -47,24 +47,21 @@ public class AddPhotoController {
 
     @FXML
     private Button addButton;
-    
+    @FXML
+    private Button Back;
     @FXML
     private TextField posttitle;
-    
     @FXML
     private Button draganddrop;
-
     @FXML
     private ImageView imageView;
-
     @FXML
     private ImageView uploadImage;
-    
     private FileInputStream postImage;
     List<File> files;
     private DialogPane dialog;
     private Image image;
-   private String path;
+    private String path;
 	   @FXML
 	    private Button cancel;
 
@@ -77,6 +74,9 @@ public class AddPhotoController {
 				
 				Stage  primaryStage = new Stage();
 				primaryStage.setScene(scene);
+				 Image image = new Image("src/View/icons/logo3.png");	 
+					primaryStage.getIcons().add(image);
+					primaryStage.setTitle("BriCOOL");
 				primaryStage.show();
 				Stage stage1 = (Stage) cancel.getScene().getWindow();
 			    stage1.close();
@@ -89,9 +89,9 @@ public class AddPhotoController {
 
 
     @FXML
-    void handleDragOver(DragEvent event) {  //we use drag event if we went to drag something from another application and drop it in our fxml file
-        if(event.getDragboard().hasFiles()) { //we did a condition here to accept just files .
-    	event.acceptTransferModes(TransferMode.ANY); // it means we can accept any kind of files
+    void handleDragOver(DragEvent event) { 
+        if(event.getDragboard().hasFiles()) { 
+    	event.acceptTransferModes(TransferMode.ANY); 
     	addButton.setDisable(false);
 
         }
@@ -107,6 +107,28 @@ public class AddPhotoController {
      draganddrop.setVisible(false);
      uploadImage.setVisible(false);
      
+    }
+    @FXML
+    void backOnAction(ActionEvent event) {
+    	Parent parent1 = null;
+		try {
+			parent1 = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AccountProvider.fxml"));
+			
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		Scene scene = new Scene(parent1);
+		Stage  primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		 Image image = new Image("src/View/icons/logo3.png");	 
+			primaryStage.getIcons().add(image);
+			primaryStage.setTitle("BriCOOL");
+		primaryStage.show(); 
+		Stage stage1 = (Stage) Back.getScene().getWindow();
+	     stage1.close();
+
+
+
     }
     
    
@@ -150,17 +172,7 @@ public class AddPhotoController {
 				e.printStackTrace();
 			}
 		
-		
-    		
 
-    	
     }
-    
   
-
-    
-
-
-    
-    
 }

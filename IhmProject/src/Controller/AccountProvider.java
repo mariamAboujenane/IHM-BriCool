@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -99,6 +100,9 @@ public class AccountProvider implements Initializable{
 				Scene scene = new Scene(parent);
 				Stage  primaryStage = new Stage();
 				primaryStage.setScene(scene);
+				 Image image = new Image("src/View/icons/logo3.png");	 
+					primaryStage.getIcons().add(image);
+					primaryStage.setTitle("BriCOOL");
 				primaryStage.show();
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -118,6 +122,9 @@ public class AccountProvider implements Initializable{
 				Scene scene = new Scene(parent);
 				Stage  primaryStage = new Stage();
 				primaryStage.setScene(scene);
+				 Image image = new Image("src/View/icons/logo3.png");	 
+					primaryStage.getIcons().add(image);
+					primaryStage.setTitle("BriCOOL");
 				primaryStage.show();
 				Stage stage = (Stage) back.getScene().getWindow();
 			    stage.close();
@@ -179,11 +186,8 @@ public class AccountProvider implements Initializable{
 		          	   try {
 		          		   
 		          		   
-<<<<<<< HEAD
-		          		    File imageFile = new File("C:\\Users\\pc\\git\\IHM-BriCool\\IhmProject\\src\\View\\icons\\defaultprofile.jpeg");
-=======
+
 		          		    File imageFile = new File("C:/Users/ilyas/git/IHM-BriCool/IhmProject/src/View/icons/defaultprofile.jpeg");
->>>>>>> branch 'main' of https://github.com/mariamAboujenane/IHM-BriCool.git
 		                    FileInputStream fis = new FileInputStream(imageFile);
 		                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		                    byte[] buffer = new byte[1024];
@@ -234,6 +238,9 @@ public class AccountProvider implements Initializable{
 		    				Scene scene = new Scene(parent1);
 		    				Stage  primaryStage = new Stage();
 		    				primaryStage.setScene(scene);
+		    				 Image image = new Image("src/View/icons/logo3.png");	 
+		    					primaryStage.getIcons().add(image);
+		    					primaryStage.setTitle("BriCOOL");
 		    				primaryStage.show(); 
 		    				Stage stage1 = (Stage) create.getScene().getWindow();
 		    			     stage1.close();

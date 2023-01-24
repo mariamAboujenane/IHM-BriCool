@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
@@ -58,11 +59,13 @@ public class ClientOrProviderController {
 			
 			Stage  primaryStage = new Stage();
 			primaryStage.setScene(scene);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) createbtn.getScene().getWindow();
 		    stage1.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -76,11 +79,13 @@ public class ClientOrProviderController {
 			
 			Stage  primaryStage = new Stage();
 			primaryStage.setScene(scene);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) loginbtn.getScene().getWindow();
 		    stage1.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -105,6 +105,9 @@ public class SProfileController implements Initializable {
 					
 					Stage  primaryStage1 = new Stage();
 					primaryStage1.setScene(scene1);
+					 Image image = new Image("src/View/icons/logo3.png");	 
+						primaryStage1.getIcons().add(image);
+						primaryStage1.setTitle("BriCOOL");
 					primaryStage1.show();
 					Stage stage1 = (Stage) addPostBtn.getScene().getWindow();
 				     stage1.close(); 
@@ -130,6 +133,9 @@ public class SProfileController implements Initializable {
 
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) editbtn.getScene().getWindow();
 			stage1.close();
@@ -149,6 +155,9 @@ public class SProfileController implements Initializable {
 
 				Stage primaryStage1 = new Stage();
 				primaryStage1.setScene(scene1);
+				 Image image = new Image("src/View/icons/logo3.png");	 
+					primaryStage1.getIcons().add(image);
+					primaryStage1.setTitle("BriCOOL");
 				primaryStage1.show();
 
 				Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -169,6 +178,9 @@ public class SProfileController implements Initializable {
 
 				Stage primaryStage1 = new Stage();
 				primaryStage1.setScene(scene1);
+				 Image image = new Image("src/View/icons/logo3.png");	 
+					primaryStage1.getIcons().add(image);
+					primaryStage1.setTitle("BriCOOL");
 				primaryStage1.show();
 
 				Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -190,6 +202,9 @@ public class SProfileController implements Initializable {
 
 			Stage primaryStage1 = new Stage();
 			primaryStage1.setScene(scene1);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage1.getIcons().add(image);
+				primaryStage1.setTitle("BriCOOL");
 			primaryStage1.show();
 
 			Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -211,6 +226,9 @@ public class SProfileController implements Initializable {
 
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 
 			Stage stage = (Stage) btn_notification.getScene().getWindow();
@@ -271,6 +289,9 @@ public class SProfileController implements Initializable {
 
 					Stage primaryStage1 = new Stage();
 					primaryStage1.setScene(scene1);
+					 Image image = new Image("src/View/icons/logo3.png");	 
+						primaryStage1.getIcons().add(image);
+						primaryStage1.setTitle("BriCOOL");
 					primaryStage1.show();
 					Stage stage1 = (Stage) btn_information.getScene().getWindow();
 					stage1.close();

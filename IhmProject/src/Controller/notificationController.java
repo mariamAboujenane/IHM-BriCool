@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -33,6 +34,9 @@ void goinformation(ActionEvent event) {
 		
 		Stage  primaryStage1 = new Stage();
 		primaryStage1.setScene(scene1);
+		 Image image = new Image("src/View/icons/logo3.png");	 
+			primaryStage1.getIcons().add(image);
+			primaryStage1.setTitle("BriCOOL");
 		primaryStage1.show();
 		
 		Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -70,6 +74,9 @@ void singnout(ActionEvent event) {
 			
 			Stage  primaryStage1 = new Stage();
 			primaryStage1.setScene(scene1);
+			 Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage1.getIcons().add(image);
+				primaryStage1.setTitle("BriCOOL");
 			primaryStage1.show();
 			Stage stage1 = (Stage) btn_information.getScene().getWindow();
 		     stage1.close(); 
@@ -92,6 +99,9 @@ void goeditprofil(ActionEvent event) {
 		
 		Stage  primaryStage1 = new Stage();
 		primaryStage1.setScene(scene1);
+		 Image image = new Image("src/View/icons/logo3.png");	 
+			primaryStage1.getIcons().add(image);
+			primaryStage1.setTitle("BriCOOL");
 		primaryStage1.show();
 		
 		Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -113,6 +123,9 @@ void gohistory(ActionEvent event) {
 		
 		Stage  primaryStage1 = new Stage();
 		primaryStage1.setScene(scene1);
+		 Image image = new Image("src/View/icons/logo3.png");	 
+			primaryStage1.getIcons().add(image);
+			primaryStage1.setTitle("BriCOOL");
 		primaryStage1.show();
 		
 		Stage stage1 = (Stage) btn_information.getScene().getWindow();
