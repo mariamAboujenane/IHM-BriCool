@@ -12,29 +12,29 @@ Bricool is a service app that allows clients to search for a nearby and suitable
 <br />
 
 ## Here is a preview of our App 📸 :
-The first inteface that appears when we run the app is the login interface. Both client and service provider can log in from it.
+**- The first inteface that appears when we run the app is the *login interface*. Both client and service provider can log in from it.**
 
 <img width="496" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
 
 
-If the user is a client he will be directed to the search interface.
+**- If the user is a client he will be directed to the *search interface*.**
 
 <img width="640" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
 
 
-The service provider will be directed to his profile.
+**- The service provider will be directed to his profile.**
 
-The user can also edit his informations.
+**- The user can also edit his informations.**
 
 > For the Service Provider.
 
 <img width="478" alt="edit" src="https://user-images.githubusercontent.com/121026257/214853415-a5b14382-9bf7-4c90-84d0-96ebed81533d.PNG">
 
-> For the Service Client.
+> For the Client.
 
 
-If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).
+**- If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).**
 
 ![WhatsApp Image 2023-01-26 at 14 31 40](https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg)
 
