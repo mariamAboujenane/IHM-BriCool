@@ -25,6 +25,10 @@ If the user is a client he will be directed to the search interface.
 
 The service provider will be directed to his profile.
 
+The user can also edit his profile.
+
+> For the Service Provider.
+
 
 
 
@@ -35,10 +39,15 @@ If the user hasn't an account yet he will be directing to the registration inter
 
 > The service provider's registration interface
 
+<img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/214852306-eaa6c9ec-84a0-4b3e-bae0-e9aa21c5bb31.PNG">
 
 
 
 > The clients's registration interface
+<img width="483" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/214852325-2e5d2ca4-d88e-49fb-88fe-75c0b3a5fb57.PNG">
+
+
+
 
 
 
