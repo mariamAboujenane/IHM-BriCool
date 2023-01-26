@@ -25,12 +25,13 @@ If the user is a client he will be directed to the search interface.
 
 The service provider will be directed to his profile.
 
-The user can also edit his profile.
+The user can also edit his informations.
 
 > For the Service Provider.
 
+<img width="478" alt="edit" src="https://user-images.githubusercontent.com/121026257/214853415-a5b14382-9bf7-4c90-84d0-96ebed81533d.PNG">
 
-
+> For the Service Client.
 
 
 If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).
