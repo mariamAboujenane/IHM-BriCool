@@ -29,9 +29,12 @@ The service provider will be directed to his profile.
 
 
 
-If the user hasn't an account yet he will be directing to the registrition interface 
+If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).
+
+![WhatsApp Image 2023-01-26 at 14 31 40](https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg)
+
 > The service provider's registration interface
-<img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/213885535-d964cbfc-f4dc-447b-b0a2-c1a9eb3bc923.PNG">
+
 
 
 
