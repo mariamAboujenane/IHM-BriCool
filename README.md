@@ -19,7 +19,7 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 **- If the user is a client he will be directed to the *search interface*.**
 
-<img width="640" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
+<img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
 
 
@@ -29,23 +29,23 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 > For the Service Provider.
 
-<img width="478" alt="edit" src="https://user-images.githubusercontent.com/121026257/214853415-a5b14382-9bf7-4c90-84d0-96ebed81533d.PNG">
+<img width="496" alt="edit" src="https://user-images.githubusercontent.com/121026257/214853415-a5b14382-9bf7-4c90-84d0-96ebed81533d.PNG">
 
 > For the Client.
 
 
 **- If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).**
 
-![WhatsApp Image 2023-01-26 at 14 31 40](https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg)
+<img width="496" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
 
 > The service provider's registration interface
 
-<img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/214852306-eaa6c9ec-84a0-4b3e-bae0-e9aa21c5bb31.PNG">
+<img width="496" alt="AP" src="https://user-images.githubusercontent.com/121026257/214852306-eaa6c9ec-84a0-4b3e-bae0-e9aa21c5bb31.PNG">
 
 
 
 > The clients's registration interface
-<img width="483" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/214852325-2e5d2ca4-d88e-49fb-88fe-75c0b3a5fb57.PNG">
+<img width="496" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/214852325-2e5d2ca4-d88e-49fb-88fe-75c0b3a5fb57.PNG">
 
 
 
