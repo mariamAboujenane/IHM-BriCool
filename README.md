@@ -12,20 +12,23 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 <br />
 
 ## Here is a preview of our App 📸 :
-**- The first inteface that appears when we run the app is the *login interface*. Both client and service provider can log in from it.**
+- The first inteface that appears when we run the app is the *login interface*. Both client and service provider can log in from it.
 
 <img width="496" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
 
 
-**- If the user is a client he will be directed to the *search interface*.**
+- If the user is a client he will be directed to the *search interface*.
 
 <img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
+> In this interface there's a little menu in the right top corner, where the user can access to his history, to the notification interface and can log out by selecting the third option.
 
 
-**- The service provider will be directed to his profile.**
 
-**- The user can also edit his informations.**
+
+- The service provider will be directed to his profile.
+
+- The user can also edit his informations.
 
 > For the Service Provider.
 
@@ -33,8 +36,9 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 > For the Client.
 
+<img width="496" alt="edituser" src="https://user-images.githubusercontent.com/121026257/215322718-6b3920f2-910c-452e-9cc5-74c933a7a410.PNG">
 
-**- If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).**
+- If the user hasn't an account yet he will be directing to the registration interface, he will be first asked to select his status (Client or Service provider).
 
 <img width="496" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
 
