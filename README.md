@@ -16,8 +16,28 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 <img width="496" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
 
+- If the user hasn't an account yet he will be directed to the *registration interface*, he will be at first asked to select his status (Client or Service provider).
 
-- If the user is a client he will be directed to the *search interface*.
+<img width="496" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
+
+
+<div align="center">
+  <div style="display: flex;">
+  > The service provider's registration interface
+      <img width="496" alt="AP" src="https://user-images.githubusercontent.com/121026257/214852306-eaa6c9ec-84a0-4b3e-bae0-e9aa21c5bb31.PNG">
+     <img width="496" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/214852325-2e5d2ca4-d88e-49fb-88fe-75c0b3a5fb57.PNG">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
