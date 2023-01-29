@@ -89,7 +89,13 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 
 
-
+![acceptOrdecline](https://user-images.githubusercontent.com/106840796/215328566-f50bf19d-c98d-492f-aa50-bbb17a128586.PNG)
+![add post](https://user-images.githubusercontent.com/106840796/215328568-f9168d9a-d3a1-4e1b-bb4e-9cf77481fc10.PNG)
+![notifi SP lokhra rah C](https://user-images.githubusercontent.com/106840796/215328569-aa48db95-a2c8-4d4e-9317-ee8261768f3d.PNG)
+![notification SP](https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG)
+![Preprofile](https://user-images.githubusercontent.com/106840796/215328571-87727b96-befc-4fa0-a213-1953185ec6cd.PNG)
+![Sprofile](https://user-images.githubusercontent.com/106840796/215328573-c2882821-599d-4d94-b3dd-1b0efcd3ce84.PNG)
+![your response has been sent](https://user-images.githubusercontent.com/106840796/215328576-d7ed77bc-1d9f-46c9-8106-daf2054a1a49.PNG)
 
 
 
