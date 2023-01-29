@@ -49,48 +49,57 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
    <h2 align="center">User as Client 👩</h2>
    
    ***
-- After his registration the user can log in. If he is a client he will be directed to the *Search interface*.
+- After his registration the user can log in. 
+> he must select if he is a client or a servive provider 
+
+<img width="497" alt="11" src="https://user-images.githubusercontent.com/89936910/215340832-fc1decf0-f1b9-4293-aa1d-054cda16da7c.png">
+
+- If he is a client he will be directed to the *Search interface*.
 
 <img width="500" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
 -  By double clicking on the service provider the client will be directed to his *Profile*.
 
-
- <img width="496" src="https://user-images.githubusercontent.com/106840796/215328571-87727b96-befc-4fa0-a213-1953185ec6cd.PNG">
+ <img width="500" src="https://user-images.githubusercontent.com/106840796/215328571-87727b96-befc-4fa0-a213-1953185ec6cd.PNG">
+ 
  
  - The client can make a reservation by clicking on the *Reservation* button. a Reservation form will appear.
  
- <img width="496" alt="reservation" src="https://user-images.githubusercontent.com/121026257/215330088-11156d3d-ef58-40db-8602-aa68c230e6a3.PNG">
+ <img width="500" alt="reservation" src="https://user-images.githubusercontent.com/121026257/215330088-11156d3d-ef58-40db-8602-aa68c230e6a3.PNG">
 
 - In this interface there's a little menu in the right top corner, where the user can access to his *history*, to the *notification interface* and can *log out* by selecting the third option.
 
-<img width="496" alt="menu" src="https://user-images.githubusercontent.com/121026257/215323449-cd247b65-1e45-4ab8-b181-166df52a20ad.PNG">
+<img width="500" alt="menu" src="https://user-images.githubusercontent.com/121026257/215323449-cd247b65-1e45-4ab8-b181-166df52a20ad.PNG">
 
-> The *client's History*
-
-<img width="496" alt="history" src="https://user-images.githubusercontent.com/121026257/215327441-cc8b8014-ec6e-458f-b553-ae9db3f45b42.PNG">
 
 > The *client's Notification*
-<img width="496"  src="https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG">
+<img width="500"  src="https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG">
 
 - By clicking on a notification , the user will be directed to another interface so he can view his reservation and *Print* it if he want to.
 
-<img width="496"  src="https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG">
+<img width="500"  src="https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG">
 
+> Accessibility to edit profile, sign out, and history features allows a user to easily manage their account and personal information. These features provide the user with the ability to update their profile information, such as contact information or password, and view their past activity on the platform. The "sign out" feature ensures the security of the user's account by logging them out of the platform when they are finished using it.
+
+<img width="356" alt="h" src="https://user-images.githubusercontent.com/89936910/215341151-cb46a05f-c178-4fe1-92a6-f48c16b5ce0c.png">
 
 
 > The *Log out* proccess
 
- <img width="640" alt="log out" src="https://user-images.githubusercontent.com/121026257/215327347-3975b3f5-6482-48ea-8f3d-48646f91f1f3.PNG">
-
-
-> By clicking on the *information icon*, an interface containing informations about our App will appear.
-
-<img width="496" alt="info" src="https://user-images.githubusercontent.com/89936910/215325026-55831cce-19e4-4685-88c7-2cb6d71ca14a.png">
+ <img width="500" alt="log out" src="https://user-images.githubusercontent.com/121026257/215327347-3975b3f5-6482-48ea-8f3d-48646f91f1f3.PNG">
 
 > By clicking on the *Account icon*, the client will access to the *Edit Profile* interface.
 
 <img width="496" alt="edituser" src="https://user-images.githubusercontent.com/121026257/215322718-6b3920f2-910c-452e-9cc5-74c933a7a410.PNG">
+
+> The *client's History*
+
+<img width="500" alt="history" src="https://user-images.githubusercontent.com/121026257/215327441-cc8b8014-ec6e-458f-b553-ae9db3f45b42.PNG">
+> By clicking on the *information icon*, an interface containing informations about our App will appear.
+
+<img width="496" alt="info" src="https://user-images.githubusercontent.com/89936910/215325026-55831cce-19e4-4685-88c7-2cb6d71ca14a.png">
+
+
 
 
     
