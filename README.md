@@ -46,7 +46,7 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 > The *Log out* proccess
 
-
+ <img width="640" alt="log out" src="https://user-images.githubusercontent.com/121026257/215327347-3975b3f5-6482-48ea-8f3d-48646f91f1f3.PNG">
 
 
 
