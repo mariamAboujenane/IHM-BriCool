@@ -13,10 +13,18 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 ## Here is a preview of our App 📸 :
 - The first inteface that appears when we run the app is the *login interface*. Both client and service provider can log in from it.
+***
+<h2 align="center">Login process 👩‍💻</h2>
+
+***
+
 
 <img width="496" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
 
+***
+<h2 align="center">Registration process  📝</h2>
 
+***
 
 - If the user hasn't an account yet he will be directed to the *registration interface*, he will be at first asked to select his status (Client or Service provider).
 
@@ -31,10 +39,20 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
    </div>
    
    
-   
+   ***
+   <h2 align="center">User as Client 👩</h2>
+
+   ***
 - After his registration the user can log in. If he is a client he will be directed to the *Search interface*.
 
 <img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
+
+-  By double clicking on the service provider the client will be directed to his *Profile*.
+
+
+ <img width="496" src="https://user-images.githubusercontent.com/106840796/215328571-87727b96-befc-4fa0-a213-1953185ec6cd.PNG">
+ 
+ - The client can make a reservation by clicking on the *Reservation* button. a Reservation form will appear.
 
 - In this interface there's a little menu in the right top corner, where the user can access to his *history*, to the *notification interface* and can *log out* by selecting the third option.
 
@@ -93,9 +111,13 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 ![add post](https://user-images.githubusercontent.com/106840796/215328568-f9168d9a-d3a1-4e1b-bb4e-9cf77481fc10.PNG)
 ![notifi SP lokhra rah C](https://user-images.githubusercontent.com/106840796/215328569-aa48db95-a2c8-4d4e-9317-ee8261768f3d.PNG)
 ![notification SP](https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG)
-![Preprofile](https://user-images.githubusercontent.com/106840796/215328571-87727b96-befc-4fa0-a213-1953185ec6cd.PNG)
 ![Sprofile](https://user-images.githubusercontent.com/106840796/215328573-c2882821-599d-4d94-b3dd-1b0efcd3ce84.PNG)
 ![your response has been sent](https://user-images.githubusercontent.com/106840796/215328576-d7ed77bc-1d9f-46c9-8106-daf2054a1a49.PNG)
+
+
+
+
+
 
 
 ![print](https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG)
