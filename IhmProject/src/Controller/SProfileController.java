@@ -11,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.scene.text.Font;
@@ -28,13 +27,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -44,46 +38,33 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Circle;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import src.Model.DatabaseConnection;
 
 public class SProfileController implements Initializable {
 
-
-	private DialogPane dialog;
+    @FXML
+    private Button notifiBtn;
 	@FXML
 	private Button AddBtn;
-    @FXML
-    private Button btn_notification;
-    @FXML
-    private Button btn_information;
+
+	  @FXML
+	    private Label biolabel;
 
 	@FXML
-    private TextArea BioP;
-	@FXML
 	private Label DislikeP;
-	
 
 	@FXML
 	private Label LikeP;
-	  @FXML
-	    private MenuItem history;
 
 	@FXML
 	private Label addressP;
-	@FXML
-    private MenuItem edit;
-	@FXML
-    private RadioButton dispo;
 
 	@FXML
 	private Label phoneP;
 
 	@FXML
 	private ImageView photoP;
-	  @FXML
-	    private MenuItem signout;
 
 	@FXML
 	private Label specialityP;
@@ -105,9 +86,6 @@ public class SProfileController implements Initializable {
 					
 					Stage  primaryStage1 = new Stage();
 					primaryStage1.setScene(scene1);
-					 Image image = new Image("src/View/icons/logo3.png");	 
-						primaryStage1.getIcons().add(image);
-						primaryStage1.setTitle("BriCOOL");
 					primaryStage1.show();
 					Stage stage1 = (Stage) addPostBtn.getScene().getWindow();
 				     stage1.close(); 
@@ -122,7 +100,6 @@ public class SProfileController implements Initializable {
 	private Button editbtn;
 
 	int id;
-	 boolean status = false;
 
 	@FXML
 	void EditProfile(ActionEvent event) {
@@ -133,9 +110,6 @@ public class SProfileController implements Initializable {
 
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) editbtn.getScene().getWindow();
 			stage1.close();
@@ -145,166 +119,7 @@ public class SProfileController implements Initializable {
 		}
 
 	}
-	 @FXML
-	    void goeditprofile(ActionEvent event) {
-		 try {
-				Parent parent;
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfileUser.fxml"));
 
-				Scene scene1 = new Scene(parent);
-
-				Stage primaryStage1 = new Stage();
-				primaryStage1.setScene(scene1);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage1.getIcons().add(image);
-					primaryStage1.setTitle("BriCOOL");
-				primaryStage1.show();
-
-				Stage stage1 = (Stage) btn_information.getScene().getWindow();
-				// do what you have to do
-				stage1.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    }
-	 @FXML
-	    void gohistory(ActionEvent event) {
-			try {
-				Parent parent;
-				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/ClientHistory.fxml"));
-
-				Scene scene1 = new Scene(parent);
-
-				Stage primaryStage1 = new Stage();
-				primaryStage1.setScene(scene1);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage1.getIcons().add(image);
-					primaryStage1.setTitle("BriCOOL");
-				primaryStage1.show();
-
-				Stage stage1 = (Stage) btn_information.getScene().getWindow();
-				// do what you have to do
-				stage1.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-	    }
-	@FXML
-    void goinformation(ActionEvent event) {
-		try {
-			Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/information.fxml"));
-
-			Scene scene1 = new Scene(parent);
-
-			Stage primaryStage1 = new Stage();
-			primaryStage1.setScene(scene1);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage1.getIcons().add(image);
-				primaryStage1.setTitle("BriCOOL");
-			primaryStage1.show();
-
-			Stage stage1 = (Stage) btn_information.getScene().getWindow();
-			// do what you have to do
-			stage1.close();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-	@FXML
-    void gonotification(ActionEvent event) {
-		try {
-			Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/Notification.fxml"));
-
-			Scene scene = new Scene(parent);
-
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
-			primaryStage.show();
-
-			Stage stage = (Stage) btn_notification.getScene().getWindow();
-			// do what you have to do
-			stage.close();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-	
-	  @FXML
-	    void disponible(ActionEvent event) {
-		 
-		  String name = MyAppContext.workerUsername;
-			String password = MyAppContext.workerPassword;
-		  if(dispo.isSelected() == true) {
-			  status = true;
-			  
-		  }	 else {
-			  status = false;
-		  }
-		  
-		  String disponible="update service_provider set status= ? where username= '"+name+"' and password= '"+password+"'";
-		  try {
-		       	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		       	 PreparedStatement preparedStmt = cnx.prepareStatement(disponible);
-		 		  preparedStmt.setBoolean   (1, status);
-		 		 preparedStmt.execute();
-					 
-			  }catch(SQLException e1) {
-				e1.printStackTrace();
-
-			  }
-	    }
-	 
-	  @FXML
-	    void signout(ActionEvent event) {
-	    	try {
-
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setHeaderText(null);
-				alert.setContentText("Are you sure that you want to log out !");
-				alert.initModality(Modality.NONE);
-				dialog = alert.getDialogPane();
-				dialog.getStylesheets().add(getClass().getResource("style2.css").toString());
-				dialog.getStyleClass().add("dialog");
-				Optional<ButtonType> result = alert.showAndWait();
-				if (result.isEmpty()) {
-					System.out.print("Alert closed ");
-				} else if (result.get() == ButtonType.OK) {
-
-					Parent parent;
-					parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
-
-					Scene scene1 = new Scene(parent);
-
-					Stage primaryStage1 = new Stage();
-					primaryStage1.setScene(scene1);
-					 Image image = new Image("src/View/icons/logo3.png");	 
-						primaryStage1.getIcons().add(image);
-						primaryStage1.setTitle("BriCOOL");
-					primaryStage1.show();
-					Stage stage1 = (Stage) btn_information.getScene().getWindow();
-					stage1.close();
-				} else if (result.get() == ButtonType.OK) {
-					System.out.print("Alert closed ");
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-
-	    }
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -345,10 +160,11 @@ public class SProfileController implements Initializable {
 	}
 
 	public void selectDataFromDatabase() {
+		//this method get speciality , phone_number,address,Bio , Likes, Dislikes,photo FROM service_provider and put them in labels .
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
 
-		String selectData = "SELECT  speciality , phone_number,address,status,Bio , Likes, Dislikes,photo FROM service_provider WHERE username = ? and password = ?";
+		String selectData = "SELECT  speciality , phone_number,address,Bio , Likes, Dislikes,photo FROM service_provider WHERE username = ? and password = ?";
 		String name = MyAppContext.workerUsername;
 		String password = MyAppContext.workerPassword;
 		System.out.println("Name: " + name + " Password: " + password);
@@ -364,7 +180,6 @@ public class SProfileController implements Initializable {
 				String speciality = result.getString("speciality");
 				String phone_number = Integer.toString(result.getInt("phone_number"));
 				String address = result.getString("address");
-				status = result.getBoolean("status");
 				String Bio = result.getString("Bio");
 				String Likes = Integer.toString(result.getInt("Likes"));
 				String Dislikes = Integer.toString(result.getInt("Dislikes"));
@@ -381,11 +196,11 @@ public class SProfileController implements Initializable {
 				photoP.setFitHeight(60);
 				Circle circle = new Circle(20, 20, 20);
 				photoP.setClip(circle);
-				System.out.println(speciality);
+				
 				specialityP.setText(speciality);
 				phoneP.setText(phone_number);
 				addressP.setText(address);
-				BioP.setText(Bio);
+				biolabel.setText(Bio);
 				LikeP.setText(Likes);
 				DislikeP.setText(Dislikes);
 				usernameP.setText(name);
@@ -395,15 +210,11 @@ public class SProfileController implements Initializable {
 		} catch (SQLException e) {
 			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
 		}
-		if(status == true) {
-			dispo.setSelected(true);
-		}else if(status == false) {
-			dispo.setSelected(false);	
-		}
 
 	}
 
 	public ImageView selectPhoto() {
+		//this method select the service provider photo using his id to find it .
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
 		int id = getIdProvider();
@@ -418,7 +229,7 @@ public class SProfileController implements Initializable {
 			ResultSet result = st.executeQuery();
 
 			while (result.next()) {
-
+// the photo is a blob type in sql database
 				java.sql.Blob blob = result.getBlob("photo");
 				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
 
@@ -501,6 +312,8 @@ public class SProfileController implements Initializable {
 				RowConstraints row6 = new RowConstraints();
 				// Add the RowConstraints to the GridPane
 				postGrid.getRowConstraints().addAll(row1, row2, row3, row4, row5, row6);
+				postGrid.setVgap(2);
+				postGrid.setHgap(2);
 
 				row1.setPrefHeight(5); // set width of column1
 				row2.setPrefHeight(10);
@@ -521,5 +334,25 @@ public class SProfileController implements Initializable {
 		}
 
 	}
+
+    @FXML
+    void goToNotifi(ActionEvent event) {
+    	try {
+			Parent parent;
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/NotificationServiceP.fxml"));
+			
+			Scene scene = new Scene(parent);
+			
+			Stage  primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			
+			Stage stage = (Stage) notifiBtn.getScene().getWindow();
+		    stage.close();
+			
+		} catch (IOException e) {
+		   e.printStackTrace();
+		}
+    }
 
 }
