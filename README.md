@@ -30,27 +30,38 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
    
    
    
-- After his registration the user can log in. If he is a client he will be directed to the *Search interface*
+- After his registration the user can log in. If he is a client he will be directed to the *Search interface*.
 
 <img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-> In this interface there's a little menu in the right top corner, where the user can access to his *history*, to the *notification interface* and can *log out* by selecting the third option.
+- In this interface there's a little menu in the right top corner, where the user can access to his *history*, to the *notification interface* and can *log out* by selecting the third option.
 
 <img width="496" alt="menu" src="https://user-images.githubusercontent.com/121026257/215323449-cd247b65-1e45-4ab8-b181-166df52a20ad.PNG">
+
+> The *client's History*
+
 <img width="496" alt="history" align "right" src="https://user-images.githubusercontent.com/121026257/215323452-b6a8b472-f23a-422e-aba3-0ace87d6085a.PNG">
+
+> The *client's Notification*
+
+> The *Log out* proccess
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 > By clicking on the *information icon*, an interface containing informations about our App will appear.
 
