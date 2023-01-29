@@ -41,7 +41,7 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
    
    ***
    <h2 align="center">User as Client 👩</h2>
-
+   
    ***
 - After his registration the user can log in. If he is a client he will be directed to the *Search interface*.
 
@@ -53,6 +53,8 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
  <img width="496" src="https://user-images.githubusercontent.com/106840796/215328571-87727b96-befc-4fa0-a213-1953185ec6cd.PNG">
  
  - The client can make a reservation by clicking on the *Reservation* button. a Reservation form will appear.
+ 
+ <img width="496" alt="reservation" src="https://user-images.githubusercontent.com/121026257/215330088-11156d3d-ef58-40db-8602-aa68c230e6a3.PNG">
 
 - In this interface there's a little menu in the right top corner, where the user can access to his *history*, to the *notification interface* and can *log out* by selecting the third option.
 
@@ -63,6 +65,12 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 <img width="496" alt="history" src="https://user-images.githubusercontent.com/121026257/215327441-cc8b8014-ec6e-458f-b553-ae9db3f45b42.PNG">
 
 > The *client's Notification*
+<img width="496"  src="https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG">
+
+- By clicking on a notification , the user will be directed to another interface so he can view his reservation and *Print* it if he want to.
+
+<img width="496"  src="https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG">
+
 
 
 > The *Log out* proccess
@@ -70,49 +78,47 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
  <img width="640" alt="log out" src="https://user-images.githubusercontent.com/121026257/215327347-3975b3f5-6482-48ea-8f3d-48646f91f1f3.PNG">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 > By clicking on the *information icon*, an interface containing informations about our App will appear.
 
 <img width="496" alt="info" src="https://user-images.githubusercontent.com/89936910/215325026-55831cce-19e4-4685-88c7-2cb6d71ca14a.png">
 
-
-
-
-- The service provider will be directed to his profile.
-
-- The user can also edit his informations.
-
-> For the Service Provider.
-
-<img width="496" alt="edit" src="https://user-images.githubusercontent.com/121026257/214853415-a5b14382-9bf7-4c90-84d0-96ebed81533d.PNG">
-
-> For the Client.
+> By clicking on the *Account icon*, the client will access to the *Edit Profile* interface.
 
 <img width="496" alt="edituser" src="https://user-images.githubusercontent.com/121026257/215322718-6b3920f2-910c-452e-9cc5-74c933a7a410.PNG">
 
 
+    
+   ***
+   <h2 align="center">User as Service Provider 👩‍</h2>
+   
+   ***
+- The service provider will be directed to his profile.
+
+<img width="496"  src="https://user-images.githubusercontent.com/106840796/215328573-c2882821-599d-4d94-b3dd-1b0efcd3ce84.PNG">
+
+- There is an option that allows the Service provider to *Add a Post* by hitting the "plus" button.
+
+<img width="496" src="https://user-images.githubusercontent.com/106840796/215328568-f9168d9a-d3a1-4e1b-bb4e-9cf77481fc10.PNG">
+
+- The Servise Provider can fix his tatus to *Available* or *Not Available* by hitting the radio button on the top
+- Same as the Client, the Service Provider can *Edit his Profile* by clicking on the Edit Profile button.
+
+<img width="496" alt="edit" src="https://user-images.githubusercontent.com/121026257/214853415-a5b14382-9bf7-4c90-84d0-96ebed81533d.PNG">
+
+- He can access to his *Notification* by clicking on the notification icon.
+
+<img width="496" src="https://user-images.githubusercontent.com/106840796/215328569-aa48db95-a2c8-4d4e-9317-ee8261768f3d.PNG">
+
+- And by selecting a reservation an Interface appears with all the informations, the Service Provider can *Accept* or *Decline* the reservation from it
+
+<img width="496" src="https://user-images.githubusercontent.com/106840796/215328566-f50bf19d-c98d-492f-aa50-bbb17a128586.PNG">
+
+- An acknowledgement will appear confirming that the response has been sent.
+
+<img width="496" src="https://user-images.githubusercontent.com/106840796/215328576-d7ed77bc-1d9f-46c9-8106-daf2054a1a49.PNG">
 
 
 
-![acceptOrdecline](https://user-images.githubusercontent.com/106840796/215328566-f50bf19d-c98d-492f-aa50-bbb17a128586.PNG)
-![add post](https://user-images.githubusercontent.com/106840796/215328568-f9168d9a-d3a1-4e1b-bb4e-9cf77481fc10.PNG)
-![notifi SP lokhra rah C](https://user-images.githubusercontent.com/106840796/215328569-aa48db95-a2c8-4d4e-9317-ee8261768f3d.PNG)
-![notification SP](https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG)
-![Sprofile](https://user-images.githubusercontent.com/106840796/215328573-c2882821-599d-4d94-b3dd-1b0efcd3ce84.PNG)
-![your response has been sent](https://user-images.githubusercontent.com/106840796/215328576-d7ed77bc-1d9f-46c9-8106-daf2054a1a49.PNG)
 
 
 
@@ -120,6 +126,9 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 
 
-![print](https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG)
+
+
+
+
 
 
