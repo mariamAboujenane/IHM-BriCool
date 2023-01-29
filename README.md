@@ -24,8 +24,8 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 > On the right we have the *Clent's* registration interface
 
    <div style="display: flex;">
-      <img width="496" alt="AP" src="https://user-images.githubusercontent.com/121026257/214852306-eaa6c9ec-84a0-4b3e-bae0-e9aa21c5bb31.PNG">
-     <img width="496"alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/214852325-2e5d2ca4-d88e-49fb-88fe-  75c0b3a5fb57.PNG">
+     <img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/215326563-f16bccda-9049-4ede-819b-c695a221a34e.PNG">
+      <img width="483" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/215326549-1a34dae8-2cee-4ddf-8c3a-af88d5861478.PNG">
   </div>
 
 
