@@ -70,6 +70,8 @@ import src.Model.DatabaseConnection;
 	    private ToggleGroup type;
 		
 	    @FXML
+	    
+	    //facebook btn
 	    void facebooklink(ActionEvent event) {
 	    	try {
 	    	    Desktop.getDesktop().browse(new URL("https://www.facebook.com/").toURI());// Open the default web browser to the Facebook homepage
@@ -80,6 +82,8 @@ import src.Model.DatabaseConnection;
 	    	}
 	    }
 	   
+	    //intagram btn
+	    
 	    @FXML
 	    void instalink(ActionEvent event) {
 	    	try {
@@ -91,6 +95,8 @@ import src.Model.DatabaseConnection;
 	    	}
 	    }
 
+	    //twitter btn
+	    
 	    @FXML
 	    void twitterlink(ActionEvent event) {
 	    	try {
@@ -108,10 +114,10 @@ import src.Model.DatabaseConnection;
 	    void ShowHide(ActionEvent event) {
 	  
 	    	password = passwordTextField.getText();
-	    	passwordtxt.setVisible(true);// Make the password label visible
-			showhide_btn1.setVisible(true);// Make the "show password" button visible
-			passwordTextField.setVisible(false);// Make the password text field invisible
-			showhide_btn.setVisible(false);// Make the "hide password" button invisible
+	    	passwordtxt.setVisible(true);
+			showhide_btn1.setVisible(true);
+			passwordTextField.setVisible(false);
+			showhide_btn.setVisible(false);
 			passwordtxt.setText(password);
 	    
 	    }
@@ -249,6 +255,7 @@ import src.Model.DatabaseConnection;
 						e.printStackTrace();
 					}
 		  }else {
+			  //error alert if the user didn't select his status
 			  Alert alert = new Alert(AlertType.WARNING, "You must select one .", javafx.scene.control.ButtonType.OK);
         	  alert.setHeaderText("Something happend... :( !");
   			  dialog= alert.getDialogPane();  
