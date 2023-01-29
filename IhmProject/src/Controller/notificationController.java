@@ -26,27 +26,29 @@ public class notificationController  {
 
 @FXML
 void goinformation(ActionEvent event) {
-	try {
-		Parent parent;
-		parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/information.fxml"));
-		
-		Scene scene1 = new Scene(parent);
-		
-		Stage  primaryStage1 = new Stage();
-		primaryStage1.setScene(scene1);
-		 Image image = new Image("src/View/icons/logo3.png");	 
-			primaryStage1.getIcons().add(image);
-			primaryStage1.setTitle("BriCOOL");
-		primaryStage1.show();
-		
-		Stage stage1 = (Stage) btn_information.getScene().getWindow();
-	    // do what you have to do
-	  stage1.close();
-		
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	 try {
+	    	Parent parent;
+
+			// Load the FXML file using FXMLLoader
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/Information.fxml"));
+			// Create a new Scene with the loaded FXML file as the root node
+			Scene scene = new Scene(parent);
+			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
+			primaryStage.setScene(scene);
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");
+			// Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+			// Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
+			primaryStage.show();
+			Stage stage1 = (Stage) btn_information.getScene().getWindow();
+		    stage1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 
 }
@@ -54,32 +56,37 @@ void goinformation(ActionEvent event) {
 void singnout(ActionEvent event) {
 	
 	try {
-		
+		//confirmation alert
 		Alert alert = new Alert(AlertType.CONFIRMATION );
 		alert.setHeaderText(null);
 		alert.setContentText("Are you sure that you want to log out !");
 		alert.initModality(Modality.NONE);
 		dialog= alert.getDialogPane();  
 		dialog.getStylesheets().add(getClass().getResource("style2.css").toString());
-		 dialog.getStyleClass().add("dialog");
+		dialog.getStyleClass().add("dialog");
 			Optional<ButtonType> result = alert.showAndWait();
 			 if(result.isEmpty()) {
 				System.out.print("Alert closed ");
 		     }else if(result.get()==ButtonType.OK) {
 	
-		    	Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
-			
-			Scene scene1 = new Scene(parent);
-			
-			Stage  primaryStage1 = new Stage();
-			primaryStage1.setScene(scene1);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage1.getIcons().add(image);
-				primaryStage1.setTitle("BriCOOL");
-			primaryStage1.show();
-			Stage stage1 = (Stage) btn_information.getScene().getWindow();
-		     stage1.close(); 
+		    	    Parent parent;
+
+					// Load the FXML file using FXMLLoader
+					parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
+					// Create a new Scene with the loaded FXML file as the root node
+					Scene scene = new Scene(parent);
+					Stage  primaryStage = new Stage();
+					// Set the Scene on the Stage
+					primaryStage.setScene(scene);
+					// Create a new Image object 
+					Image image = new Image("src/View/icons/logo3.png");
+					// Add the image to the icon list of the primaryStage
+					primaryStage.getIcons().add(image);
+					// Set the title of the primaryStage
+					primaryStage.setTitle("BriCOOL");
+					primaryStage.show();
+					Stage stage1 = (Stage) btn_information.getScene().getWindow();
+				    stage1.close(); 
 		     }else if(result.get()==ButtonType.OK) {  
 		    	System.out.print("Alert closed "); 
 		     }
@@ -93,20 +100,23 @@ void singnout(ActionEvent event) {
 void goeditprofil(ActionEvent event) {
 	try {
 		Parent parent;
-		parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfileUser.fxml"));
-		
-		Scene scene1 = new Scene(parent);
-		
-		Stage  primaryStage1 = new Stage();
-		primaryStage1.setScene(scene1);
-		 Image image = new Image("src/View/icons/logo3.png");	 
-			primaryStage1.getIcons().add(image);
-			primaryStage1.setTitle("BriCOOL");
-		primaryStage1.show();
-		
+
+		// Load the FXML file using FXMLLoader
+		parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfile.fxml"));
+		// Create a new Scene with the loaded FXML file as the root node
+		Scene scene = new Scene(parent);
+		Stage  primaryStage = new Stage();
+		// Set the Scene on the Stage
+		primaryStage.setScene(scene);
+		// Create a new Image object 
+		Image image = new Image("src/View/icons/logo3.png");
+		// Add the image to the icon list of the primaryStage
+		primaryStage.getIcons().add(image);
+		// Set the title of the primaryStage
+		primaryStage.setTitle("BriCOOL");
+		primaryStage.show();
 		Stage stage1 = (Stage) btn_information.getScene().getWindow();
-	    // do what you have to do
-	     stage1.close();
+	    stage1.close();
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -117,20 +127,23 @@ void goeditprofil(ActionEvent event) {
 void gohistory(ActionEvent event) {
 	try {
 		Parent parent;
+
+		// Load the FXML file using FXMLLoader
 		parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/ClientHistory.fxml"));
-		
-		Scene scene1 = new Scene(parent);
-		
-		Stage  primaryStage1 = new Stage();
-		primaryStage1.setScene(scene1);
-		 Image image = new Image("src/View/icons/logo3.png");	 
-			primaryStage1.getIcons().add(image);
-			primaryStage1.setTitle("BriCOOL");
-		primaryStage1.show();
-		
+		// Create a new Scene with the loaded FXML file as the root node
+		Scene scene = new Scene(parent);
+		Stage  primaryStage = new Stage();
+		// Set the Scene on the Stage
+		primaryStage.setScene(scene);
+		// Create a new Image object 
+		Image image = new Image("src/View/icons/logo3.png");
+		// Add the image to the icon list of the primaryStage
+		primaryStage.getIcons().add(image);
+		// Set the title of the primaryStage
+		primaryStage.setTitle("BriCOOL");
+		primaryStage.show();
 		Stage stage1 = (Stage) btn_information.getScene().getWindow();
-	    // do what you have to do
-	     stage1.close();
+	    stage1.close();
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
