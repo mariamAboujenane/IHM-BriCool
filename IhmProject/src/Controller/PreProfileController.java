@@ -112,7 +112,7 @@ public class PreProfileController implements Initializable {
 	@FXML
 	private ImageView photoP;
 
-	
+	 String name;
 	@FXML
 	ListView<GridPane> listView = new ListView<>();
 
@@ -221,10 +221,10 @@ public class PreProfileController implements Initializable {
 	public ImageView selectPhoto() {
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
-		int id = getIdProvider();
-		String selectPhoto = "SELECT  photo FROM service_provider WHERE idprovider=?";
-		String name = MyAppContext.workerUsername;
-		String password = MyAppContext.workerPassword;
+		int id = MyAppContext.selectedIdPersonInSearch;
+		
+		String selectPhoto = "SELECT  photo,username FROM service_provider WHERE idprovider=?";
+		
 		ImageView photo = new ImageView();
 		try {
 			PreparedStatement st = connect.prepareStatement(selectPhoto);
@@ -239,7 +239,7 @@ public class PreProfileController implements Initializable {
 
 				// Create an InputStream from the byte array
 				InputStream inputStream = new ByteArrayInputStream(imageBytes);
-
+                 name=result.getString("username");
 				Image imge = new Image(inputStream);
 				photo.setImage(imge);
 
@@ -264,7 +264,8 @@ public class PreProfileController implements Initializable {
 		DatabaseConnection connectNow = new DatabaseConnection();
 
 		Connection connect = connectNow.getConnection();
-		int id = getIdProvider();
+		int id = MyAppContext.selectedIdPersonInSearch;
+		
 		try {
 			PreparedStatement st = connect
 					.prepareStatement("SELECT postTitle, postContent, publishedAt FROM post where idp=?");
@@ -286,7 +287,7 @@ public class PreProfileController implements Initializable {
 
 				String publishedAt = result.getString("publishedAt");
 				ImageView photo = selectPhoto();
-				Label username = new Label(MyAppContext.workerUsername);
+				Label username = new Label(name);
 				Label titleLabel = new Label(title);
 				System.out.println("photo:" + postContent);
 
