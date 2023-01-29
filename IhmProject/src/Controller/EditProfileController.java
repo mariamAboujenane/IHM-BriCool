@@ -78,14 +78,19 @@ public class EditProfileController implements Initializable  {
     void Back_To_choose(ActionEvent event) {
     	Parent parent;
 		try {
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			// Create a new Scene with the loaded FXML file as the root node
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");
+			// Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+			// Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) back.getScene().getWindow();
 		    stage1.close();
@@ -97,7 +102,9 @@ public class EditProfileController implements Initializable  {
 
     }
     @FXML
+    //
     void comhide(ActionEvent event) {
+		// Hide the confirmed password
     	compassword = txtconfirmpswd.getText();
     	txtconfirmpswd.setVisible(false);
     	comhide.setVisible(false);
@@ -108,7 +115,8 @@ public class EditProfileController implements Initializable  {
     }
     @FXML
     void hide(ActionEvent event) {
-    	 password_field = txtpswd.getText();
+		    // Hide the password
+	    	password_field = txtpswd.getText();
 	    	txtpswd.setVisible(false);
 	    	hide.setVisible(false);
 			passwordField.setVisible(true);
@@ -119,6 +127,7 @@ public class EditProfileController implements Initializable  {
 
     @FXML
     void show(ActionEvent event) {
+    	// show the password
     	password_field = passwordField.getText();
     	txtpswd.setVisible(true);
     	hide.setVisible(true);
@@ -130,6 +139,7 @@ public class EditProfileController implements Initializable  {
 
     @FXML
     void showcom(ActionEvent event) {
+    	// show the confirmed password
     	compassword = comPasswordField.getText();
     	txtconfirmpswd.setVisible(true);
     	comhide.setVisible(true);
@@ -142,6 +152,7 @@ public class EditProfileController implements Initializable  {
 
     @FXML
     void edit_profile(ActionEvent event) {
+    	//getting the values from the user interface
 		String name = txtname.getText();
 		String username = txtusername.getText();
 		String speciality = Mychoicebox.getValue();
@@ -152,12 +163,16 @@ public class EditProfileController implements Initializable  {
 		password_field =  passwordField.getText();
 		compassword =  comPasswordField.getText();
 		if(password_field.equals(compassword)) {
+		  //creating a query
 		  String updateQuery = "UPDATE service_provider SET name = ?, username = ?, speciality = ?, phone_number = ?, address = ?, password = ?,Bio =?, city =? WHERE username='" +username_Provider+ "' and password = '"+password_Provider+"'";
 		 
   	  try {
-         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
-   		  preparedStmt.setString   (1,name);
+  		//Establish a connection with the database
+        Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
+        // SQL statement
+        PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
+      	// Setting the values of the parameters in the prepared statement
+        preparedStmt.setString   (1,name);
    		preparedStmt.setString   (2,username);
    		preparedStmt.setString   (3,speciality);
    		preparedStmt.setString   (4,phone_number);
@@ -166,21 +181,24 @@ public class EditProfileController implements Initializable  {
    		preparedStmt.setString   (7,Bio);
    		preparedStmt.setString   (8,city);
 
-   		 preparedStmt.execute();
-   		 
+   		preparedStmt.execute();
+   		//Acknowledgment alert
    		Alert alert = new Alert(AlertType.WARNING, "Your profile have been updated", javafx.scene.control.ButtonType.OK);
 		 alert.showAndWait();
 		 Parent parent;
 			try {
+				// Load the FXML file using FXMLLoader
 				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/SProfile.fxml"));
+				// Create a new Scene with the loaded FXML file as the root node
 				Scene scene = new Scene(parent);
-				
 				Stage  primaryStage = new Stage();
 				primaryStage.setScene(scene);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage.getIcons().add(image);
-					primaryStage.setTitle("BriCOOL");
+				Image image = new Image("src/View/icons/logo3.png");	 
+				primaryStage.getIcons().add(image);
+			    // Set the title of the primaryStage
+				primaryStage.setTitle("BriCOOL");
 				primaryStage.show();
+				//close the current scene
 				Stage stage1 = (Stage) edit.getScene().getWindow();
 			    stage1.close();
 			} catch (IOException e) {
@@ -194,6 +212,7 @@ public class EditProfileController implements Initializable  {
 
  	  }
 		}else {
+			// warning alert if the pswd doesn't match
 			Alert alert = new Alert(AlertType.WARNING, "The passwords should match", javafx.scene.control.ButtonType.OK);
 			 alert.showAndWait();
 		}
@@ -202,9 +221,10 @@ public class EditProfileController implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//initializing the interface with the user's informations
+		
 		Mychoicebox.getItems().addAll(speciality);		
 		txtcity.getItems().addAll(city);
-		
 		String name = null;
 		String username = null;
 		String speciality = null;
@@ -213,16 +233,14 @@ public class EditProfileController implements Initializable  {
 		String Bio = null;
 		String city = null;
 
-
-
-
 		String sql = "select name,username,speciality,phone_number,address,password,Bio,city from service_provider where username='" +username_Provider+ "' and password = '"+password_Provider+"'";
 		try {
-
+			//establish a connection with the database
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 			Statement statement = cnx.createStatement();
+			//Setting the result of the statement in a ResultSet
 			ResultSet rs = statement.executeQuery(sql);
-
+            //reading the results
 			while (rs.next()) {
 				name = rs.getString("name");
 				username = rs.getString("username");
@@ -237,7 +255,7 @@ public class EditProfileController implements Initializable  {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		
+		//setting the results on the user's interface
 		txtname.setText(name);
 		txtusername.setText(username);
 		Mychoicebox.setValue(speciality);
