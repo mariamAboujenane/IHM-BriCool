@@ -186,35 +186,7 @@ public class PreProfileController implements Initializable {
 		}
 		
 	}
-	public int getIdProvider() {
-		DatabaseConnection connectNow = new DatabaseConnection();
-		Connection connect = connectNow.getConnection();
-
-		String selectId = "SELECT idprovider FROM service_provider WHERE username = ? and password = ?";
-		String name = MyAppContext.workerUsername;
-		String password = MyAppContext.workerPassword;
-
-		try {
-			PreparedStatement st = connect.prepareStatement(selectId);
-			st.setString(1, name);
-			st.setString(2, password);
-			ResultSet result = st.executeQuery();
-			id = -1;
-			if (result.next()) {
-				id = result.getInt("idprovider");
-			}
-			if (id != -1) {
-				System.out.println("id =" + id);
-				// do something with the retrieved id
-			} else {
-				System.out.println("No matching user found");
-			}
-		} catch (SQLException e) {
-			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
-		}
-		return id;
-
-	}
+	
 
 
 
@@ -685,7 +657,14 @@ public class PreProfileController implements Initializable {
 		InputStream inputStream = new ByteArrayInputStream(imageBytes);
 
 		   Image imge = new Image(inputStream);
-		  photolabel.setImage(imge);
+		   photolabel.setImage(imge);
+		   photolabel.setFitWidth(60);
+		   photolabel.setFitHeight(60);
+			Circle circle = new Circle(20, 20, 20);
+		
+			 photolabel.setClip(circle);
+		  
+		  
 		  if(status == 0) {
 			  dispo.setImage(nodispoimage);
 		  }else if(status == 1){
