@@ -17,42 +17,42 @@
          </font>
       </Label>
       <TextField fx:id="servicetxt" layoutX="28.0" layoutY="74.0" prefHeight="26.0" prefWidth="323.0" />
-      <TextField fx:id="phonetxt" layoutX="27.0" layoutY="269.0" prefHeight="26.0" prefWidth="323.0" />
-      <TextField fx:id="descriptiontxt" layoutX="27.0" layoutY="403.0" prefHeight="55.0" prefWidth="323.0" />
-      <Label layoutX="28.0" layoutY="240.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
+      <TextField fx:id="phonetxt" layoutX="27.0" layoutY="257.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="descriptiontxt" layoutX="28.0" layoutY="428.0" prefHeight="55.0" prefWidth="323.0" />
+      <Label layoutX="27.0" layoutY="230.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="306.0" prefHeight="29.0" prefWidth="193.0" text="Date &amp; Hour" textFill="#2c7a6a">
+      <Label layoutX="28.0" layoutY="294.0" prefHeight="29.0" prefWidth="193.0" text="Date " textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="submit" layoutX="275.0" layoutY="473.0" mnemonicParsing="false" onAction="#submit" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Submit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="submit" layoutX="275.0" layoutY="490.0" mnemonicParsing="false" onAction="#submit" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: #503A3C;" text="Submit" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="28.0" layoutY="45.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Service Provider" textFill="#2c7a6a">
+      <Label layoutX="28.0" layoutY="47.0" prefHeight="29.0" prefWidth="193.0" style="-fx-background-color: 2C7A6A;" text="Service Provider" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="110.0" prefHeight="29.0" prefWidth="193.0" text="Full Name" textFill="#2c7a6a">
+      <Label layoutX="27.0" layoutY="109.0" prefHeight="29.0" prefWidth="193.0" text="Full Name" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="nametxt" layoutX="27.0" layoutY="139.0" prefHeight="26.0" prefWidth="323.0" />
-      <Label layoutX="28.0" layoutY="173.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
+      <TextField fx:id="nametxt" layoutX="27.0" layoutY="133.0" prefHeight="26.0" prefWidth="323.0" />
+      <Label layoutX="27.0" layoutY="169.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="addresstxt" layoutX="27.0" layoutY="199.0" prefHeight="26.0" prefWidth="323.0" />
-      <DatePicker fx:id="time" layoutX="27.0" layoutY="335.0" prefHeight="26.0" prefWidth="323.0" />
-      <Label layoutX="27.0" layoutY="374.0" prefHeight="29.0" prefWidth="307.0" text="Description Of The Problem" textFill="#2c7a6a">
+      <TextField fx:id="addresstxt" layoutX="27.0" layoutY="193.0" prefHeight="26.0" prefWidth="323.0" />
+      <DatePicker fx:id="date" layoutX="27.0" layoutY="321.0" prefHeight="26.0" prefWidth="323.0" />
+      <Label layoutX="27.0" layoutY="398.0" prefHeight="29.0" prefWidth="307.0" text="Description Of The Problem" textFill="#2c7a6a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -65,5 +65,11 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <Label layoutX="28.0" layoutY="348.0" prefHeight="29.0" prefWidth="193.0" text="Hour" textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="hourtxt" layoutX="27.0" layoutY="372.0" prefHeight="26.0" prefWidth="323.0" />
    </children>
 </AnchorPane>

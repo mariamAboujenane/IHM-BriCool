@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="643.0" style="-fx-background-color: #B6D0BD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.acceptOrDeclineController">
+   <children>
+      <Label alignment="CENTER" layoutX="214.0" prefHeight="36.0" prefWidth="242.0" text="Reservation" textAlignment="CENTER" textFill="#503a3c">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="151.0" layoutY="169.0" prefHeight="29.0" prefWidth="193.0" text="Phone Number" textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="151.0" layoutY="229.0" prefHeight="29.0" prefWidth="193.0" text="Date " textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="acceptbtn" layoutX="182.0" layoutY="456.0" mnemonicParsing="false" onAction="#accept" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: green;" text="accept" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="152.0" layoutY="48.0" prefHeight="29.0" prefWidth="193.0" text="client name" textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="152.0" layoutY="107.0" prefHeight="29.0" prefWidth="193.0" text="Address" textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="152.0" layoutY="361.0" prefHeight="29.0" prefWidth="307.0" text="Description Of The Problem" textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="back" layoutX="14.0" mnemonicParsing="false" onAction="#Back_To_choose" style="-fx-background-color: #B6D0BD;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-left-75.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="151.0" layoutY="298.0" prefHeight="29.0" prefWidth="193.0" text="Hour" textFill="#2c7a6a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="declinebtn" layoutX="330.0" layoutY="456.0" mnemonicParsing="false" onAction="#decline" prefHeight="36.0" prefWidth="110.0" style="-fx-background-color: red;" text="decline" textFill="#e8eaee" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="addressLabel" layoutX="152.0" layoutY="137.0" prefHeight="23.0" prefWidth="307.0" style="-fx-background-color: white;" />
+      <Label fx:id="clientNameLabel" layoutX="153.0" layoutY="78.0" prefHeight="23.0" prefWidth="307.0" style="-fx-background-color: white;" />
+      <Label fx:id="dateLabel" layoutX="152.0" layoutY="258.0" prefHeight="23.0" prefWidth="307.0" style="-fx-background-color: white;" />
+      <Label fx:id="phoneLabel" layoutX="152.0" layoutY="199.0" prefHeight="23.0" prefWidth="307.0" style="-fx-background-color: white;" />
+      <Label fx:id="hourLabel" layoutX="152.0" layoutY="328.0" prefHeight="23.0" prefWidth="307.0" style="-fx-background-color: white;" />
+      <Label fx:id="descriLabel" layoutX="153.0" layoutY="391.0" prefHeight="54.0" prefWidth="314.0" style="-fx-background-color: white;" />
+   </children>
+</AnchorPane>
