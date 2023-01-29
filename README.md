@@ -60,7 +60,8 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 -  By double clicking on the service provider the client will be directed to his *Profile*.
 
- <img width="500" src="https://user-images.githubusercontent.com/106840796/215357719-c8160a46-09fa-4c5b-97c7-fa434a80caeb.PNG">
+ <img width="500" src="https://user-images.githubusercontent.com/106840796/215358138-2cc4e300-8fef-4b15-b00e-ba7eb9daea40.PNG">
+
 
  
  - The client can make a reservation by clicking on the *Reservation* button. a Reservation form will appear.
