@@ -115,19 +115,25 @@ public class searchController implements Initializable {
 
     @FXML
     void back(ActionEvent event) {
-    	Parent parent;
+    	
 		try {
+			Parent parent;
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			// Create a new Scene with the loaded FXML file as the root node
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");	 
+		    // Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+		    // Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
-			Stage stage1 = (Stage) back.getScene().getWindow();
-		    stage1.close();
+			Stage stage = (Stage) back.getScene().getWindow();
+		    stage.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,16 +149,16 @@ public class searchController implements Initializable {
 		
 		specialityChoice.getItems().addAll(specialities);
 		cityChoice.getItems().addAll(Cities);
+		//establish a connection with the database
 		DatabaseConnection connectNow = new DatabaseConnection();
 		Connection connect = connectNow.getConnection();
+		//sql query
 		String SearchQuery = "SELECT idprovider , name, username, speciality,Likes,Dislikes, phone_number, city, photo FROM service_provider";
-
 		try {
-
 			PreparedStatement st = connect.prepareStatement(SearchQuery);
-
+            //set the results in a ResultSet
 			ResultSet rs = st.executeQuery(SearchQuery);
-
+            //Read the results
 			while (rs.next()) {
 				Integer id = rs.getInt("idprovider");
 				String name = rs.getString("name");
@@ -162,10 +168,8 @@ public class searchController implements Initializable {
 				Integer Likes = rs.getInt("Likes");
 				Integer Dislikes = rs.getInt("Dislikes");
 				Integer phone_number = rs.getInt("phone_number");
-
 				java.sql.Blob blob = rs.getBlob("photo");
 				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
-
 				// Create an InputStream from the byte array
 				InputStream inputStream = new ByteArrayInputStream(imageBytes);
 
@@ -192,7 +196,7 @@ public class searchController implements Initializable {
 
 			tableViewId.setItems(SearchResultList);
 
-			// list filtree
+			// list filtre
 			FilteredList<SearchModel> FiltetredData = new FilteredList<>(SearchResultList, b -> true);
 
 			searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -201,9 +205,8 @@ public class searchController implements Initializable {
 					if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
 						return true;
 					}
-
-					String searchKeyword = newValue.toLowerCase(); // fonctionality that changes uper case words to lower case
-					
+					// fonctionality that changes uper case words to lower case
+					String searchKeyword = newValue.toLowerCase(); 
 					if (String.valueOf(SearchModel.getId()).indexOf(searchKeyword) > -1) {
 						return true;
 					} else if (SearchModel.getName().toLowerCase().indexOf(searchKeyword) > -1) {
@@ -281,53 +284,59 @@ public class searchController implements Initializable {
 	@FXML
 	void gonotification(ActionEvent event) {
 
-		try {
-			Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/Notification.fxml"));
+		 try {
+		    	Parent parent;
 
-			Scene scene = new Scene(parent);
-
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
+				// Load the FXML file using FXMLLoader
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/Notification.fxml"));
+				// Create a new Scene with the loaded FXML file as the root node
+				Scene scene = new Scene(parent);
+				Stage  primaryStage = new Stage();
+				// Set the Scene on the Stage
+				primaryStage.setScene(scene);
+				// Create a new Image object 
+				Image image = new Image("src/View/icons/logo3.png");
+				// Add the image to the icon list of the primaryStage
 				primaryStage.getIcons().add(image);
+				// Set the title of the primaryStage
 				primaryStage.setTitle("BriCOOL");
-			primaryStage.show();
-
-			Stage stage = (Stage) btn_notification.getScene().getWindow();
-			// do what you have to do
-			stage.close();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				primaryStage.show();
+				Stage stage1 = (Stage) btn_notification.getScene().getWindow();
+			    stage1.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 
 	}
 
 	@FXML
 	void goinformation(ActionEvent event) {
-		try {
-			Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/information.fxml"));
+		 try {
+		    	Parent parent;
 
-			Scene scene1 = new Scene(parent);
-
-			Stage primaryStage1 = new Stage();
-			primaryStage1.setScene(scene1);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage1.getIcons().add(image);
-				primaryStage1.setTitle("BriCOOL");
-			primaryStage1.show();
-
-			Stage stage1 = (Stage) btn_information.getScene().getWindow();
-			// do what you have to do
-			stage1.close();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				// Load the FXML file using FXMLLoader
+				parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/Information.fxml"));
+				// Create a new Scene with the loaded FXML file as the root node
+				Scene scene = new Scene(parent);
+				Stage  primaryStage = new Stage();
+				// Set the Scene on the Stage
+				primaryStage.setScene(scene);
+				// Create a new Image object 
+				Image image = new Image("src/View/icons/logo3.png");
+				// Add the image to the icon list of the primaryStage
+				primaryStage.getIcons().add(image);
+				// Set the title of the primaryStage
+				primaryStage.setTitle("BriCOOL");
+				primaryStage.show();
+				Stage stage1 = (Stage) btn_information.getScene().getWindow();
+			    stage1.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 
 	}
 
@@ -335,20 +344,23 @@ public class searchController implements Initializable {
 	void gohistory(ActionEvent event) {
 		try {
 			Parent parent;
+
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/ClientHistory.fxml"));
-
-			Scene scene1 = new Scene(parent);
-
-			Stage primaryStage1 = new Stage();
-			primaryStage1.setScene(scene1);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage1.getIcons().add(image);
-				primaryStage1.setTitle("BriCOOL");
-			primaryStage1.show();
-
+			// Create a new Scene with the loaded FXML file as the root node
+			Scene scene = new Scene(parent);
+			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
+			primaryStage.setScene(scene);
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");
+			// Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+			// Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
+			primaryStage.show();
 			Stage stage1 = (Stage) btn_information.getScene().getWindow();
-			// do what you have to do
-			stage1.close();
+		    stage1.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -400,25 +412,27 @@ public class searchController implements Initializable {
 	void goeditprofil(ActionEvent event) {
 		try {
 			Parent parent;
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfileUser.fxml"));
 
-			Scene scene1 = new Scene(parent);
-
-			Stage primaryStage1 = new Stage();
-			primaryStage1.setScene(scene1);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage1.getIcons().add(image);
-				primaryStage1.setTitle("BriCOOL");
-			primaryStage1.show();
-
+			// Load the FXML file using FXMLLoader
+			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/EditProfile.fxml"));
+			// Create a new Scene with the loaded FXML file as the root node
+			Scene scene = new Scene(parent);
+			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
+			primaryStage.setScene(scene);
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");
+			// Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+			// Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
+			primaryStage.show();
 			Stage stage1 = (Stage) btn_information.getScene().getWindow();
-			// do what you have to do
-			stage1.close();
+		    stage1.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 	 
 
