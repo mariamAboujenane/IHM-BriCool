@@ -36,16 +36,25 @@ public class ClientOrProviderController {
     
     @FXML
     private Button loginbtn;
+    
+    ///////////////////////////// Registration
 
     @FXML
     void CreateAccount(ActionEvent event) {
     	Parent parent = null ;
 		try {
+			// if the user is a client
+			
 			if(clientbtn.isSelected()) {
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AccountClient.fxml"));
+			// if the user is a service provider
+			
 			}else if(providerbtn.isSelected()) {
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/AccountProvider.fxml"));
+			
 			}else {
+				//Error alert
 				Alert alert  = new Alert(AlertType.NONE,"You should select one ",ButtonType.OK);
 				alert.setHeaderText(null);
 				alert.initModality(Modality.NONE);
@@ -56,13 +65,15 @@ public class ClientOrProviderController {
       			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
 			}
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			Image image = new Image("src/View/icons/logo3.png");	 
+			primaryStage.getIcons().add(image);
+			// Set the title
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
+		        //close the current scene
 			Stage stage1 = (Stage) createbtn.getScene().getWindow();
 		    stage1.close();
 		} catch (IOException e) {
@@ -70,19 +81,25 @@ public class ClientOrProviderController {
 		}
 
     }
+    
+    ////////////////////////////login 
+    
     @FXML
     void login(ActionEvent event) {
     	Parent parent;
 		try {
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			Image image = new Image("src/View/icons/logo3.png");	 
+			primaryStage.getIcons().add(image);
+			// Set the title
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
+		        //close the current scene
 			Stage stage1 = (Stage) loginbtn.getScene().getWindow();
 		    stage1.close();
 		} catch (IOException e) {
