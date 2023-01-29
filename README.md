@@ -12,14 +12,14 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 <br />
 
 ## Here is a preview of our App 📸 :
-- The first inteface that appears when we run the app is the *login interface*. Both client and service provider can log in from it.
 ***
 <h2 align="center">Login process 👩‍💻</h2>
 
 ***
 
+- The first inteface that appears when we run the app is the *login interface*. Both client and service provider can log in from it.
 
-<img width="496" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
+<img width="500" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
 
 ***
 <h2 align="center">Registration process  📝</h2>
@@ -28,16 +28,22 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 - If the user hasn't an account yet he will be directed to the *registration interface*, he will be at first asked to select his status (Client or Service provider).
 
-<img width="496" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
+<img width="500" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
 
-> On the left we have the *Service provider's* registration interface. 
-> On the right we have the *Client's* registration interface
+> we have the *Service provider's* registration interface. 
+
 
    <div style="display: flex;">
-      <img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/215326563-f16bccda-9049-4ede-819b-c695a221a34e.PNG">
-      <img width="483" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/215326549-1a34dae8-2cee-4ddf-8c3a-af88d5861478.PNG">
+      <img width="500" alt="AP" src="https://user-images.githubusercontent.com/121026257/215326563-f16bccda-9049-4ede-819b-c695a221a34e.PNG">
+      <img width="500" alt="Screenshot 2023-01-29 163703" src="https://user-images.githubusercontent.com/89936910/215337829-f73e421b-2749-4d43-953f-12aaf46455e4.png">
+
    </div>
    
+   >  and  the *Client's* registration interface
+   <div style="display: flex;">
+    <img width="500" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/215326549-1a34dae8-2cee-4ddf-8c3a-af88d5861478.PNG">
+   </div>
+
    
    ***
    <h2 align="center">User as Client 👩</h2>
@@ -45,7 +51,7 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
    ***
 - After his registration the user can log in. If he is a client he will be directed to the *Search interface*.
 
-<img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
+<img width="500" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
 
 -  By double clicking on the service provider the client will be directed to his *Profile*.
 
