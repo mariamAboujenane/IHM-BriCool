@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="660.0" style="-fx-background-color: #E8EAEE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller.PreProfileController">
@@ -21,6 +26,20 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <TextField layoutX="97.0" layoutY="23.0" prefHeight="26.0" prefWidth="267.0" promptText="SEARCH" AnchorPane.rightAnchor="295.6666666666667" AnchorPane.topAnchor="23.0">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.24924015998840332" />
+               </color></DropShadow>
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></TextField>
+      <ImageView fitHeight="86.0" fitWidth="97.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/logogris.png" />
+         </image></ImageView>
       <MenuButton layoutX="594.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
         <items>
           <MenuItem fx:id="edit" mnemonicParsing="false" onAction="#goeditprofile" text="Edit Profile" />
@@ -43,20 +62,30 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="364.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;" />
+      <Button layoutX="364.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #E8EAEE;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icons8-search-60.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
     <AnchorPane layoutX="19.0" layoutY="70.0" minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="626.0" style="-fx-background-color: #E8EAEE; -fx-border-color: #2c7a6a;">
          <children>
-            <Pane layoutX="10.0" layoutY="82.0" prefHeight="78.0" prefWidth="569.0">
+            <Pane layoutX="10.0" layoutY="82.0" prefHeight="78.0" prefWidth="569.0" style="-fx-border-color: #bcbcbc;">
                <children>
                   <Label layoutX="9.0" layoutY="12.0" prefHeight="17.0" prefWidth="46.0" text="BIO:" textFill="#553232">
                      <font>
                         <Font name="Arial Bold Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="biolabel" layoutX="39.0" layoutY="3.0" prefHeight="36.0" prefWidth="516.0" style="-fx-background-color: #FFFFFF;" />
+                  <Label fx:id="biolabel" layoutX="40.0" layoutY="12.0" prefHeight="56.0" prefWidth="516.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                </children>
             </Pane>
-            <Button fx:id="report" layoutX="558.0" layoutY="24.0" mnemonicParsing="false" onAction="#report" prefHeight="47.0" prefWidth="30.0" style="-fx-background-color: #E8EAEE;" textFill="#b3561c">
+            <Button fx:id="report" layoutX="581.0" layoutY="97.0" mnemonicParsing="false" onAction="#report" prefHeight="47.0" prefWidth="30.0" style="-fx-background-color: #E8EAEE;" textFill="#b3561c">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,11 +93,6 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Pane layoutX="9.0" layoutY="169.0" prefHeight="242.0" prefWidth="569.0">
-               <children>
-                  <ListView fx:id="listView" layoutX="89.0" layoutY="42.0" prefHeight="200.0" prefWidth="382.0" style="-fx-background-color: #E8EAEE;" />
-               </children>
-            </Pane>
             <Label fx:id="addresslabel" layoutX="66.0" layoutY="39.0" text="Hay El Qods 02 N854 ZAGORA" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" />
             <Label fx:id="nameLabel" layoutX="66.0" layoutY="14.0" prefHeight="25.0" prefWidth="130.0" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
@@ -86,6 +110,9 @@
                <font>
                   <Font name="Arial Bold" size="11.0" />
                </font>
+               <effect>
+                  <Reflection fraction="0.56" topOpacity="0.23" />
+               </effect>
             </Button>
             <ImageView fx:id="photolabel" fitHeight="47.0" fitWidth="52.0" layoutX="8.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -101,12 +128,12 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="LikeLbl" alignment="CENTER" layoutX="453.0" layoutY="56.0" prefHeight="18.0" prefWidth="41.0">
+            <Label fx:id="LikeLbl" alignment="CENTER" layoutX="452.0" layoutY="59.0" prefHeight="18.0" prefWidth="62.0">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="DislikeLbl" alignment="CENTER" layoutX="491.0" layoutY="18.0" prefHeight="18.0" prefWidth="41.0">
+            <Label fx:id="DislikeLbl" alignment="CENTER" layoutX="498.0" layoutY="19.0" prefHeight="18.0" prefWidth="26.0">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -120,16 +147,13 @@
                   </ImageView>
                </graphic>
             </Button>
+            <ListView fx:id="listView" layoutX="129.0" layoutY="172.0" prefHeight="314.0" prefWidth="382.0" />
+            <Label layoutX="-5.0" layoutY="166.0" prefHeight="36.0" prefWidth="107.0" text="     Posts :" textFill="#513b3d">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="back" layoutX="19.0" layoutY="-4.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #E8EAEE;">
-         <graphic>
-            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icons/logogris.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>
