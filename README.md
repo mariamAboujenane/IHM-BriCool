@@ -16,6 +16,8 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 <img width="496" alt="login" src="https://user-images.githubusercontent.com/121026257/214843988-ef1cc781-ab35-4ae7-b7d8-b755b11693a4.PNG">
 
+
+
 - If the user hasn't an account yet he will be directed to the *registration interface*, he will be at first asked to select his status (Client or Service provider).
 
 <img width="496" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
@@ -40,9 +42,10 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 > The *client's History*
 
-<img width="496" alt="history" align "right" src="https://user-images.githubusercontent.com/121026257/215323452-b6a8b472-f23a-422e-aba3-0ace87d6085a.PNG">
+<img width="496" alt="history" src="https://user-images.githubusercontent.com/121026257/215327441-cc8b8014-ec6e-458f-b553-ae9db3f45b42.PNG">
 
 > The *client's Notification*
+
 
 > The *Log out* proccess
 
