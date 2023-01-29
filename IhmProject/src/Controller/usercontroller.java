@@ -58,27 +58,32 @@ public class usercontroller implements Initializable {
 
     @FXML
     void Back_To_choose(ActionEvent event) {
-    	Parent parent;
-		try {
+    	try {
+			Parent parent;
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/clientorprovider.fxml"));
+			// Create a new Scene with the loaded FXML file as the root node
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");	 
+		    // Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+		    // Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
-			Stage stage1 = (Stage) back.getScene().getWindow();
-		    stage1.close();
+			Stage stage = (Stage) back.getScene().getWindow();
+		    stage.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
     }
     @FXML
     void comhide(ActionEvent event) {
+		// Hide the confirmed password
     	compassword = txtconfirmpswd.getText();
     	txtconfirmpswd.setVisible(false);
     	comhide.setVisible(false);
@@ -89,7 +94,8 @@ public class usercontroller implements Initializable {
     }
     @FXML
     void hide(ActionEvent event) {
-    	 password = txtpswd.getText();
+		    // Hide the password
+    	    password = txtpswd.getText();
 	    	txtpswd.setVisible(false);
 	    	hide.setVisible(false);
 			passwordField.setVisible(true);
@@ -100,6 +106,7 @@ public class usercontroller implements Initializable {
 
     @FXML
     void show(ActionEvent event) {
+    	// show the password
     	password = passwordField.getText();
     	txtpswd.setVisible(true);
     	hide.setVisible(true);
@@ -111,6 +118,7 @@ public class usercontroller implements Initializable {
 
     @FXML
     void showcom(ActionEvent event) {
+    	// show the confirmed password
     	compassword = comPasswordField.getText();
     	txtconfirmpswd.setVisible(true);
     	comhide.setVisible(true);
@@ -126,11 +134,14 @@ public class usercontroller implements Initializable {
 		compassword =  comPasswordField.getText();
 		System.out.println(password);
 		System.out.println(compassword);
+        // SQL query
 		String sql="insert into user(name,username,password) values(?,?,?)";
              if(password.equals(compassword)){
 	          	   try {
+	          		    //establish a connection with the database
 	                  	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 	          			PreparedStatement st = cnx.prepareStatement(sql);   
+	                  	// Setting the values of the parameters in the prepared statement
 	          			st.setString(1,txtname.getText());
 	          			st.setString(2,txtuser.getText());
 	          			st.setString(3,password);
@@ -141,18 +152,21 @@ public class usercontroller implements Initializable {
 	          			st.execute();
 	          			Parent parent = null;
 	    				try {
+	    					// Load the FXML file using FXMLLoader
 							parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/login.fxml"));
-							
-						
-	    				Scene scene = new Scene(parent);
-	    				Stage  primaryStage = new Stage();
-	    				primaryStage.setScene(scene);
-	    				 Image image = new Image("src/View/icons/logo3.png");	 
-	    					primaryStage.getIcons().add(image);
-	    					primaryStage.setTitle("BriCOOL");
-	    				primaryStage.show(); 
-	    				Stage stage1 = (Stage) create.getScene().getWindow();
-	    			     stage1.close();
+							// Create a new Scene with the loaded FXML file as the root node
+		    				Scene scene = new Scene(parent);
+		    				Stage  primaryStage = new Stage();
+							// Set the Scene on the Stage
+		    				primaryStage.setScene(scene);
+		    				Image image = new Image("src/View/icons/logo3.png");	 
+							// Create a new Image object 
+		    				primaryStage.getIcons().add(image);
+							// Set the title of the primaryStage
+		    				primaryStage.setTitle("BriCOOL");
+		    				primaryStage.show(); 
+		    				Stage stage1 = (Stage) create.getScene().getWindow();
+		    			     stage1.close();
 	    				} catch (IOException e1) {
 							e1.printStackTrace();
 						}
@@ -160,6 +174,7 @@ public class usercontroller implements Initializable {
 	          				e1.printStackTrace();
 	          			}
               }else {
+        	          //Alert advertising the user that his password does not match 
 	            	  Alert alert = new Alert(AlertType.WARNING, "Your password does not match, check again please.", javafx.scene.control.ButtonType.OK);
 	            	  alert.setHeaderText("Something happend... :( !");
 	      			  dialog= alert.getDialogPane();  
