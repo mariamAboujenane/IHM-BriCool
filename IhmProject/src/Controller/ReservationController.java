@@ -56,21 +56,24 @@ public class ReservationController implements Initializable {
     @FXML
     void Back_To_choose(ActionEvent event) {
     	try {
-			Parent parent;
+    		Parent parent;
+
+			// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/PreProfile.fxml"));
-			
+			// Create a new Scene with the loaded FXML file as the root node
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");
+			// Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+			// Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
-			
-			Stage stage = (Stage) back.getScene().getWindow();
-		    // do what you have to do
-		    stage.close();
+			Stage stage1 = (Stage) back.getScene().getWindow();
+		    stage1.close();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -88,11 +91,12 @@ public class ReservationController implements Initializable {
 		String sql = "select name from service_provider where idprovider='" +id+ "'";
 		String sql_client = "select iduser from user where username='" +name_client+ "' and password = '"+pass_client+"'";
 		try {
-
+			//establish a connection with the database
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 			Statement statement = cnx.createStatement();
+			//Setting the result of the statement in a ResultSet
 			ResultSet rs = statement.executeQuery(sql);
-
+            //reading the results
 			while (rs.next()) {
 				service_name = rs.getString("name");
 			}
@@ -100,14 +104,16 @@ public class ReservationController implements Initializable {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+		//setting the results on the user's interface
 		servicetxt.setText(service_name);
 		nametxt.setText(name_client);
 		try {
-
+			//establish a connection with the database
 			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 			Statement statement = cnx.createStatement();
+			//Setting the result of the statement in a ResultSet
 			ResultSet rs = statement.executeQuery(sql_client);
-
+            //reading the results
 			while (rs.next()) {
 				id_client = rs.getInt("iduser");
 			}
@@ -120,6 +126,8 @@ public class ReservationController implements Initializable {
 
     @FXML
     void submit(ActionEvent event) {
+		//sending the values to the database
+
     	String sql="insert into reservation(iduser,idprovider,Service_Provider,full_name,Address,phone_number,Date,Description) values(?,?,?,?,?,?,?,?)";
          	   try {
          	
@@ -133,15 +141,14 @@ public class ReservationController implements Initializable {
          			st.setString(6,phonetxt.getText());
          			st.setDate(7,java.sql.Date.valueOf(time.getValue()));
          			st.setString(8,descriptiontxt.getText());
-         			
-
+         		
          			st.execute();
-         			
+         	//Acknowledgment alert	
        	   	 Alert alert = new Alert(AlertType.WARNING, "Reservation made.", javafx.scene.control.ButtonType.OK);
-       	  alert.showAndWait();
+       	     alert.showAndWait();
          			
          			Parent parent1 = null;
-   				try {
+   				   try {
 						parent1 = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
 						
 					} catch (IOException e1) {
@@ -149,13 +156,18 @@ public class ReservationController implements Initializable {
 					}
    				Scene scene = new Scene(parent1);
    				Stage  primaryStage = new Stage();
+   				// Set the Scene on the Stage
    				primaryStage.setScene(scene);
-   			 Image image = new Image("src/View/icons/logo3.png");	 
- 			primaryStage.getIcons().add(image);
- 			primaryStage.setTitle("BriCOOL");
-   				primaryStage.show(); 
+   				// Create a new Image object 
+   				Image image = new Image("src/View/icons/logo3.png");
+   				// Add the image to the icon list of the primaryStage
+   				primaryStage.getIcons().add(image);
+   				// Set the title of the primaryStage
+   				primaryStage.setTitle("BriCOOL");
+   				primaryStage.show();
    				Stage stage1 = (Stage) submit.getScene().getWindow();
-   			     stage1.close();
+   			    stage1.close();
+   				
 
 
 
@@ -163,5 +175,6 @@ public class ReservationController implements Initializable {
          				e1.printStackTrace();
       
     }
-    }}
+    }
+    }
 
