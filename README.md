@@ -71,22 +71,7 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 
 <img width="500" alt="menu" src="https://user-images.githubusercontent.com/121026257/215323449-cd247b65-1e45-4ab8-b181-166df52a20ad.PNG">
 
-
-> The *client's Notification*
-<img width="500"  src="https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG">
-
-- By clicking on a notification , the user will be directed to another interface so he can view his reservation and *Print* it if he want to.
-
-<img width="500"  src="https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG">
-
 > Accessibility to edit profile, sign out, and history features allows a user to easily manage their account and personal information. These features provide the user with the ability to update their profile information, such as contact information or password, and view their past activity on the platform. The "sign out" feature ensures the security of the user's account by logging them out of the platform when they are finished using it.
-
-<img width="356" alt="h" src="https://user-images.githubusercontent.com/89936910/215341151-cb46a05f-c178-4fe1-92a6-f48c16b5ce0c.png">
-
-
-> The *Log out* proccess
-
- <img width="500" alt="log out" src="https://user-images.githubusercontent.com/121026257/215327347-3975b3f5-6482-48ea-8f3d-48646f91f1f3.PNG">
 
 > By clicking on the *Account icon*, the client will access to the *Edit Profile* interface.
 
@@ -95,11 +80,20 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 > The *client's History*
 
 <img width="500" alt="history" src="https://user-images.githubusercontent.com/121026257/215327441-cc8b8014-ec6e-458f-b553-ae9db3f45b42.PNG">
+> The *Log out* proccess
+
+ <img width="500" alt="log out" src="https://user-images.githubusercontent.com/121026257/215327347-3975b3f5-6482-48ea-8f3d-48646f91f1f3.PNG">
+> The *client's Notification*
+<img width="500"  src="https://user-images.githubusercontent.com/106840796/215328570-3b87cd45-27a9-410a-8b58-acb1c81ca598.PNG">
+
+- By clicking on a notification , the user will be directed to another interface so he can view his reservation and *Print* it if he want to.
+
+<img width="500"  src="https://user-images.githubusercontent.com/106840796/215329583-418a5fe6-43b8-41cd-a626-52e9b834579b.PNG">
 > By clicking on the *information icon*, an interface containing informations about our App will appear.
 
 <img width="496" alt="info" src="https://user-images.githubusercontent.com/89936910/215325026-55831cce-19e4-4685-88c7-2cb6d71ca14a.png">
 
-
+ 
 
 
     
