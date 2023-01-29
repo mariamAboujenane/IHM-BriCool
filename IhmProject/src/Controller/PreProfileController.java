@@ -27,7 +27,6 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,8 +41,6 @@ import src.Model.DatabaseConnection;
 public class PreProfileController implements Initializable {
 	
 	int id =MyAppContext.selectedIdPersonInSearch;
-	String name_Client = MyAppContext.workerUsername;
-	String password_Client = MyAppContext.workerPassword;
 	Image dislikeimage = new Image("src/View/icons/down.png");
 	Image likeimage = new Image("src/View/icons/upp.png");
 	Image dislikeimage_gris = new Image("src/View/icons/down_gris_new.png");
@@ -54,7 +51,7 @@ public class PreProfileController implements Initializable {
 	int contour_dislike = 0;
 	
 	private DialogPane dialog;
-	
+
     @FXML
     private Label usernameLabel;
     
@@ -74,12 +71,6 @@ public class PreProfileController implements Initializable {
     private MenuItem edit;
     @FXML
     private MenuItem history;
-    
-    @FXML
-    private ListView<GridPane> listView = new ListView<>();;
-
-    @FXML
-    private Button back;
 
 	@FXML
 	private ImageView LikeImage;
@@ -118,7 +109,12 @@ public class PreProfileController implements Initializable {
     @FXML
     private MenuItem signout;
 
+	@FXML
+	private ImageView photoP;
 
+	
+	@FXML
+	ListView<GridPane> listView = new ListView<>();
 
 	@FXML
 	void Dislike(ActionEvent event) {
@@ -139,7 +135,7 @@ public class PreProfileController implements Initializable {
 			dislike_modify = String.valueOf(dislike_number);
 			DislikeLbl.setText(dislike_modify);
 			String updateQueryLike = "UPDATE service_provider SET Likes = ?,Dislikes = ? WHERE idprovider = '" +id+ "'";
-			String updateQuery = "UPDATE liked_or_not SET Liked = ?,Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+			 
 		  	  try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQueryLike);
@@ -152,18 +148,7 @@ public class PreProfileController implements Initializable {
 		 		e1.printStackTrace();
 
 		 	  }
-		 	 try {
-		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
-		   		  preparedStmt.setBoolean   (1, false);
-		   		preparedStmt.setBoolean   (2, true);
-
-		   		 preparedStmt.execute();
-		 			 
-		 	  }catch(SQLException e1) {
-		 		e1.printStackTrace();
-
-		 	  }
+		  	  
 
 			
 		}else {
@@ -174,18 +159,6 @@ public class PreProfileController implements Initializable {
 		dislike_modify = String.valueOf(dislike_number);
 		DislikeLbl.setText(dislike_modify);
 		contour_dislike ++;
-		String updateQuery = "UPDATE liked_or_not SET Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-		 try {
-	         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-	         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
-	   		  preparedStmt.setBoolean   (1, true);
-
-	   		 preparedStmt.execute();
-	 			 
-	 	  }catch(SQLException e1) {
-	 		e1.printStackTrace();
-
-	 	  }
 		}else {
 			DislikeImage.setImage(dislikeimage_gris);
 			int dislike_int = Integer.parseInt(dislike);
@@ -193,18 +166,6 @@ public class PreProfileController implements Initializable {
 			dislike_modify = String.valueOf(dislike_number);
 			DislikeLbl.setText(dislike_modify);
 			contour_dislike ++;
-			String updateQuery2 = "UPDATE liked_or_not SET Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-			 try {
-		        	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		        	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
-		  		  preparedStmt.setBoolean   (1, false);
-
-		  		 preparedStmt.execute();
-					 
-			  }catch(SQLException e1) {
-				e1.printStackTrace();
-
-			  }
 		}
 		
 		  String updateQuery = "UPDATE service_provider SET Dislikes = ? WHERE idprovider = '" +id+ "'";
@@ -224,6 +185,158 @@ public class PreProfileController implements Initializable {
  	  }
 		}
 		
+	}
+	public int getIdProvider() {
+		DatabaseConnection connectNow = new DatabaseConnection();
+		Connection connect = connectNow.getConnection();
+
+		String selectId = "SELECT idprovider FROM service_provider WHERE username = ? and password = ?";
+		String name = MyAppContext.workerUsername;
+		String password = MyAppContext.workerPassword;
+
+		try {
+			PreparedStatement st = connect.prepareStatement(selectId);
+			st.setString(1, name);
+			st.setString(2, password);
+			ResultSet result = st.executeQuery();
+			id = -1;
+			if (result.next()) {
+				id = result.getInt("idprovider");
+			}
+			if (id != -1) {
+				System.out.println("id =" + id);
+				// do something with the retrieved id
+			} else {
+				System.out.println("No matching user found");
+			}
+		} catch (SQLException e) {
+			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
+		}
+		return id;
+
+	}
+
+
+
+	public ImageView selectPhoto() {
+		DatabaseConnection connectNow = new DatabaseConnection();
+		Connection connect = connectNow.getConnection();
+		int id = getIdProvider();
+		String selectPhoto = "SELECT  photo FROM service_provider WHERE idprovider=?";
+		String name = MyAppContext.workerUsername;
+		String password = MyAppContext.workerPassword;
+		ImageView photo = new ImageView();
+		try {
+			PreparedStatement st = connect.prepareStatement(selectPhoto);
+			st.setInt(1, id);
+
+			ResultSet result = st.executeQuery();
+
+			while (result.next()) {
+
+				java.sql.Blob blob = result.getBlob("photo");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
+
+				// Create an InputStream from the byte array
+				InputStream inputStream = new ByteArrayInputStream(imageBytes);
+
+				Image imge = new Image(inputStream);
+				photo.setImage(imge);
+
+				photo.setFitWidth(35);
+				photo.setFitHeight(35);
+				Circle circle = new Circle(15, 15, 15);
+				photo.setClip(circle);
+				System.out.println("photo of the service provdier" + photo);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
+		}
+
+		return photo;
+	}
+
+	public void selectPostsFromDatabase() {
+
+		ObservableList<GridPane> postGrids = FXCollections.observableArrayList();
+		DatabaseConnection connectNow = new DatabaseConnection();
+
+		Connection connect = connectNow.getConnection();
+		int id = getIdProvider();
+		try {
+			PreparedStatement st = connect
+					.prepareStatement("SELECT postTitle, postContent, publishedAt FROM post where idp=?");
+			st.setInt(1, id);
+			ResultSet result = st.executeQuery();
+			while (result.next()) {
+				String title = result.getString("postTitle");
+				java.sql.Blob blob = result.getBlob("postContent");
+				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
+
+				// Create an InputStream from the byte array
+				InputStream inputStream = new ByteArrayInputStream(imageBytes);
+
+				Image imge = new Image(inputStream);
+				ImageView postContent = new ImageView(imge);
+
+				postContent.setFitWidth(355);
+				postContent.setFitHeight(330);
+
+				String publishedAt = result.getString("publishedAt");
+				ImageView photo = selectPhoto();
+				Label username = new Label(MyAppContext.workerUsername);
+				Label titleLabel = new Label(title);
+				System.out.println("photo:" + postContent);
+
+				Label publishedAtLabel = new Label("Published At: " + publishedAt);
+				publishedAtLabel.setStyle("-fx-text-fill: gray;-fx-font-size:10px;");
+
+				username.setStyle("-fx-font-weight: bold; -fx-font-size:12px;");
+
+				GridPane postGrid = new GridPane();
+				// Create ColumnConstraints for each column
+				ColumnConstraints col1 = new ColumnConstraints();
+				ColumnConstraints col2 = new ColumnConstraints();
+				ColumnConstraints col3 = new ColumnConstraints();
+				ColumnConstraints col4 = new ColumnConstraints();
+				// Add the ColumnConstraints to the GridPane
+				postGrid.getColumnConstraints().addAll(col1, col2, col3);
+				col1.setPrefWidth(40); // set width of column1
+				col2.setPrefWidth(160); // set width of column2
+				col3.setPrefWidth(140); // set width of column3
+				// Create RowConstraints for each row
+				RowConstraints row1 = new RowConstraints();
+				RowConstraints row2 = new RowConstraints();
+				RowConstraints row3 = new RowConstraints();
+				RowConstraints row4 = new RowConstraints();
+
+				RowConstraints row5 = new RowConstraints();
+				RowConstraints row6 = new RowConstraints();
+				// Add the RowConstraints to the GridPane
+				postGrid.getRowConstraints().addAll(row1, row2, row3, row4, row5, row6);
+				postGrid.setVgap(2);
+				postGrid.setHgap(2);
+
+				row1.setPrefHeight(5); // set width of column1
+				row2.setPrefHeight(10);
+				row3.setPrefHeight(10); // set width of column1
+
+				postGrid.setConstraints(photo, 0, 0, 1, 3);
+				postGrid.setConstraints(username, 1, 1, 2, 1);
+
+				postGrid.setConstraints(publishedAtLabel, 1, 2, 2, 1);
+				postGrid.setConstraints(titleLabel, 0, 3, 3, 1);
+				postGrid.setConstraints(postContent, 0, 5, 3, 1); // This element will span 2 columns in the 1st row
+				postGrid.getChildren().addAll(photo, username, publishedAtLabel, titleLabel, postContent);
+				postGrids.add(postGrid);
+				listView.setItems(postGrids);
+			}
+		} catch (SQLException e) {
+			System.out.println("An error occurred while retrieving the data: " + e.getMessage());
+		}
+
 	}
 
 	@FXML
@@ -247,7 +360,7 @@ public class PreProfileController implements Initializable {
 			
 
 				  String updateQuery = "UPDATE service_provider SET Likes = ?, Dislikes = ? WHERE idprovider = '" +id+ "'";
-				  String updateQuery2 = "UPDATE liked_or_not SET Liked = ?,Disliked = ?  WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
+				 
 		  	  try {
 		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
 		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery);
@@ -262,30 +375,6 @@ public class PreProfileController implements Initializable {
 		 		e1.printStackTrace();
 
 		 	  }
-		 	 try {
-		         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
-		   		  preparedStmt.setBoolean   (1, true);
-		   		 preparedStmt.setBoolean   (2, false);
-
-		   		 preparedStmt.execute();
-		 			 
-		 	  }catch(SQLException e1) {
-		 		e1.printStackTrace();
-
-		 	  }
-		  	String updateQuery3 = "UPDATE liked_or_not SET Disliked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-			 try {
-		        	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		        	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery3);
-		  		  preparedStmt.setBoolean   (1, false);
-
-		  		 preparedStmt.execute();
-					 
-			  }catch(SQLException e1) {
-				e1.printStackTrace();
-
-			  }
 
 		
 		}else {
@@ -296,18 +385,6 @@ public class PreProfileController implements Initializable {
 		like_modify = String.valueOf(like_number);
 		LikeLbl.setText(like_modify);
 		contour_like ++;
-		  String updateQuery2 = "UPDATE liked_or_not SET Liked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-		  try {
-	         	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-	         	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
-	   		  preparedStmt.setBoolean   (1, true);
-
-	   		 preparedStmt.execute();
-	 			 
-	 	  }catch(SQLException e1) {
-	 		e1.printStackTrace();
-
-	 	  }
 		}else {
 			LikeImage.setImage(likeimage_gris);
 			int like_int = Integer.parseInt(like);
@@ -315,18 +392,6 @@ public class PreProfileController implements Initializable {
 			like_modify = String.valueOf(like_number);
 			LikeLbl.setText(like_modify);
 			contour_like ++;
-			 String updateQuery2 = "UPDATE liked_or_not SET Liked = ? WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-			  try {
-		       	Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		       	 PreparedStatement preparedStmt = cnx.prepareStatement(updateQuery2);
-		 		  preparedStmt.setBoolean   (1, false);
-
-		 		 preparedStmt.execute();
-					 
-			  }catch(SQLException e1) {
-				e1.printStackTrace();
-
-			  }
 		}
 		  String updateQuery = "UPDATE service_provider SET Likes = ? WHERE idprovider = '" +id+ "'";
 		 
@@ -343,34 +408,10 @@ public class PreProfileController implements Initializable {
  		e1.printStackTrace();
 
  	  }
-  	
 
 		}
 
 	}
-	
-    @FXML
-    void back(ActionEvent event) {
-    	Parent parent;
-		try {
-			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
-			Scene scene = new Scene(parent);
-			
-			Stage  primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
-			primaryStage.show();
-			Stage stage1 = (Stage) back.getScene().getWindow();
-		    stage1.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-    }
 	   @FXML
 	    void goeditprofile(ActionEvent event) {
 			try {
@@ -381,9 +422,6 @@ public class PreProfileController implements Initializable {
 
 				Stage primaryStage1 = new Stage();
 				primaryStage1.setScene(scene1);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage1.getIcons().add(image);
-					primaryStage1.setTitle("BriCOOL");
 				primaryStage1.show();
 
 				Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -404,9 +442,6 @@ public class PreProfileController implements Initializable {
 
 				Stage primaryStage1 = new Stage();
 				primaryStage1.setScene(scene1);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage1.getIcons().add(image);
-					primaryStage1.setTitle("BriCOOL");
 				primaryStage1.show();
 
 				Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -428,9 +463,6 @@ public class PreProfileController implements Initializable {
 
 				Stage primaryStage1 = new Stage();
 				primaryStage1.setScene(scene1);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage1.getIcons().add(image);
-					primaryStage1.setTitle("BriCOOL");
 				primaryStage1.show();
 
 				Stage stage1 = (Stage) btn_information.getScene().getWindow();
@@ -453,9 +485,6 @@ public class PreProfileController implements Initializable {
 
 				Stage primaryStage = new Stage();
 				primaryStage.setScene(scene);
-				 Image image = new Image("src/View/icons/logo3.png");	 
-					primaryStage.getIcons().add(image);
-					primaryStage.setTitle("BriCOOL");
 				primaryStage.show();
 
 				Stage stage = (Stage) btn_notification.getScene().getWindow();
@@ -492,9 +521,6 @@ public class PreProfileController implements Initializable {
 
 					Stage primaryStage1 = new Stage();
 					primaryStage1.setScene(scene1);
-					 Image image = new Image("src/View/icons/logo3.png");	 
-						primaryStage1.getIcons().add(image);
-						primaryStage1.setTitle("BriCOOL");
 					primaryStage1.show();
 					Stage stage1 = (Stage) btn_information.getScene().getWindow();
 					stage1.close();
@@ -600,9 +626,6 @@ public class PreProfileController implements Initializable {
 
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) reservebtn.getScene().getWindow();
 			stage1.close();
@@ -626,8 +649,6 @@ public class PreProfileController implements Initializable {
 		String dislikes = null;
 		java.sql.Blob photo;
 		byte[] imageBytes = null;
-		int disliked = 0;
-		int liked = 0;
 		String sql = "select name,speciality,phone_number,address,status,Bio,Likes,Dislikes,photo from service_provider where idprovider='" +id+ "'";
 		
 		try {
@@ -664,183 +685,13 @@ public class PreProfileController implements Initializable {
 
 		   Image imge = new Image(inputStream);
 		  photolabel.setImage(imge);
-		  photolabel.setFitWidth(35);
-			photolabel.setFitHeight(35);
-			Circle circle = new Circle(15, 15, 15);
-			photolabel.setClip(circle);
 		  if(status == 0) {
 			  dispo.setImage(nodispoimage);
 		  }else if(status == 1){
 			  dispo.setImage(dispoimage);
 		  }
-		  String verifyLogin ="Select count(1) from liked_or_not where idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-			 try {
-				 Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-					Statement statement=cnx.createStatement();
-					ResultSet queryResult=statement.executeQuery(verifyLogin);
-					while(queryResult.next()){
-			    		if(queryResult.getInt(1)==1) {
-			    			String SelectQueryDislike = "SELECT Liked,Disliked from liked_or_not WHERE idprovider = '"+id+"'and name_Client ='"+name_Client+"'and password_Client = '"+password_Client+"'";
-			   			 try {
-			   					Connection cnx2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-			   					Statement statement2 = cnx2.createStatement();
-			   					ResultSet rs = statement2.executeQuery(SelectQueryDislike);
-			   					while (rs.next()) {
-			   						disliked = rs.getInt("Disliked");
-			   						liked = rs.getInt("Liked");
-			   					}
-			   					 
-			   			  }catch(SQLException e1) {
-			   				e1.printStackTrace();
-
-			   			  }
-			   			 if(disliked==1) {
-			   				 DislikeImage.setImage(dislikeimage);
-			   			 }else if(disliked==0) {
-			   				 DislikeImage.setImage(dislikeimage_gris);
-			   			 }
-			   			 if(liked==1) {
-			   				 LikeImage.setImage(likeimage);
-			   			 }else if(liked==0) {
-			   				 LikeImage.setImage(likeimage_gris);
-			   			 }
-
-				    		
-			    		}else {
-			    			
-			    			String InsertSql="insert into liked_or_not(idprovider,name_Client,password_Client,Liked,Disliked) values(?,?,?,?,?)";
-			    			Connection cnx3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bricool", "root", "");
-		          			PreparedStatement st = cnx3.prepareStatement(InsertSql);   
-		          			st.setInt(1,id);
-		          			st.setString(2,name_Client);
-		          			st.setString(3,password_Client);
-		          			st.setBoolean(4,false);
-		          			st.setBoolean(5,false);
-		          			
-		          			st.execute();
-			    	
-			    		}
-			    	}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			 selectPostsFromDatabase();
+		  selectPostsFromDatabase();
 	}
-	public ImageView selectPhoto() {
-		DatabaseConnection connectNow = new DatabaseConnection();
-		Connection connect = connectNow.getConnection();
-		String selectPhoto = "SELECT  photo FROM service_provider WHERE idprovider=?";
-		String name = MyAppContext.workerUsername;
-		String password = MyAppContext.workerPassword;
-		ImageView photo = new ImageView();
-		try {
-			PreparedStatement st = connect.prepareStatement(selectPhoto);
-			st.setInt(1, id);
-
-			ResultSet result = st.executeQuery();
-
-			while (result.next()) {
-
-				java.sql.Blob blob = result.getBlob("photo");
-				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
-
-				// Create an InputStream from the byte array
-				InputStream inputStream = new ByteArrayInputStream(imageBytes);
-
-				Image imge = new Image(inputStream);
-				photo.setImage(imge);
-
-				photo.setFitWidth(35);
-				photo.setFitHeight(35);
-				Circle circle = new Circle(15, 15, 15);
-				photo.setClip(circle);
-				System.out.println("photo of the service provdier" + photo);
-
-			}
-
-		} catch (SQLException e) {
-			System.out.println("An error occurred while retrieving the id: " + e.getMessage());
-		}
-
-		return photo;
-	}
-	public void selectPostsFromDatabase() {
-		ObservableList<GridPane> postGrids = FXCollections.observableArrayList();
-		DatabaseConnection connectNow = new DatabaseConnection();
-
-		Connection connect = connectNow.getConnection();
-		try {
-			PreparedStatement st = connect
-					.prepareStatement("SELECT postTitle, postContent, publishedAt FROM post where idp=?");
-			st.setInt(1, id);
-			ResultSet result = st.executeQuery();
-			while (result.next()) {
-				String title = result.getString("postTitle");
-				java.sql.Blob blob = result.getBlob("postContent");
-				byte[] imageBytes = blob.getBytes(1, (int) blob.length());
-
-				// Create an InputStream from the byte array
-				InputStream inputStream = new ByteArrayInputStream(imageBytes);
-
-				Image imge = new Image(inputStream);
-				ImageView postContent = new ImageView(imge);
-
-				postContent.setFitWidth(355);
-				postContent.setFitHeight(330);
-
-				String publishedAt = result.getString("publishedAt");
-				ImageView photo = selectPhoto();
-				Label username = new Label(MyAppContext.workerUsername);
-				Label titleLabel = new Label(title);
-				System.out.println("photo:" + postContent);
-
-				Label publishedAtLabel = new Label("Published At: " + publishedAt);
-				publishedAtLabel.setStyle("-fx-text-fill: gray;-fx-font-size:10px;");
-
-				username.setStyle("-fx-font-weight: bold; -fx-font-size:12px;");
-
-				GridPane postGrid = new GridPane();
-				// Create ColumnConstraints for each column
-				ColumnConstraints col1 = new ColumnConstraints();
-				ColumnConstraints col2 = new ColumnConstraints();
-				ColumnConstraints col3 = new ColumnConstraints();
-				ColumnConstraints col4 = new ColumnConstraints();
-				// Add the ColumnConstraints to the GridPane
-				postGrid.getColumnConstraints().addAll(col1, col2, col3);
-				col1.setPrefWidth(40); // set width of column1
-				col2.setPrefWidth(160); // set width of column2
-				col3.setPrefWidth(140); // set width of column3
-				// Create RowConstraints for each row
-				RowConstraints row1 = new RowConstraints();
-				RowConstraints row2 = new RowConstraints();
-				RowConstraints row3 = new RowConstraints();
-				RowConstraints row4 = new RowConstraints();
-
-				RowConstraints row5 = new RowConstraints();
-				RowConstraints row6 = new RowConstraints();
-				// Add the RowConstraints to the GridPane
-				postGrid.getRowConstraints().addAll(row1, row2, row3, row4, row5, row6);
-
-				row1.setPrefHeight(5); // set width of column1
-				row2.setPrefHeight(10);
-				row3.setPrefHeight(10); // set width of column1
-
-				postGrid.setConstraints(photo, 0, 0, 1, 3);
-				postGrid.setConstraints(username, 1, 1, 2, 1);
-
-				postGrid.setConstraints(publishedAtLabel, 1, 2, 2, 1);
-				postGrid.setConstraints(titleLabel, 0, 3, 3, 1);
-				postGrid.setConstraints(postContent, 0, 5, 3, 1); // This element will span 2 columns in the 1st row
-				postGrid.getChildren().addAll(photo, username, publishedAtLabel, titleLabel, postContent);
-				postGrids.add(postGrid);
-				listView.setItems(postGrids);
-			}
-		} catch (SQLException e) {
-			System.out.println("An error occurred while retrieving the data: " + e.getMessage());
-		}
-
 	
-	}
-
 
 }
