@@ -28,6 +28,8 @@ public class informationController {
     private Button back;
 	
 	@FXML
+	//facebook btn
+	
     void facebooklink(ActionEvent event) {
     	try {
     	    Desktop.getDesktop().browse(new URL("https://www.facebook.com/").toURI());
@@ -38,6 +40,8 @@ public class informationController {
     	}
     }
    
+	//instagram btn
+	
     @FXML
     void instalink(ActionEvent event) {
     	try {
@@ -49,6 +53,8 @@ public class informationController {
     	}
     }
 
+    //twitter btn
+    
     @FXML
     void twitterlink(ActionEvent event) {
     	try {
@@ -60,6 +66,8 @@ public class informationController {
     	}
     }
     
+    //email btn
+    
     @FXML
     void emaillink(ActionEvent event) {
     	try {
@@ -70,19 +78,26 @@ public class informationController {
     	    e.printStackTrace();
     	}
     }
+    
 
     @FXML
     void Back_To_choose(ActionEvent event) {
-    	Parent parent;
-		try {
+    	try {
+		    Parent parent;
+
+    		// Load the FXML file using FXMLLoader
 			parent = FXMLLoader.load(getClass().getClassLoader().getResource("src/View/search.fxml"));
+			// Create a new Scene with the loaded FXML file as the root node
 			Scene scene = new Scene(parent);
-			
 			Stage  primaryStage = new Stage();
+			// Set the Scene on the Stage
 			primaryStage.setScene(scene);
-			 Image image = new Image("src/View/icons/logo3.png");	 
-				primaryStage.getIcons().add(image);
-				primaryStage.setTitle("BriCOOL");
+			// Create a new Image object 
+			Image image = new Image("src/View/icons/logo3.png");
+			// Add the image to the icon list of the primaryStage
+			primaryStage.getIcons().add(image);
+			// Set the title of the primaryStage
+			primaryStage.setTitle("BriCOOL");
 			primaryStage.show();
 			Stage stage1 = (Stage) back.getScene().getWindow();
 		    stage1.close();
