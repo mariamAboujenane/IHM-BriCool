@@ -21,25 +21,31 @@ BriCOOL is a service app that allows clients to search for a nearby and suitable
 <img width="496" alt="SorC" src="https://user-images.githubusercontent.com/121026257/214851116-574f38de-5386-468d-a563-0201e9ff00d3.jpeg">
 
 > On the left we have the *Service provider's* registration interface. 
-> On the right we have the *Clent's* registration interface
+> On the right we have the *Client's* registration interface
 
    <div style="display: flex;">
-     <img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/215326563-f16bccda-9049-4ede-819b-c695a221a34e.PNG">
+      <img width="489" alt="AP" src="https://user-images.githubusercontent.com/121026257/215326563-f16bccda-9049-4ede-819b-c695a221a34e.PNG">
       <img width="483" alt="Accountclient" src="https://user-images.githubusercontent.com/121026257/215326549-1a34dae8-2cee-4ddf-8c3a-af88d5861478.PNG">
-  </div>
-
-
-
-
-
-
-
-
-
-
-
+   </div>
+   
+   
+   
+- After his registration the user can log in. If he is a client he will be directed to the *Search interface*
 
 <img width="496" alt="SEARCH" src="https://user-images.githubusercontent.com/121026257/214849341-d9b2c064-fb6f-449e-b259-6f4a824c541a.PNG">
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 > In this interface there's a little menu in the right top corner, where the user can access to his *history*, to the *notification interface* and can *log out* by selecting the third option.
 
